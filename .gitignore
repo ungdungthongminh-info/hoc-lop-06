@@ -1,0 +1,93 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+*.local
+
+# Vite cache
+.vite/
+.cache/
+*.cache
+
+# Testing
+coverage/
+*.lcov
+
+# Environment files
+.env
+.env.*
+!.env.example
+.env.local
+.env.*.local
+
+# Security - API keys and secrets
+*.local.md
+*secret*.md
+*api-key*.md
+*apikey*.md
+*api_key*.md
+
+# Bundle extract temp folder
+artical/
+bundle_extract/
+_tmp_import_math_dot2/
+_export_web_chu/
+lop_06_dev_research_bundle.zip
+
+# Zip files (already extracted)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+hoctap_home_images_named_webp.zip
+
+# Security - keys and local-only deployment material
+*.pem
+*.key
+*.ppk
+docs/keys.md
+docs/
+deploy-lop-06.ps1
+DEPLOYMENT.md
+nginx-lop-06.conf
+temp_app.hochungkhoi.site
+
+# Local assistant/worktree state
+.claude/
+.github/
+chatbot_engine_plan_hoc_tap_thong_minh.md
+dopi.png
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
