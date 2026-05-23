@@ -34,11 +34,17 @@ const MathHomePage = lazy(() =>
   import('../modules/math/pages/MathHomePage').then((module) => ({ default: module.MathHomePage })),
 );
 
+const EnglishHomePage = lazy(() =>
+  import('../modules/english/pages/EnglishHomePage').then((module) => ({ default: module.EnglishHomePage })),
+);
+
 const MATH_LESSON_COUNT = 38;
 const MATH_QUESTION_COUNT = 1520;
 const MATH_NEXT_LESSON = 'Tập hợp và phần tử';
+const ENGLISH_LESSON_COUNT = 36;
+const ENGLISH_NEXT_LESSON = 'Unit 1 - My New School: Vocabulary';
 
-type AppView = 'dashboard' | 'math' | 'achievements';
+type AppView = 'dashboard' | 'math' | 'english' | 'achievements';
 
 type Subject = {
   id: string;
@@ -123,12 +129,12 @@ const subjects: Subject[] = [
   {
     id: 'tieng-anh',
     name: 'Tiếng Anh',
-    description: 'Từ vựng, ngữ pháp và giao tiếp cơ bản.',
+    description: 'Từ vựng, ngữ pháp, mẫu giao tiếp và luyện tập theo unit.',
     icon: Languages,
-    lessons: 40,
-    progress: 15,
+    lessons: ENGLISH_LESSON_COUNT,
+    progress: 18,
     color: 'from-violet-500 to-indigo-500',
-    nextLesson: 'Present simple review',
+    nextLesson: ENGLISH_NEXT_LESSON,
   },
   {
     id: 'khtn',
@@ -560,13 +566,13 @@ function PlanKeyPanel({ onClose }: { onClose: () => void }) {
 
 function SubjectCard({
   subject,
-  onOpenMath,
+  onOpenSubject,
 }: {
   subject: Subject;
-  onOpenMath: () => void;
+  onOpenSubject: (subjectId: string) => void;
 }) {
   const Icon = subject.icon;
-  const isMath = subject.id === 'toan';
+  const isOpen = subject.id === 'toan' || subject.id === 'tieng-anh';
 
   return (
     <article className="app-card group overflow-hidden rounded-2xl border shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -599,10 +605,10 @@ function SubjectCard({
           </p>
         </div>
 
-        {isMath ? (
+        {isOpen ? (
           <button
             type="button"
-            onClick={onOpenMath}
+            onClick={() => onOpenSubject(subject.id)}
             className={`app-primary mt-3 flex w-full items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-xs font-black shadow-md sm:mt-4 sm:text-sm ${buttonMotion}`}
           >
             Vào học
@@ -785,6 +791,29 @@ function Lop6AppContent() {
           }
         >
           <MathHomePage onBackToDashboard={() => setView('dashboard')} />
+        </Suspense>
+        <SupportAssistant
+          isOpen={isSupportOpen}
+          onOpen={() => setIsSupportOpen(true)}
+          onClose={() => setIsSupportOpen(false)}
+        />
+      </main>
+    );
+  }
+
+  if (view === 'english') {
+    return (
+      <main className="app-shell min-h-screen font-sans antialiased" data-theme={selectedTheme}>
+        <Suspense
+          fallback={
+            <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+              <div className="app-card rounded-3xl border p-6 text-sm font-bold text-slate-600 shadow-sm">
+                Đang mở dữ liệu Tiếng Anh...
+              </div>
+            </section>
+          }
+        >
+          <EnglishHomePage onBackToDashboard={() => setView('dashboard')} />
         </Suspense>
         <SupportAssistant
           isOpen={isSupportOpen}
@@ -1098,13 +1127,20 @@ function Lop6AppContent() {
             <h2 className="mt-1 text-2xl font-black text-slate-950">Môn học</h2>
           </div>
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
-            Toán đã mở
+            Toán & Tiếng Anh đã mở
           </span>
         </div>
 
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {subjects.map((subject) => (
-            <SubjectCard key={subject.id} subject={subject} onOpenMath={() => setView('math')} />
+            <SubjectCard
+              key={subject.id}
+              subject={subject}
+              onOpenSubject={(subjectId) => {
+                if (subjectId === 'toan') setView('math');
+                if (subjectId === 'tieng-anh') setView('english');
+              }}
+            />
           ))}
         </div>
       </section>
