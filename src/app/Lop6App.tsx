@@ -38,13 +38,19 @@ const EnglishHomePage = lazy(() =>
   import('../modules/english/pages/EnglishHomePage').then((module) => ({ default: module.EnglishHomePage })),
 );
 
+const KhtnHomePage = lazy(() =>
+  import('../modules/khtn/pages/KhtnHomePage').then((module) => ({ default: module.KhtnHomePage })),
+);
+
 const MATH_LESSON_COUNT = 38;
 const MATH_QUESTION_COUNT = 1520;
 const MATH_NEXT_LESSON = 'Tập hợp và phần tử';
 const ENGLISH_LESSON_COUNT = 36;
 const ENGLISH_NEXT_LESSON = 'Unit 1 - My New School: Vocabulary';
+const KHTN_LESSON_COUNT = 30;
+const KHTN_NEXT_LESSON = 'Khoa học tự nhiên và phương pháp học tập';
 
-type AppView = 'dashboard' | 'math' | 'english' | 'achievements';
+type AppView = 'dashboard' | 'math' | 'english' | 'khtn' | 'achievements';
 
 type Subject = {
   id: string;
@@ -138,13 +144,13 @@ const subjects: Subject[] = [
   },
   {
     id: 'khtn',
-    name: 'KHTN',
-    description: 'Vật lí, hóa học, sinh học dễ hình dung.',
+    name: 'Khoa học tự nhiên',
+    description: 'Khái niệm, ví dụ đời sống và luyện tập KHTN theo chủ đề.',
     icon: Leaf,
-    lessons: 45,
-    progress: 10,
+    lessons: KHTN_LESSON_COUNT,
+    progress: 14,
     color: 'from-emerald-500 to-teal-500',
-    nextLesson: 'Tế bào và cơ thể sống',
+    nextLesson: KHTN_NEXT_LESSON,
   },
   {
     id: 'lich-su-dia-li',
@@ -572,7 +578,7 @@ function SubjectCard({
   onOpenSubject: (subjectId: string) => void;
 }) {
   const Icon = subject.icon;
-  const isOpen = subject.id === 'toan' || subject.id === 'tieng-anh';
+  const isOpen = subject.id === 'toan' || subject.id === 'tieng-anh' || subject.id === 'khtn';
 
   return (
     <article className="app-card group overflow-hidden rounded-2xl border shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -814,6 +820,29 @@ function Lop6AppContent() {
           }
         >
           <EnglishHomePage onBackToDashboard={() => setView('dashboard')} />
+        </Suspense>
+        <SupportAssistant
+          isOpen={isSupportOpen}
+          onOpen={() => setIsSupportOpen(true)}
+          onClose={() => setIsSupportOpen(false)}
+        />
+      </main>
+    );
+  }
+
+  if (view === 'khtn') {
+    return (
+      <main className="app-shell min-h-screen font-sans antialiased" data-theme={selectedTheme}>
+        <Suspense
+          fallback={
+            <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+              <div className="app-card rounded-3xl border p-6 text-sm font-bold text-slate-600 shadow-sm">
+                Đang mở dữ liệu Khoa học tự nhiên...
+              </div>
+            </section>
+          }
+        >
+          <KhtnHomePage onBackToDashboard={() => setView('dashboard')} />
         </Suspense>
         <SupportAssistant
           isOpen={isSupportOpen}
@@ -1127,7 +1156,7 @@ function Lop6AppContent() {
             <h2 className="mt-1 text-2xl font-black text-slate-950">Môn học</h2>
           </div>
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
-            Toán & Tiếng Anh đã mở
+            Toán, Tiếng Anh & KHTN đã mở
           </span>
         </div>
 
@@ -1139,6 +1168,7 @@ function Lop6AppContent() {
               onOpenSubject={(subjectId) => {
                 if (subjectId === 'toan') setView('math');
                 if (subjectId === 'tieng-anh') setView('english');
+                if (subjectId === 'khtn') setView('khtn');
               }}
             />
           ))}

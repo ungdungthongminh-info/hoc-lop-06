@@ -1,4 +1,4 @@
-# Dependencies
+﻿# Dependencies
 node_modules/
 .pnp
 .pnp.js
@@ -37,6 +37,7 @@ artical/
 bundle_extract/
 _tmp_import_math_dot2/
 _tmp_import_english_dot2/
+_tmp_import_khtn_dot2/
 _export_web_chu/
 lop_06_dev_research_bundle.zip
 
@@ -92,3 +93,4 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+
