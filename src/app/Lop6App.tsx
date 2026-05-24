@@ -213,12 +213,12 @@ const subjects: Subject[] = [
   {
     id: 'gdcd',
     name: 'GDCD',
-    description: 'T? nh?n th?c, ?ng x? t?n tr?ng, quy?n tr? em v? tr?ch nhi?m c?ng ??ng.',
+    description: 'Tự nhận thức, ứng xử phù hợp và trách nhiệm với cộng đồng.',
     icon: Brain,
     lessons: GDCD_LESSON_COUNT,
     progress: 8,
     color: 'from-violet-500 to-rose-400',
-    nextLesson: 'T? h?o v? truy?n th?ng gia ??nh, d?ng h?',
+    nextLesson: 'Tự hào về truyền thống gia đình, dòng họ',
   },
 ];
 
@@ -1327,7 +1327,7 @@ function Lop6AppContent() {
             <h2 className="mt-1 text-2xl font-black text-slate-950">Môn học</h2>
           </div>
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
-            7 môn đã mở, GDCD sắp mở
+            Đã mở đủ 8 môn Lớp 6
           </span>
         </div>
 

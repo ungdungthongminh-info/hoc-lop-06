@@ -16,7 +16,7 @@ function normalizeAnswer(value: string) {
 }
 
 function isCorrectAnswer(question: EnglishQuestion, answer: string) {
-  if (question.questionType === 'writing_prompt') return true;
+  if (question.questionType === 'writing_prompt') return false;
   return normalizeAnswer(answer) === normalizeAnswer(question.correctAnswer)
     || normalizeAnswer(answer) === normalizeAnswer(question.answerText);
 }
@@ -114,7 +114,7 @@ export function EnglishQuestionCard({
               className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-black text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
             >
               <Eye className="h-4 w-4" />
-              Xem gợi ý
+              Xem đáp án tham khảo
             </button>
           ) : (
             <>
@@ -144,11 +144,15 @@ export function EnglishQuestionCard({
       )}
 
       {isAnswered ? (
-        <div className={`mt-5 min-w-0 rounded-2xl p-4 text-sm [overflow-wrap:anywhere] ${isCorrect ? 'bg-emerald-50 text-emerald-800' : 'bg-rose-50 text-rose-800'}`}>
+        <div className={`mt-5 min-w-0 rounded-2xl p-4 text-sm [overflow-wrap:anywhere] ${
+          isOpenWriting ? 'bg-amber-50 text-amber-800' : isCorrect ? 'bg-emerald-50 text-emerald-800' : 'bg-rose-50 text-rose-800'
+        }`}
+        >
           <p className="flex min-w-0 items-center gap-2 font-black">
-            {isCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : <XCircle className="h-5 w-5 shrink-0" />}
-            {isOpenWriting ? 'Gợi ý tham khảo' : isCorrect ? 'Chính xác!' : 'Chưa đúng rồi.'}
+            {isOpenWriting ? <Eye className="h-5 w-5 shrink-0" /> : isCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : <XCircle className="h-5 w-5 shrink-0" />}
+            {isOpenWriting ? 'Đáp án tham khảo' : isCorrect ? 'Chính xác!' : 'Chưa đúng rồi.'}
           </p>
+          {isOpenWriting ? <p className="mt-2 leading-6">Câu tự luyện này không cộng vào số câu đúng.</p> : null}
           <p className="mt-2 font-semibold">Đáp án/gợi ý: {question.answerText}</p>
           <p className="mt-2 leading-6">{question.explanationSimple}</p>
         </div>
