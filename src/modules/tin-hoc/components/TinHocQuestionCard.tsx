@@ -1,5 +1,8 @@
 import { CheckCircle2, Eye, XCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import type { TinHocQuestion } from '../../../data/grade6/tin-hoc';
+
+export const TIN_HOC_REFERENCE_ANSWER_PREFIX = '__reference__:';
 
 type Props = {
   question: TinHocQuestion;
@@ -9,13 +12,25 @@ type Props = {
   onAnswer: (answer: string) => void;
 };
 
-function normalize(value: string) {
-  return value.trim().toLowerCase().replace(/\s+/g, '').replace(/[.?!]+$/g, '');
+export function normalizeTinHocAnswer(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/[.?!,;:]+$/g, '')
+    .replace(/\s+/g, ' ');
 }
 
-function isCorrect(question: TinHocQuestion, answer: string) {
-  if (question.questionType === 'fill_text' || question.questionType === 'order_steps') return true;
-  return normalize(answer) === normalize(question.correctAnswer) || normalize(answer) === normalize(question.answerText);
+export function isTinHocReferenceAnswer(answer: string) {
+  return answer.startsWith(TIN_HOC_REFERENCE_ANSWER_PREFIX);
+}
+
+export function isTinHocAnswerCorrect(question: TinHocQuestion, answer: string) {
+  if (isTinHocReferenceAnswer(answer)) return false;
+  return normalizeTinHocAnswer(answer) === normalizeTinHocAnswer(question.correctAnswer)
+    || normalizeTinHocAnswer(answer) === normalizeTinHocAnswer(question.answerText);
 }
 
 function difficultyLabel(difficulty: TinHocQuestion['difficulty']) {
@@ -25,9 +40,16 @@ function difficultyLabel(difficulty: TinHocQuestion['difficulty']) {
 }
 
 export function TinHocQuestionCard({ question, selectedAnswer, questionIndex, totalQuestions, onAnswer }: Props) {
+  const [textAnswer, setTextAnswer] = useState('');
   const answered = Boolean(selectedAnswer);
-  const correct = selectedAnswer ? isCorrect(question, selectedAnswer) : false;
-  const isOpenAnswer = question.questionType === 'fill_text' || question.questionType === 'order_steps';
+  const correct = selectedAnswer ? isTinHocAnswerCorrect(question, selectedAnswer) : false;
+  const isOrderSteps = question.questionType === 'order_steps';
+  const isFillText = question.questionType === 'fill_text';
+  const isReference = selectedAnswer ? isTinHocReferenceAnswer(selectedAnswer) : false;
+
+  useEffect(() => {
+    setTextAnswer('');
+  }, [question.id]);
 
   return (
     <article className="w-full max-w-full min-w-0 rounded-3xl border border-cyan-100 bg-white p-5 shadow-sm">
@@ -70,27 +92,60 @@ export function TinHocQuestionCard({ question, selectedAnswer, questionIndex, to
             );
           })}
         </div>
-      ) : (
+      ) : isOrderSteps ? (
         <div className="mt-5">
           <button
             type="button"
             disabled={answered}
-            onClick={() => onAnswer(question.answerText)}
+            onClick={() => onAnswer(`${TIN_HOC_REFERENCE_ANSWER_PREFIX}${question.answerText}`)}
             className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl bg-cyan-600 px-5 py-3 text-sm font-black text-white transition hover:bg-cyan-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
           >
             <Eye className="h-4 w-4" />
-            {isOpenAnswer ? 'Xem gợi ý' : 'Trả lời'}
+            Xem đáp án tham khảo
           </button>
         </div>
+      ) : (
+        <form
+          className="mt-5 flex min-w-0 flex-col gap-3 sm:flex-row"
+          onSubmit={(event) => {
+            event.preventDefault();
+            if (answered || !textAnswer.trim()) return;
+            onAnswer(textAnswer);
+          }}
+        >
+          <input
+            value={selectedAnswer ?? textAnswer}
+            disabled={answered}
+            onChange={(event) => setTextAnswer(event.target.value)}
+            className={`w-full min-w-0 flex-1 rounded-2xl border px-4 py-3 text-sm font-bold outline-none transition ${
+              answered
+                ? correct
+                  ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                  : 'border-rose-300 bg-rose-50 text-rose-800'
+                : 'border-slate-200 text-slate-800 focus:border-cyan-300 focus:ring-4 focus:ring-cyan-100'
+            }`}
+            placeholder="Nhập câu trả lời"
+          />
+          <button
+            type="submit"
+            disabled={answered || !textAnswer.trim()}
+            className="w-full min-w-0 rounded-2xl bg-cyan-600 px-5 py-3 text-sm font-black text-white transition hover:bg-cyan-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
+          >
+            Kiểm tra
+          </button>
+        </form>
       )}
 
       {answered ? (
         <div className={`mt-5 min-w-0 rounded-2xl p-4 text-sm [overflow-wrap:anywhere] ${correct ? 'bg-emerald-50 text-emerald-800' : 'bg-rose-50 text-rose-800'}`}>
           <p className="flex min-w-0 items-center gap-2 font-black">
             {correct ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : <XCircle className="h-5 w-5 shrink-0" />}
-            {isOpenAnswer ? 'Gợi ý tham khảo' : correct ? 'Chính xác!' : 'Chưa đúng rồi.'}
+            {isReference ? 'Đáp án tham khảo' : correct ? 'Chính xác!' : 'Chưa đúng rồi.'}
           </p>
-          <p className="mt-2 font-semibold">Đáp án/gợi ý: {question.answerText}</p>
+          {(isFillText || isOrderSteps || !correct) ? <p className="mt-2 font-semibold">Đáp án/gợi ý: {question.answerText}</p> : null}
+          {isOrderSteps ? (
+            <p className="mt-2 leading-6">Câu sắp xếp bước đang ở chế độ tự luyện, không cộng vào số câu đúng.</p>
+          ) : null}
           <p className="mt-2 leading-6">{question.explanationSimple}</p>
         </div>
       ) : null}

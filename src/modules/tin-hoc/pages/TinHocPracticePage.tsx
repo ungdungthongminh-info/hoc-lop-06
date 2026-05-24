@@ -9,7 +9,11 @@ import {
 } from '../../../data/grade6/tin-hoc';
 import { useToast } from '../../../shared/components/ToastProvider';
 import { useSound } from '../../../shared/hooks/useSound';
-import { TinHocQuestionCard } from '../components/TinHocQuestionCard';
+import {
+  isTinHocAnswerCorrect,
+  isTinHocReferenceAnswer,
+  TinHocQuestionCard,
+} from '../components/TinHocQuestionCard';
 
 type Props = {
   lesson: TinHocLesson;
@@ -22,14 +26,6 @@ function getStoredQuestionCount(): TinHocPracticeQuestionCountOption {
   if (typeof window === 'undefined') return DEFAULT_TIN_HOC_PRACTICE_QUESTION_COUNT;
   const value = Number(window.localStorage.getItem(STORAGE_KEY));
   return isTinHocPracticeQuestionCountOption(value) ? value : DEFAULT_TIN_HOC_PRACTICE_QUESTION_COUNT;
-}
-
-function normalize(value: string) {
-  return value.trim().toLowerCase().replace(/\s+/g, '').replace(/[.?!]+$/g, '');
-}
-
-function isCorrect(answer: string, expected: string, answerText: string) {
-  return normalize(answer) === normalize(expected) || normalize(answer) === normalize(answerText);
 }
 
 export function TinHocPracticePage({ lesson, onBackToLesson }: Props) {
@@ -49,8 +45,7 @@ export function TinHocPracticePage({ lesson, onBackToLesson }: Props) {
   const correctCount = questions.reduce((count, question) => {
     const answer = answers[question.id];
     if (!answer) return count;
-    if (question.questionType === 'fill_text' || question.questionType === 'order_steps') return count + 1;
-    return isCorrect(answer, question.correctAnswer, question.answerText) ? count + 1 : count;
+    return isTinHocAnswerCorrect(question, answer) ? count + 1 : count;
   }, 0);
   const progress = questions.length ? Math.round((answeredCount / questions.length) * 100) : 0;
 
@@ -76,13 +71,19 @@ export function TinHocPracticePage({ lesson, onBackToLesson }: Props) {
 
   const handleAnswer = (answer: string) => {
     if (!currentQuestion || answers[currentQuestion.id]) return;
-    const isOpenAnswer = currentQuestion.questionType === 'fill_text' || currentQuestion.questionType === 'order_steps';
-    const right = isOpenAnswer || isCorrect(answer, currentQuestion.correctAnswer, currentQuestion.answerText);
+    const isReference = isTinHocReferenceAnswer(answer);
+    const right = isTinHocAnswerCorrect(currentQuestion, answer);
     setAnswers((previous) => ({ ...previous, [currentQuestion.id]: answer }));
 
     if (right) {
       sound.play('answer_correct_soft');
-      toast.success(isOpenAnswer ? 'Đã mở gợi ý' : 'Đúng rồi!', isOpenAnswer ? 'Đọc gợi ý rồi chuyển sang câu tiếp theo nhé.' : 'Em chọn chính xác.');
+      toast.success('Đúng rồi!', 'Em trả lời chính xác.');
+      return;
+    }
+
+    if (isReference) {
+      sound.play('notify_soft');
+      toast.info('Đáp án tham khảo', 'Câu này không cộng vào số câu đúng.');
       return;
     }
 
@@ -156,7 +157,7 @@ export function TinHocPracticePage({ lesson, onBackToLesson }: Props) {
           <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-600" />
           <p className="mt-3 text-sm font-black uppercase tracking-[0.14em] text-emerald-700">Hoàn thành luyện tập</p>
           <h1 className="mt-2 text-3xl font-black text-slate-950 [overflow-wrap:anywhere]">{lesson.title}</h1>
-          <p className="mt-3 text-lg font-bold text-slate-700 [overflow-wrap:anywhere]">Đúng/gợi ý {correctCount}/{questions.length} câu</p>
+          <p className="mt-3 text-lg font-bold text-slate-700 [overflow-wrap:anywhere]">Đúng {correctCount}/{questions.length} câu</p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <button type="button" onClick={() => onBackToLesson(lesson.id)} className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl border border-slate-200 px-5 py-3 text-sm font-black text-slate-700 hover:bg-slate-50 sm:w-auto">
               <ArrowLeft className="h-4 w-4" />

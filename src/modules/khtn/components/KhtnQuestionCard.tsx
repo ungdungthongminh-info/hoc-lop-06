@@ -1,4 +1,4 @@
-﻿import { CheckCircle2, Eye, XCircle } from 'lucide-react';
+import { CheckCircle2, XCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import type { KhtnQuestion } from '../../../data/grade6/khtn';
@@ -12,11 +12,17 @@ type KhtnQuestionCardProps = {
 };
 
 function normalizeAnswer(value: string) {
-  return value.trim().toLowerCase().replace(/[.?!]+$/g, '');
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/[.?!,;:]+$/g, '')
+    .replace(/\s+/g, ' ');
 }
 
 function isCorrectAnswer(question: KhtnQuestion, answer: string) {
-  if (question.questionType === 'fill_text') return true;
   return normalizeAnswer(answer) === normalizeAnswer(question.correctAnswer)
     || normalizeAnswer(answer) === normalizeAnswer(question.answerText);
 }
@@ -38,7 +44,7 @@ export function KhtnQuestionCard({
   const isAnswered = Boolean(selectedAnswer);
   const isCorrect = selectedAnswer ? isCorrectAnswer(question, selectedAnswer) : false;
   const hasOptions = Boolean(question.options?.length);
-  const isOpenAnswer = question.questionType === 'fill_text';
+  const isFillText = question.questionType === 'fill_text';
 
   useEffect(() => {
     setTextAnswer('');
@@ -98,48 +104,30 @@ export function KhtnQuestionCard({
           className="mt-5 flex min-w-0 flex-col gap-3 sm:flex-row"
           onSubmit={(event) => {
             event.preventDefault();
-            if (isAnswered) return;
-            if (isOpenAnswer) {
-              onAnswer(question.answerText);
-              return;
-            }
-            if (!textAnswer.trim()) return;
+            if (isAnswered || !textAnswer.trim()) return;
             onAnswer(textAnswer);
           }}
         >
-          {isOpenAnswer ? (
-            <button
-              type="submit"
-              disabled={isAnswered}
-              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
-            >
-              <Eye className="h-4 w-4" />
-              Xem gợi ý
-            </button>
-          ) : (
-            <>
-              <input
-                value={selectedAnswer ?? textAnswer}
-                disabled={isAnswered}
-                onChange={(event) => setTextAnswer(event.target.value)}
-                className={`w-full min-w-0 flex-1 rounded-2xl border px-4 py-3 text-sm font-bold outline-none transition ${
-                  isAnswered
-                    ? isCorrect
-                      ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
-                      : 'border-rose-300 bg-rose-50 text-rose-800'
-                    : 'border-slate-200 text-slate-800 focus:border-emerald-300 focus:ring-4 focus:ring-emerald-100'
-                }`}
-                placeholder="Nhập câu trả lời"
-              />
-              <button
-                type="submit"
-                disabled={isAnswered || !textAnswer.trim()}
-                className="w-full min-w-0 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
-              >
-                Trả lời
-              </button>
-            </>
-          )}
+          <input
+            value={selectedAnswer ?? textAnswer}
+            disabled={isAnswered}
+            onChange={(event) => setTextAnswer(event.target.value)}
+            className={`w-full min-w-0 flex-1 rounded-2xl border px-4 py-3 text-sm font-bold outline-none transition ${
+              isAnswered
+                ? isCorrect
+                  ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                  : 'border-rose-300 bg-rose-50 text-rose-800'
+                : 'border-slate-200 text-slate-800 focus:border-emerald-300 focus:ring-4 focus:ring-emerald-100'
+            }`}
+            placeholder="Nhập câu trả lời"
+          />
+          <button
+            type="submit"
+            disabled={isAnswered || !textAnswer.trim()}
+            className="w-full min-w-0 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-500 sm:w-auto"
+          >
+            Kiểm tra
+          </button>
         </form>
       )}
 
@@ -147,9 +135,9 @@ export function KhtnQuestionCard({
         <div className={`mt-5 min-w-0 rounded-2xl p-4 text-sm [overflow-wrap:anywhere] ${isCorrect ? 'bg-emerald-50 text-emerald-800' : 'bg-rose-50 text-rose-800'}`}>
           <p className="flex min-w-0 items-center gap-2 font-black">
             {isCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : <XCircle className="h-5 w-5 shrink-0" />}
-            {isOpenAnswer ? 'Gợi ý tham khảo' : isCorrect ? 'Chính xác!' : 'Chưa đúng rồi.'}
+            {isCorrect ? 'Chính xác!' : 'Chưa đúng rồi.'}
           </p>
-          <p className="mt-2 font-semibold">Đáp án/gợi ý: {question.answerText}</p>
+          {isFillText || !isCorrect ? <p className="mt-2 font-semibold">Đáp án/gợi ý: {question.answerText}</p> : null}
           <p className="mt-2 leading-6">{question.explanationSimple}</p>
         </div>
       ) : null}
