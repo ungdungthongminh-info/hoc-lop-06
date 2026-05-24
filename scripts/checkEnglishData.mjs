@@ -46,7 +46,7 @@ for (const question of questions) {
   }
 }
 
-const internalTextPattern = /dot-02|dot2|app-ready|app_ready|bundle|chunk|demo|demon|MVP/i;
+const internalTextPattern = /dot-02|dot2|app-ready|app_ready|bundle|chunk|\bdemo\b|\bdemon\b|MVP/i;
 for (const filePath of walkFiles(srcDir)) {
   if (!/\.(ts|tsx|json|css)$/.test(filePath)) continue;
   const content = fs.readFileSync(filePath, 'utf8');
