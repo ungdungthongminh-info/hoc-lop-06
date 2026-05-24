@@ -46,6 +46,10 @@ const NguVanHomePage = lazy(() =>
   import('../modules/ngu-van/pages/NguVanHomePage').then((module) => ({ default: module.NguVanHomePage })),
 );
 
+const LichSuDiaLiHomePage = lazy(() =>
+  import('../modules/lich-su-dia-li/pages/LichSuDiaLiHomePage').then((module) => ({ default: module.LichSuDiaLiHomePage })),
+);
+
 const MATH_LESSON_COUNT = 38;
 const MATH_QUESTION_COUNT = 1520;
 const MATH_NEXT_LESSON = 'Tập hợp và phần tử';
@@ -55,8 +59,10 @@ const KHTN_LESSON_COUNT = 30;
 const KHTN_NEXT_LESSON = 'Khoa học tự nhiên và phương pháp học tập';
 const NGU_VAN_LESSON_COUNT = 24;
 const NGU_VAN_NEXT_LESSON = 'Tôi và các bạn';
+const LICH_SU_DIA_LI_LESSON_COUNT = 32;
+const LICH_SU_DIA_LI_NEXT_LESSON = 'Lịch sử và cuộc sống';
 
-type AppView = 'dashboard' | 'math' | 'english' | 'khtn' | 'ngu-van' | 'achievements';
+type AppView = 'dashboard' | 'math' | 'english' | 'khtn' | 'ngu-van' | 'lich-su-dia-li' | 'achievements';
 
 type Subject = {
   id: string;
@@ -160,13 +166,13 @@ const subjects: Subject[] = [
   },
   {
     id: 'lich-su-dia-li',
-    name: 'Sử - Địa',
-    description: 'Mốc thời gian, bản đồ và vùng đất.',
+    name: 'Lịch sử & Địa lí',
+    description: 'Mốc thời gian, bản đồ, địa danh và câu hỏi luyện tập.',
     icon: History,
-    lessons: 36,
-    progress: 12,
+    lessons: LICH_SU_DIA_LI_LESSON_COUNT,
+    progress: 13,
     color: 'from-amber-500 to-yellow-400',
-    nextLesson: 'Bản đồ và phương hướng',
+    nextLesson: LICH_SU_DIA_LI_NEXT_LESSON,
   },
   {
     id: 'tin-hoc',
@@ -584,7 +590,7 @@ function SubjectCard({
   onOpenSubject: (subjectId: string) => void;
 }) {
   const Icon = subject.icon;
-  const isOpen = subject.id === 'toan' || subject.id === 'tieng-anh' || subject.id === 'khtn' || subject.id === 'ngu-van';
+  const isOpen = subject.id === 'toan' || subject.id === 'tieng-anh' || subject.id === 'khtn' || subject.id === 'ngu-van' || subject.id === 'lich-su-dia-li';
 
   return (
     <article className="app-card group overflow-hidden rounded-2xl border shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -872,6 +878,29 @@ function Lop6AppContent() {
           }
         >
           <NguVanHomePage onBackToDashboard={() => setView('dashboard')} />
+        </Suspense>
+        <SupportAssistant
+          isOpen={isSupportOpen}
+          onOpen={() => setIsSupportOpen(true)}
+          onClose={() => setIsSupportOpen(false)}
+        />
+      </main>
+    );
+  }
+
+  if (view === 'lich-su-dia-li') {
+    return (
+      <main className="app-shell min-h-screen font-sans antialiased" data-theme={selectedTheme}>
+        <Suspense
+          fallback={
+            <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+              <div className="app-card rounded-3xl border p-6 text-sm font-bold text-slate-600 shadow-sm">
+                Đang mở dữ liệu Lịch sử & Địa lí...
+              </div>
+            </section>
+          }
+        >
+          <LichSuDiaLiHomePage onBackToDashboard={() => setView('dashboard')} />
         </Suspense>
         <SupportAssistant
           isOpen={isSupportOpen}
@@ -1185,7 +1214,7 @@ function Lop6AppContent() {
             <h2 className="mt-1 text-2xl font-black text-slate-950">Môn học</h2>
           </div>
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
-            Toán, Tiếng Anh, KHTN & Ngữ văn đã mở
+            Toán, Tiếng Anh, KHTN, Ngữ văn & Sử - Địa đã mở
           </span>
         </div>
 
@@ -1199,6 +1228,7 @@ function Lop6AppContent() {
                 if (subjectId === 'tieng-anh') setView('english');
                 if (subjectId === 'khtn') setView('khtn');
                 if (subjectId === 'ngu-van') setView('ngu-van');
+                if (subjectId === 'lich-su-dia-li') setView('lich-su-dia-li');
               }}
             />
           ))}
