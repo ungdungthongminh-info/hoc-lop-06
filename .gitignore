@@ -58,7 +58,6 @@ hoctap_home_images_named_webp.zip
 *.key
 *.ppk
 docs/keys.md
-docs/
 deploy-lop-06.ps1
 DEPLOYMENT.md
 nginx-lop-06.conf
