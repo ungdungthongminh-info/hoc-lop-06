@@ -617,7 +617,8 @@ function SubjectCard({
     subject.id === 'khtn' ||
     subject.id === 'ngu-van' ||
     subject.id === 'lich-su-dia-li' ||
-    subject.id === 'tin-hoc';
+    subject.id === 'tin-hoc' ||
+    subject.id === 'cong-nghe';
 
   return (
     <article className="app-card group overflow-hidden rounded-2xl border shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -1287,7 +1288,7 @@ function Lop6AppContent() {
             <h2 className="mt-1 text-2xl font-black text-slate-950">Môn học</h2>
           </div>
           <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600">
-            Toán, Tiếng Anh, KHTN, Ngữ văn & Sử - Địa đã mở
+            7 môn đã mở, GDCD sắp mở
           </span>
         </div>
 
