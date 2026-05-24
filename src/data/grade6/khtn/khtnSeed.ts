@@ -2,6 +2,7 @@
 import { khtnLessonCards } from './khtnLessonCards';
 import { khtnLessons } from './khtnLessons';
 import { khtnQuestions } from './khtnQuestions';
+import type { KhtnDifficulty } from './khtnTypes';
 
 export const khtnSeed = {
   subjectCode: 'khtn',
@@ -34,15 +35,36 @@ export function getKhtnLessonQuestions(lessonId: number) {
 
 export function getKhtnLessonPracticeQuestions(lessonId: number, count = 12) {
   const questions = getKhtnLessonQuestions(lessonId);
-  return [...questions]
-    .sort((first, second) => {
-      const difficultyDiff = difficultyRank(first.difficulty) - difficultyRank(second.difficulty);
-      if (difficultyDiff !== 0) return difficultyDiff;
-      return first.id - second.id;
-    })
-    .slice(0, count);
+  if (count >= 40) return shuffleItems(questions);
+
+  const policy = getSamplingPolicy(count);
+  const selected = (['hard', 'easy', 'medium'] as const).flatMap((difficulty) => {
+    return shuffleItems(questions.filter((question) => question.difficulty === difficulty)).slice(0, policy[difficulty]);
+  });
+  const selectedIds = new Set(selected.map((question) => question.id));
+  const fallback = shuffleItems(questions.filter((question) => !selectedIds.has(question.id))).slice(
+    0,
+    Math.max(0, count - selected.length),
+  );
+
+  return shuffleItems([...selected, ...fallback]).slice(0, count);
 }
 
-function difficultyRank(difficulty: 'easy' | 'medium' | 'hard') {
-  return {"easy":1,"medium":2,"hard":3}[difficulty] ?? 2;
+function getSamplingPolicy(count: number): Record<KhtnDifficulty, number> {
+  if (count <= 10) return { easy: 4, medium: 4, hard: 2 };
+  if (count <= 12) return { easy: 5, medium: 5, hard: 2 };
+  return { easy: 6, medium: 10, hard: 4 };
+}
+
+function shuffleItems<T>(items: T[]) {
+  const next = [...items];
+
+  for (let index = next.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    const current = next[index];
+    next[index] = next[randomIndex];
+    next[randomIndex] = current;
+  }
+
+  return next;
 }
