@@ -9,6 +9,7 @@ import {
   Download,
   Flame,
   GraduationCap,
+  Hammer,
   History,
   Languages,
   Laptop,
@@ -54,6 +55,10 @@ const TinHocHomePage = lazy(() =>
   import('../modules/tin-hoc/pages/TinHocHomePage').then((module) => ({ default: module.TinHocHomePage })),
 );
 
+const CongNgheHomePage = lazy(() =>
+  import('../modules/cong-nghe/pages/CongNgheHomePage').then((module) => ({ default: module.CongNgheHomePage })),
+);
+
 const MATH_LESSON_COUNT = 38;
 const MATH_QUESTION_COUNT = 1520;
 const MATH_NEXT_LESSON = 'Tập hợp và phần tử';
@@ -65,9 +70,10 @@ const NGU_VAN_LESSON_COUNT = 24;
 const NGU_VAN_NEXT_LESSON = 'Tôi và các bạn';
 const LICH_SU_DIA_LI_LESSON_COUNT = 32;
 const TIN_HOC_LESSON_COUNT = 19;
+const CONG_NGHE_LESSON_COUNT = 19;
 const LICH_SU_DIA_LI_NEXT_LESSON = 'Lịch sử và cuộc sống';
 
-type AppView = 'dashboard' | 'math' | 'english' | 'khtn' | 'ngu-van' | 'lich-su-dia-li' | 'tin-hoc' | 'achievements';
+type AppView = 'dashboard' | 'math' | 'english' | 'khtn' | 'ngu-van' | 'lich-su-dia-li' | 'tin-hoc' | 'cong-nghe' | 'achievements';
 
 type Subject = {
   id: string;
@@ -188,6 +194,16 @@ const subjects: Subject[] = [
     progress: 10,
     color: 'from-cyan-500 to-blue-500',
     nextLesson: 'Thông tin và dữ liệu',
+  },
+  {
+    id: 'cong-nghe',
+    name: 'Công nghệ',
+    description: 'Nhà ở, thực phẩm, trang phục, đồ dùng điện và dự án gia đình.',
+    icon: Hammer,
+    lessons: CONG_NGHE_LESSON_COUNT,
+    progress: 9,
+    color: 'from-orange-500 to-amber-400',
+    nextLesson: 'Nhà ở đối với con người',
   },
 ];
 
@@ -945,6 +961,29 @@ function Lop6AppContent() {
     );
   }
 
+  if (view === 'cong-nghe') {
+    return (
+      <main className="app-shell min-h-screen font-sans antialiased" data-theme={selectedTheme}>
+        <Suspense
+          fallback={
+            <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+              <div className="app-card rounded-3xl border p-6 text-sm font-bold text-slate-600 shadow-sm">
+                Đang mở dữ liệu Công nghệ...
+              </div>
+            </section>
+          }
+        >
+          <CongNgheHomePage onBackToDashboard={() => setView('dashboard')} />
+        </Suspense>
+        <SupportAssistant
+          isOpen={isSupportOpen}
+          onOpen={() => setIsSupportOpen(true)}
+          onClose={() => setIsSupportOpen(false)}
+        />
+      </main>
+    );
+  }
+
   if (view === 'achievements') {
     return (
       <main className="app-shell min-h-screen font-sans antialiased" data-theme={selectedTheme}>
@@ -1264,6 +1303,7 @@ function Lop6AppContent() {
                 if (subjectId === 'ngu-van') setView('ngu-van');
                 if (subjectId === 'lich-su-dia-li') setView('lich-su-dia-li');
                 if (subjectId === 'tin-hoc') setView('tin-hoc');
+                if (subjectId === 'cong-nghe') setView('cong-nghe');
               }}
             />
           ))}
