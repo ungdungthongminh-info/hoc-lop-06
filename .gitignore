@@ -52,12 +52,14 @@ lop_06_dev_research_bundle.zip
 *.tar.gz
 *.tgz
 hoctap_home_images_named_webp.zip
+*.mp3
 
 # Security - keys and local-only deployment material
 *.pem
 *.key
 *.ppk
 docs/keys.md
+public/audio/tts/assets/
 deploy-lop-06.ps1
 DEPLOYMENT.md
 nginx-lop-06.conf
@@ -68,6 +70,7 @@ temp_app.hochungkhoi.site
 .github/
 chatbot_engine_plan_hoc_tap_thong_minh.md
 dopi.png
+_generated/
 
 # Logs
 npm-debug.log*
