@@ -68,7 +68,7 @@ export function EnglishQuestionCard({
           <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
             {getDifficultyLabel(question.difficulty)}
           </span>
-          <EnglishAudioButton sourceType="question" sourceId={question.sourceId} label={question.questionText} />
+          <EnglishAudioButton sourceType="question" sourceId={question.sourceId} lessonId={question.lessonId} label={question.questionText} />
         </div>
       </div>
 
@@ -105,6 +105,7 @@ export function EnglishQuestionCard({
                 <EnglishAudioButton
                   sourceType="question-option"
                   sourceId={getOptionAudioSourceId(question, option.key)}
+                  lessonId={question.lessonId}
                   label={`${option.key}. ${option.text}`}
                   compact
                   className="shrink-0 self-stretch"

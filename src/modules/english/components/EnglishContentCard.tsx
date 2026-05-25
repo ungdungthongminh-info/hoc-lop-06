@@ -42,7 +42,7 @@ export function EnglishContentCard({ card, index, total }: EnglishContentCardPro
               </div>
               <h3 className="mt-2 text-base font-black text-slate-950 [overflow-wrap:anywhere]">{card.title}</h3>
             </div>
-            <EnglishAudioButton sourceType="lesson-card" sourceId={card.sourceId} label={card.title} />
+            <EnglishAudioButton sourceType="lesson-card" sourceId={card.sourceId} lessonId={card.lessonId} label={card.title} />
           </div>
           <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-700 [overflow-wrap:anywhere]">
             {card.content}

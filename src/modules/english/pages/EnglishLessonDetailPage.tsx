@@ -35,10 +35,10 @@ export function EnglishLessonDetailPage({ lesson, onBack, onPractice }: EnglishL
       [
         ...vocabularyEntries
           .filter(([word]) => isLikelyEnglishAudioText(word))
-          .map(([word]) => ({ sourceType: 'vocabulary-word' as const, sourceId: toVocabularySourceId(word) })),
+          .map(([word]) => ({ sourceType: 'vocabulary-word' as const, sourceId: toVocabularySourceId(word), lessonId: lesson.id })),
         ...cards
         .filter((card) => isLikelyEnglishAudioText(card.audioText ?? card.content))
-        .map((card) => ({ sourceType: 'lesson-card' as const, sourceId: card.sourceId })),
+        .map((card) => ({ sourceType: 'lesson-card' as const, sourceId: card.sourceId, lessonId: card.lessonId })),
       ].filter((item) => Boolean(item.sourceId)),
     [cards, vocabularyEntries],
   );
@@ -130,6 +130,7 @@ export function EnglishLessonDetailPage({ lesson, onBack, onPractice }: EnglishL
                     <EnglishAudioButton
                       sourceType="vocabulary-word"
                       sourceId={toVocabularySourceId(word)}
+                      lessonId={lesson.id}
                       label={word}
                       compact
                       className="shrink-0"

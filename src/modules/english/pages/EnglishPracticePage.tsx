@@ -38,12 +38,13 @@ function getStoredAutoPlayNextQuestion() {
 }
 
 function buildQuestionAudioSequence(question: EnglishQuestion) {
-  const sequence: EnglishAudioSourceRef[] = [{ sourceType: 'question', sourceId: question.sourceId }];
+  const sequence: EnglishAudioSourceRef[] = [{ sourceType: 'question', sourceId: question.sourceId, lessonId: question.lessonId }];
   if (question.options?.length && (question.questionType === 'single_choice' || question.questionType === 'true_false')) {
     sequence.push(
       ...question.options.map((option) => ({
         sourceType: 'question-option' as const,
         sourceId: buildEnglishAudioSourceId('question-option', option.text || option.key),
+        lessonId: question.lessonId,
       })),
     );
   }

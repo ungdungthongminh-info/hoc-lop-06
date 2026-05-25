@@ -6,13 +6,21 @@ import type { EnglishAudioSourceType } from '../utils/englishAudio';
 type EnglishAudioButtonProps = {
   sourceType: EnglishAudioSourceType;
   sourceId: string;
+  lessonId?: number;
   label: string;
   className?: string;
   compact?: boolean;
 };
 
-export function EnglishAudioButton({ sourceType, sourceId, label, className, compact = false }: EnglishAudioButtonProps) {
-  const { audioUrl, hasAudio, isLoading, play } = useEnglishAudio(sourceType, sourceId);
+export function EnglishAudioButton({
+  sourceType,
+  sourceId,
+  lessonId,
+  label,
+  className,
+  compact = false,
+}: EnglishAudioButtonProps) {
+  const { audioUrl, hasAudio, isLoading, play, resolvedSourceId, matchType } = useEnglishAudio(sourceType, sourceId, lessonId);
 
   if (!isLoading && !hasAudio) return null;
 
@@ -25,6 +33,10 @@ export function EnglishAudioButton({ sourceType, sourceId, label, className, com
       disabled={disabled}
       title={disabled ? 'Audio đang tải' : `Nghe: ${label}`}
       aria-label={disabled ? 'Audio đang tải' : `Nghe ${label}`}
+      data-audio-source-type={sourceType}
+      data-audio-source-id={sourceId}
+      data-audio-resolved-source-id={resolvedSourceId ?? undefined}
+      data-audio-match-type={matchType ?? undefined}
       className={[
         'inline-flex min-w-0 items-center justify-center gap-2 rounded-full border text-xs font-black transition',
         compact ? 'h-8 px-2.5' : 'h-9 px-3',
