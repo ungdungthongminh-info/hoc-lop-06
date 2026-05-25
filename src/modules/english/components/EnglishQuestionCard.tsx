@@ -2,6 +2,7 @@ import { CheckCircle2, Eye, XCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 import type { EnglishQuestion } from '../../../data/grade6/tieng-anh';
+import { EnglishAudioButton } from './EnglishAudioButton';
 
 type EnglishQuestionCardProps = {
   question: EnglishQuestion;
@@ -46,7 +47,7 @@ export function EnglishQuestionCard({
 
   return (
     <article className="w-full max-w-full min-w-0 rounded-3xl border border-indigo-100 bg-white p-5 shadow-sm">
-      <div className="flex min-w-0 flex-wrap items-center justify-between gap-3">
+      <div className="flex min-w-0 flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-xs font-black uppercase tracking-[0.12em] text-indigo-700">
             Câu {questionIndex + 1}/{totalQuestions}
@@ -55,9 +56,12 @@ export function EnglishQuestionCard({
             {question.questionText}
           </h2>
         </div>
-        <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
-          {getDifficultyLabel(question.difficulty)}
-        </span>
+        <div className="flex shrink-0 items-start gap-2">
+          <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
+            {getDifficultyLabel(question.difficulty)}
+          </span>
+          <EnglishAudioButton sourceType="question" sourceId={question.sourceId} label={question.questionText} />
+        </div>
       </div>
 
       {hasOptions ? (
@@ -144,9 +148,10 @@ export function EnglishQuestionCard({
       )}
 
       {isAnswered ? (
-        <div className={`mt-5 min-w-0 rounded-2xl p-4 text-sm [overflow-wrap:anywhere] ${
-          isOpenWriting ? 'bg-amber-50 text-amber-800' : isCorrect ? 'bg-emerald-50 text-emerald-800' : 'bg-rose-50 text-rose-800'
-        }`}
+        <div
+          className={`mt-5 min-w-0 rounded-2xl p-4 text-sm [overflow-wrap:anywhere] ${
+            isOpenWriting ? 'bg-amber-50 text-amber-800' : isCorrect ? 'bg-emerald-50 text-emerald-800' : 'bg-rose-50 text-rose-800'
+          }`}
         >
           <p className="flex min-w-0 items-center gap-2 font-black">
             {isOpenWriting ? <Eye className="h-5 w-5 shrink-0" /> : isCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : <XCircle className="h-5 w-5 shrink-0" />}

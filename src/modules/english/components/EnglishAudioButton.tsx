@@ -1,0 +1,39 @@
+import { Loader2, Volume2 } from 'lucide-react';
+
+import { useEnglishAudio } from '../utils/englishAudio';
+import type { EnglishAudioSourceType } from '../utils/englishAudio';
+
+type EnglishAudioButtonProps = {
+  sourceType: EnglishAudioSourceType;
+  sourceId: string;
+  label: string;
+  className?: string;
+};
+
+export function EnglishAudioButton({ sourceType, sourceId, label, className }: EnglishAudioButtonProps) {
+  const { audioUrl, hasAudio, isLoading, play } = useEnglishAudio(sourceType, sourceId);
+
+  if (!isLoading && !hasAudio) return null;
+
+  const disabled = isLoading || !audioUrl;
+
+  return (
+    <button
+      type="button"
+      onClick={() => void play()}
+      disabled={disabled}
+      title={disabled ? 'Audio đang tải' : `Nghe: ${label}`}
+      aria-label={disabled ? 'Audio đang tải' : `Nghe ${label}`}
+      className={[
+        'inline-flex h-9 min-w-0 items-center justify-center gap-2 rounded-full border px-3 text-xs font-black transition',
+        disabled
+          ? 'cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400'
+          : 'border-indigo-200 bg-indigo-50 text-indigo-700 hover:border-indigo-300 hover:bg-indigo-100 hover:text-indigo-800',
+        className ?? '',
+      ].join(' ')}
+    >
+      {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Volume2 className="h-4 w-4" />}
+      <span className="hidden sm:inline">Nghe</span>
+    </button>
+  );
+}

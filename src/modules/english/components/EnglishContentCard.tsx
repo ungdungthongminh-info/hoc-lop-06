@@ -1,6 +1,7 @@
 import { AlertTriangle, BookOpen, HelpCircle, Lightbulb, RotateCcw, Sparkles, Star } from 'lucide-react';
 
 import type { EnglishLessonCard as EnglishLessonCardData } from '../../../data/grade6/tieng-anh';
+import { EnglishAudioButton } from './EnglishAudioButton';
 
 type EnglishContentCardProps = {
   card: EnglishLessonCardData;
@@ -29,15 +30,20 @@ export function EnglishContentCard({ card, index, total }: EnglishContentCardPro
           <Icon className="h-5 w-5" />
         </div>
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className={`rounded-full px-2.5 py-1 text-xs font-black ${meta.bg} ${meta.text}`}>
-              {meta.label}
-            </span>
-            <span className="text-xs font-semibold text-slate-400">
-              {index + 1}/{total}
-            </span>
+          <div className="flex min-w-0 items-start justify-between gap-3">
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className={`rounded-full px-2.5 py-1 text-xs font-black ${meta.bg} ${meta.text}`}>
+                  {meta.label}
+                </span>
+                <span className="text-xs font-semibold text-slate-400">
+                  {index + 1}/{total}
+                </span>
+              </div>
+              <h3 className="mt-2 text-base font-black text-slate-950 [overflow-wrap:anywhere]">{card.title}</h3>
+            </div>
+            <EnglishAudioButton sourceType="lesson-card" sourceId={card.sourceId} label={card.title} />
           </div>
-          <h3 className="mt-2 text-base font-black text-slate-950 [overflow-wrap:anywhere]">{card.title}</h3>
           <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-700 [overflow-wrap:anywhere]">
             {card.content}
           </p>
