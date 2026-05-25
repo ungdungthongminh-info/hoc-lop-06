@@ -1,17 +1,18 @@
 # English Audio Manifest Report
 
-- generatedAt: 2026-05-25T02:53:35.217Z
+- generatedAt: 2026-05-25T06:40:15.696Z
 - profileId: en-v1
 - voice: en-US-Neural2-F
 - catalog: docs/audio/english-audio-catalog-full.json
+- catalog: docs/audio/english-audio-catalog-phase2b.json
 - outputDir: F:\1_A_Disk_D\khuong-binh\lop6-tts-audio\en-v1
 - baseR2Path: audio/tts/assets/en-v1
 
 ## Validation
 
-- catalog items: 1728
-- manifest items: 1728
-- local mp3 found: 1728
+- catalog items: 2218
+- manifest items: 2218
+- local mp3 found: 2218
 - missing: 0
 - zeroSize: 0
 - duplicate ids: 0
@@ -109,4 +110,4 @@
 | lesson-card:eng6-b2-u04-vocabulary-my-neighbourhood-c06 | lesson-card | eng6-b2-u04-vocabulary-my-neighbourhood-c06 | local-ready | 40128 | lesson-card-eng6-b2-u04-vocabulary-my-neighbourhood-c06.mp3 |
 | lesson-card:eng6-b2-u04-vocabulary-my-neighbourhood-c07 | lesson-card | eng6-b2-u04-vocabulary-my-neighbourhood-c07 | local-ready | 30336 | lesson-card-eng6-b2-u04-vocabulary-my-neighbourhood-c07.mp3 |
 | lesson-card:eng6-b2-u04-vocabulary-my-neighbourhood-c08 | lesson-card | eng6-b2-u04-vocabulary-my-neighbourhood-c08 | local-ready | 49536 | lesson-card-eng6-b2-u04-vocabulary-my-neighbourhood-c08.mp3 |
-| ... | ... | ... | ... | ... | 1648 more items |
+| ... | ... | ... | ... | ... | 2138 more items |

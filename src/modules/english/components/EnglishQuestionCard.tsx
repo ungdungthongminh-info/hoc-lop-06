@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import type { EnglishQuestion } from '../../../data/grade6/tieng-anh';
 import { EnglishAudioButton } from './EnglishAudioButton';
+import { buildEnglishAudioSourceId } from '../utils/englishAudioKeys';
 
 type EnglishQuestionCardProps = {
   question: EnglishQuestion;
@@ -18,14 +19,21 @@ function normalizeAnswer(value: string) {
 
 function isCorrectAnswer(question: EnglishQuestion, answer: string) {
   if (question.questionType === 'writing_prompt') return false;
-  return normalizeAnswer(answer) === normalizeAnswer(question.correctAnswer)
-    || normalizeAnswer(answer) === normalizeAnswer(question.answerText);
+  return (
+    normalizeAnswer(answer) === normalizeAnswer(question.correctAnswer) ||
+    normalizeAnswer(answer) === normalizeAnswer(question.answerText)
+  );
 }
 
 function getDifficultyLabel(difficulty: EnglishQuestion['difficulty']) {
   if (difficulty === 'easy') return 'Cơ bản';
   if (difficulty === 'medium') return 'Vừa sức';
   return 'Thử thách';
+}
+
+function getOptionAudioSourceId(question: EnglishQuestion, optionKey: string) {
+  const option = question.options?.find((entry) => entry.key === optionKey);
+  return buildEnglishAudioSourceId('question-option', option?.text || optionKey);
 }
 
 export function EnglishQuestionCard({
@@ -73,27 +81,35 @@ export function EnglishQuestionCard({
             const showWrong = isAnswered && isSelected && !isCorrectOption;
 
             return (
-              <button
-                key={option.key}
-                type="button"
-                disabled={isAnswered}
-                onClick={() => onAnswer(option.key)}
-                className={`flex w-full min-w-0 items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition ${
-                  showCorrect
-                    ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
-                    : showWrong
-                      ? 'border-rose-300 bg-rose-50 text-rose-800'
-                      : isSelected
-                        ? 'border-indigo-300 bg-indigo-50 text-indigo-800'
-                        : 'border-slate-200 text-slate-700 hover:border-indigo-200 hover:bg-indigo-50'
-                } ${isAnswered ? 'cursor-default' : ''}`}
-              >
-                <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
-                  <strong>{option.key}.</strong> {option.text}
-                </span>
-                {showCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : null}
-                {showWrong ? <XCircle className="h-5 w-5 shrink-0" /> : null}
-              </button>
+              <div key={option.key} className="flex min-w-0 items-stretch gap-2">
+                <button
+                  type="button"
+                  disabled={isAnswered}
+                  onClick={() => onAnswer(option.key)}
+                  className={`flex min-w-0 flex-1 items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition ${
+                    showCorrect
+                      ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+                      : showWrong
+                        ? 'border-rose-300 bg-rose-50 text-rose-800'
+                        : isSelected
+                          ? 'border-indigo-300 bg-indigo-50 text-indigo-800'
+                          : 'border-slate-200 text-slate-700 hover:border-indigo-200 hover:bg-indigo-50'
+                  } ${isAnswered ? 'cursor-default' : ''}`}
+                >
+                  <span className="min-w-0 flex-1 [overflow-wrap:anywhere]">
+                    <strong>{option.key}.</strong> {option.text}
+                  </span>
+                  {showCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : null}
+                  {showWrong ? <XCircle className="h-5 w-5 shrink-0" /> : null}
+                </button>
+                <EnglishAudioButton
+                  sourceType="question-option"
+                  sourceId={getOptionAudioSourceId(question, option.key)}
+                  label={`${option.key}. ${option.text}`}
+                  compact
+                  className="shrink-0 self-stretch"
+                />
+              </div>
             );
           })}
         </div>
@@ -154,7 +170,13 @@ export function EnglishQuestionCard({
           }`}
         >
           <p className="flex min-w-0 items-center gap-2 font-black">
-            {isOpenWriting ? <Eye className="h-5 w-5 shrink-0" /> : isCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : <XCircle className="h-5 w-5 shrink-0" />}
+            {isOpenWriting ? (
+              <Eye className="h-5 w-5 shrink-0" />
+            ) : isCorrect ? (
+              <CheckCircle2 className="h-5 w-5 shrink-0" />
+            ) : (
+              <XCircle className="h-5 w-5 shrink-0" />
+            )}
             {isOpenWriting ? 'Đáp án tham khảo' : isCorrect ? 'Chính xác!' : 'Chưa đúng rồi.'}
           </p>
           {isOpenWriting ? <p className="mt-2 leading-6">Câu tự luyện này không cộng vào số câu đúng.</p> : null}

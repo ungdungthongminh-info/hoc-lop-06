@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-export type EnglishAudioSourceType = 'lesson-card' | 'question';
+export type EnglishAudioSourceType = 'lesson-card' | 'question' | 'vocabulary-word' | 'question-option';
+
+export type EnglishAudioSourceRef = {
+  sourceType: EnglishAudioSourceType;
+  sourceId: string;
+};
 
 export type EnglishAudioManifestItem = {
   sourceType: EnglishAudioSourceType;
@@ -26,6 +31,7 @@ const MANIFEST_URL = 'audio/tts/manifest.json';
 let manifestPromise: Promise<EnglishAudioManifest | null> | null = null;
 let manifestCache: EnglishAudioManifest | null = null;
 let currentAudio: HTMLAudioElement | null = null;
+let currentAudioResolve: ((value: boolean) => void) | null = null;
 
 function getManifestKey(sourceType: EnglishAudioSourceType, sourceId: string) {
   return `${sourceType}:${sourceId}`;
@@ -48,6 +54,10 @@ async function readEnglishAudioManifest() {
   return manifestPromise;
 }
 
+export async function getEnglishAudioManifest() {
+  return readEnglishAudioManifest();
+}
+
 export function getEnglishAudioUrlFromManifest(
   manifest: EnglishAudioManifest | null | undefined,
   sourceType: EnglishAudioSourceType,
@@ -56,37 +66,80 @@ export function getEnglishAudioUrlFromManifest(
   return manifest?.items?.[getManifestKey(sourceType, sourceId)]?.url ?? null;
 }
 
-export async function playEnglishAudio(sourceType: EnglishAudioSourceType, sourceId: string) {
-  const manifest = await readEnglishAudioManifest();
-  const url = getEnglishAudioUrlFromManifest(manifest, sourceType, sourceId);
-  if (!url) return false;
+function stopCurrentAudio(resolvePlayback = false) {
+  if (currentAudioResolve) {
+    const resolve = currentAudioResolve;
+    currentAudioResolve = null;
+    resolve(resolvePlayback);
+  }
+
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+  }
+}
+
+async function playEnglishAudioUrl(url: string) {
+  stopCurrentAudio(false);
 
   try {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio.currentTime = 0;
-      currentAudio = null;
-    }
-
     const audio = new Audio(url);
     audio.preload = 'auto';
     currentAudio = audio;
 
-    await audio.play();
-    audio.onended = () => {
-      if (currentAudio === audio) currentAudio = null;
-    };
-    audio.onerror = () => {
-      if (currentAudio === audio) currentAudio = null;
-    };
-    return true;
+    return await new Promise<boolean>((resolve) => {
+      let settled = false;
+      currentAudioResolve = (value: boolean) => {
+        if (settled) return;
+        settled = true;
+        if (currentAudio === audio) currentAudio = null;
+        if (currentAudioResolve) currentAudioResolve = null;
+        resolve(value);
+      };
+
+      audio.onended = () => {
+        if (currentAudioResolve) currentAudioResolve(true);
+      };
+      audio.onerror = () => {
+        if (currentAudioResolve) currentAudioResolve(false);
+      };
+
+      void audio.play().catch(() => {
+        if (currentAudioResolve) currentAudioResolve(false);
+      });
+    });
   } catch {
-    if (currentAudio) {
-      currentAudio.pause();
-      currentAudio = null;
-    }
+    stopCurrentAudio(false);
     return false;
   }
+}
+
+export function stopEnglishAudioPlayback() {
+  stopCurrentAudio(false);
+}
+
+export async function playEnglishAudio(sourceType: EnglishAudioSourceType, sourceId: string) {
+  const manifest = await readEnglishAudioManifest();
+  const url = getEnglishAudioUrlFromManifest(manifest, sourceType, sourceId);
+  if (!url) return false;
+  return playEnglishAudioUrl(url);
+}
+
+export async function playEnglishAudioSequence(items: EnglishAudioSourceRef[]) {
+  const manifest = await readEnglishAudioManifest();
+  if (!manifest) return false;
+
+  let playedAny = false;
+  for (const item of items) {
+    const url = getEnglishAudioUrlFromManifest(manifest, item.sourceType, item.sourceId);
+    if (!url) continue;
+    const played = await playEnglishAudioUrl(url);
+    if (!played) break;
+    playedAny = true;
+  }
+
+  return playedAny;
 }
 
 export function useEnglishAudio(sourceType: EnglishAudioSourceType, sourceId: string) {

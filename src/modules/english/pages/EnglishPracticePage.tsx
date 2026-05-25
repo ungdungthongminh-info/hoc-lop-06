@@ -1,7 +1,11 @@
-import { ArrowLeft, ArrowRight, CheckCircle2, RotateCcw } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { ArrowLeft, ArrowRight, CheckCircle2, PlayCircle, RotateCcw } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
 
-import type { EnglishLesson, EnglishPracticeQuestionCountOption } from '../../../data/grade6/tieng-anh';
+import type {
+  EnglishLesson,
+  EnglishPracticeQuestionCountOption,
+  EnglishQuestion,
+} from '../../../data/grade6/tieng-anh';
 import {
   DEFAULT_ENGLISH_PRACTICE_QUESTION_COUNT,
   ENGLISH_PRACTICE_QUESTION_COUNT_OPTIONS,
@@ -10,8 +14,12 @@ import {
 } from '../../../data/grade6/tieng-anh';
 import { useSound } from '../../../shared/hooks/useSound';
 import { EnglishQuestionCard } from '../components/EnglishQuestionCard';
+import { playEnglishAudioSequence, stopEnglishAudioPlayback } from '../utils/englishAudio';
+import type { EnglishAudioSourceRef } from '../utils/englishAudio';
+import { buildEnglishAudioSourceId } from '../utils/englishAudioKeys';
 
 const PRACTICE_COUNT_STORAGE_KEY = 'lop6.english.practiceQuestionCount';
+const PRACTICE_AUTO_PLAY_STORAGE_KEY = 'lop6.english.practiceAutoPlayNextQuestion';
 
 type EnglishPracticePageProps = {
   lesson: EnglishLesson;
@@ -24,8 +32,27 @@ function getStoredPracticeQuestionCount(): EnglishPracticeQuestionCountOption {
   return isEnglishPracticeQuestionCountOption(storedValue) ? storedValue : DEFAULT_ENGLISH_PRACTICE_QUESTION_COUNT;
 }
 
+function getStoredAutoPlayNextQuestion() {
+  if (typeof window === 'undefined') return false;
+  return window.localStorage.getItem(PRACTICE_AUTO_PLAY_STORAGE_KEY) === '1';
+}
+
+function buildQuestionAudioSequence(question: EnglishQuestion) {
+  const sequence: EnglishAudioSourceRef[] = [{ sourceType: 'question', sourceId: question.sourceId }];
+  if (question.options?.length && (question.questionType === 'single_choice' || question.questionType === 'true_false')) {
+    sequence.push(
+      ...question.options.map((option) => ({
+        sourceType: 'question-option' as const,
+        sourceId: buildEnglishAudioSourceId('question-option', option.text || option.key),
+      })),
+    );
+  }
+  return sequence;
+}
+
 export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticePageProps) {
   const [questionCount, setQuestionCount] = useState<EnglishPracticeQuestionCountOption>(() => getStoredPracticeQuestionCount());
+  const [autoPlayNextQuestion, setAutoPlayNextQuestion] = useState<boolean>(() => getStoredAutoPlayNextQuestion());
   const [practiceRound, setPracticeRound] = useState(0);
   const [practiceStarted, setPracticeStarted] = useState(false);
   const questions = useMemo(
@@ -42,7 +69,23 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
   const answeredCount = Object.keys(answers).length;
   const progress = questions.length > 0 ? Math.round((answeredCount / questions.length) * 100) : 0;
 
+  useEffect(() => {
+    stopEnglishAudioPlayback();
+    return () => stopEnglishAudioPlayback();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    window.localStorage.setItem(PRACTICE_AUTO_PLAY_STORAGE_KEY, autoPlayNextQuestion ? '1' : '0');
+  }, [autoPlayNextQuestion]);
+
+  useEffect(() => {
+    if (!practiceStarted || !currentQuestion || !autoPlayNextQuestion) return;
+    void playEnglishAudioSequence(buildQuestionAudioSequence(currentQuestion));
+  }, [autoPlayNextQuestion, currentQuestion, practiceStarted]);
+
   const resetPractice = () => {
+    stopEnglishAudioPlayback();
     setAnswers({});
     setCurrentIndex(0);
     setIsFinished(false);
@@ -50,6 +93,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
   };
 
   const startPractice = () => {
+    stopEnglishAudioPlayback();
     setPracticeStarted(true);
     setAnswers({});
     setCurrentIndex(0);
@@ -59,6 +103,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
   };
 
   const returnToSetup = () => {
+    stopEnglishAudioPlayback();
     setPracticeStarted(false);
     setAnswers({});
     setCurrentIndex(0);
@@ -66,6 +111,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
   };
 
   const handleQuestionCountChange = (nextCount: EnglishPracticeQuestionCountOption) => {
+    stopEnglishAudioPlayback();
     setQuestionCount(nextCount);
     window.localStorage.setItem(PRACTICE_COUNT_STORAGE_KEY, String(nextCount));
     sound.play('ui_tap_soft');
@@ -122,6 +168,26 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
     </div>
   );
 
+  const renderAutoPlayToggle = () => (
+    <button
+      type="button"
+      onClick={() => {
+        const nextValue = !autoPlayNextQuestion;
+        setAutoPlayNextQuestion(nextValue);
+        sound.play('ui_tap_soft');
+      }}
+      aria-pressed={autoPlayNextQuestion}
+      className={`inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl border px-3 py-2 text-sm font-black transition sm:w-auto ${
+        autoPlayNextQuestion
+          ? 'border-indigo-300 bg-indigo-50 text-indigo-800'
+          : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+      }`}
+      >
+      <PlayCircle className="h-4 w-4" />
+      Tự động phát câu sau
+    </button>
+  );
+
   if (!practiceStarted) {
     return (
       <section className="mx-auto w-full max-w-3xl min-w-0 px-4 py-8 sm:px-6 lg:px-8">
@@ -136,7 +202,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
 
           {questionCountSelector}
 
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <button
               type="button"
               onClick={startPractice}
@@ -151,6 +217,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
             >
               Quay lại bài học
             </button>
+            {renderAutoPlayToggle()}
           </div>
         </div>
       </section>
@@ -219,6 +286,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
           >
             Lượt mới
           </button>
+          {renderAutoPlayToggle()}
         </div>
       </div>
 
@@ -239,6 +307,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
           <button
             type="button"
             onClick={() => {
+              stopEnglishAudioPlayback();
               if (currentIndex + 1 >= questions.length) {
                 setIsFinished(true);
                 sound.play('practice_complete');

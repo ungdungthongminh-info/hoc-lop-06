@@ -7,8 +7,8 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '../..');
 
 const DEFAULT_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-full.json');
-const REPORT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-r2-upload-report.json');
-const REPORT_MD = path.join(REPO_ROOT, 'docs/audio/english-audio-r2-upload-report.md');
+const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-r2-upload-report.json');
+const DEFAULT_REPORT_MD = path.join(REPO_ROOT, 'docs/audio/english-audio-r2-upload-report.md');
 const CHECKPOINT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-r2-upload-checkpoint.json');
 
 const DEFAULT_OUTPUT_DIR = 'F:\\1_A_Disk_D\\khuong-binh\\lop6-tts-audio\\en-v1';
@@ -41,6 +41,8 @@ function parseArgs(argv) {
     checkpoint: CHECKPOINT_JSON,
     outputDir: DEFAULT_OUTPUT_DIR,
     baseR2Path: DEFAULT_BASE_R2_PATH,
+    reportJson: DEFAULT_REPORT_JSON,
+    reportMd: DEFAULT_REPORT_MD,
   };
 
   for (const arg of argv.slice(2)) {
@@ -64,6 +66,10 @@ function parseArgs(argv) {
       result.outputDir = arg.slice('--outputDir='.length);
     } else if (arg.startsWith('--baseR2Path=')) {
       result.baseR2Path = arg.slice('--baseR2Path='.length);
+    } else if (arg.startsWith('--report-json=')) {
+      result.reportJson = arg.slice('--report-json='.length);
+    } else if (arg.startsWith('--report-md=')) {
+      result.reportMd = arg.slice('--report-md='.length);
     }
   }
 
@@ -544,18 +550,6 @@ async function main() {
     items: [],
   };
 
-  if (report.totalItems !== 1728) {
-    report.failed += 1;
-    report.items.push({
-      key: 'manifest',
-      result: 'failed',
-      remoteStatus: '',
-      localFileName: '',
-      localFileSizeBytes: 0,
-      error: `unexpected-total-items-${report.totalItems}`,
-    });
-  }
-
   if (!credentialReady && !args.dryRun) {
     report.failed += 1;
     report.items.push({
@@ -667,13 +661,13 @@ async function main() {
   const status = report.failed > 0 ? 'needs-attention' : (args.dryRun ? 'dry-run-complete' : 'completed');
   report.status = status;
 
-  await fs.mkdir(path.dirname(REPORT_JSON), { recursive: true });
-  await writeJson(REPORT_JSON, report);
-  await fs.writeFile(REPORT_MD, buildMarkdownReport(report), 'utf8');
+  await fs.mkdir(path.dirname(args.reportJson), { recursive: true });
+  await writeJson(args.reportJson, report);
+  await fs.writeFile(args.reportMd, buildMarkdownReport(report), 'utf8');
 
   console.log(JSON.stringify({
-    reportJson: REPORT_JSON,
-    reportMarkdown: REPORT_MD,
+    reportJson: args.reportJson,
+    reportMarkdown: args.reportMd,
     checkpoint: args.resume ? args.checkpoint : null,
     dryRun: args.dryRun,
     credentialReady,

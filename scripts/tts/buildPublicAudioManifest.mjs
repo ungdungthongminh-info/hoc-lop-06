@@ -8,7 +8,6 @@ const REPO_ROOT = path.resolve(SCRIPT_DIR, '../..');
 const SOURCE_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-full.json');
 const PUBLIC_MANIFEST = path.join(REPO_ROOT, 'public/audio/tts/manifest.json');
 const DEFAULT_BASE_URL = 'https://audio.hochungkhoi.site';
-const EXPECTED_TOTAL_ITEMS = 1728;
 
 function nowIso() {
   return new Date().toISOString();
@@ -92,8 +91,8 @@ async function main() {
   const source = await readJson(args.sourceManifest);
   const items = buildItems(source, args.baseUrl);
   const itemKeys = Object.keys(items);
-  if (itemKeys.length !== EXPECTED_TOTAL_ITEMS) {
-    throw new Error(`expected-total-items-${EXPECTED_TOTAL_ITEMS}-got-${itemKeys.length}`);
+  if (itemKeys.length !== Number(source?.totalItems || 0)) {
+    throw new Error(`source-total-items-${source?.totalItems ?? 'missing'}-manifest-${itemKeys.length}`);
   }
 
   const manifest = {

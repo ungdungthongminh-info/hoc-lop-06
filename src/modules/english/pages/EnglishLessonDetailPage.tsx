@@ -1,8 +1,13 @@
-import { ArrowLeft, BookOpenCheck, Clock, MessageCircle, PlayCircle } from 'lucide-react';
+import { ArrowLeft, BookOpenCheck, Clock, MessageCircle, PlayCircle, Volume2 } from 'lucide-react';
+import { useMemo } from 'react';
 
 import type { EnglishLesson } from '../../../data/grade6/tieng-anh';
 import { getEnglishLessonCards, getEnglishLessonQuestions } from '../../../data/grade6/tieng-anh';
 import { EnglishContentCard } from '../components/EnglishContentCard';
+import { EnglishAudioButton } from '../components/EnglishAudioButton';
+import { isLikelyEnglishAudioText } from '../utils/englishAudioText';
+import { buildEnglishAudioSourceId } from '../utils/englishAudioKeys';
+import { playEnglishAudioSequence } from '../utils/englishAudio';
 
 type EnglishLessonDetailPageProps = {
   lesson: EnglishLesson;
@@ -16,10 +21,27 @@ const lessonTypeLabel: Record<EnglishLesson['lessonType'], string> = {
   skills: 'Đọc, nói, viết',
 };
 
+function toVocabularySourceId(word: string) {
+  return buildEnglishAudioSourceId('vocabulary-word', word);
+}
+
 export function EnglishLessonDetailPage({ lesson, onBack, onPractice }: EnglishLessonDetailPageProps) {
   const cards = getEnglishLessonCards(lesson.id);
   const questions = getEnglishLessonQuestions(lesson.id);
   const vocabularyEntries = Object.entries(lesson.vocabulary).slice(0, 12);
+
+  const lessonAudioPlaylist = useMemo(
+    () =>
+      [
+        ...vocabularyEntries
+          .filter(([word]) => isLikelyEnglishAudioText(word))
+          .map(([word]) => ({ sourceType: 'vocabulary-word' as const, sourceId: toVocabularySourceId(word) })),
+        ...cards
+        .filter((card) => isLikelyEnglishAudioText(card.audioText ?? card.content))
+        .map((card) => ({ sourceType: 'lesson-card' as const, sourceId: card.sourceId })),
+      ].filter((item) => Boolean(item.sourceId)),
+    [cards, vocabularyEntries],
+  );
 
   return (
     <section className="mx-auto w-full max-w-5xl min-w-0 px-4 py-8 sm:px-6 lg:px-8">
@@ -42,14 +64,26 @@ export function EnglishLessonDetailPage({ lesson, onBack, onPractice }: EnglishL
             <p className="mt-3 text-base leading-7 text-slate-600 [overflow-wrap:anywhere]">{lesson.summarySimple}</p>
           </div>
 
-          <button
-            type="button"
-            onClick={() => onPractice(lesson.id)}
-            className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-black text-white shadow-lg shadow-indigo-200 transition hover:bg-indigo-700 md:w-auto md:shrink-0"
-          >
-            <PlayCircle className="h-5 w-5" />
-            Luyện tập bài này
-          </button>
+          <div className="flex w-full min-w-0 flex-col gap-2 md:w-auto md:shrink-0">
+            <button
+              type="button"
+              onClick={() => void playEnglishAudioSequence(lessonAudioPlaylist)}
+              disabled={!lessonAudioPlaylist.length}
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl border border-indigo-200 bg-indigo-50 px-5 py-3 text-sm font-black text-indigo-700 transition hover:border-indigo-300 hover:bg-indigo-100 hover:text-indigo-800 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-50 disabled:text-slate-400 md:w-auto"
+              title={lessonAudioPlaylist.length ? 'Nghe toàn bộ các đoạn tiếng Anh thuần trong bài' : 'Chưa có đoạn tiếng Anh thuần để phát'}
+            >
+              <Volume2 className="h-5 w-5" />
+              Nghe toàn bộ
+            </button>
+            <button
+              type="button"
+              onClick={() => onPractice(lesson.id)}
+              className="inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-black text-white shadow-lg shadow-indigo-200 transition hover:bg-indigo-700 md:w-auto"
+            >
+              <PlayCircle className="h-5 w-5" />
+              Luyện tập bài này
+            </button>
+          </div>
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
@@ -91,7 +125,16 @@ export function EnglishLessonDetailPage({ lesson, onBack, onPractice }: EnglishL
             <div className="mt-3 grid min-w-0 gap-2 sm:grid-cols-[repeat(2,minmax(0,1fr))] lg:grid-cols-[repeat(3,minmax(0,1fr))]">
               {vocabularyEntries.map(([word, meaning]) => (
                 <div key={word} className="min-w-0 rounded-2xl bg-white px-3 py-2 text-sm ring-1 ring-indigo-100">
-                  <p className="font-black text-slate-950 [overflow-wrap:anywhere]">{word}</p>
+                  <div className="flex min-w-0 items-start justify-between gap-2">
+                    <p className="min-w-0 flex-1 font-black text-slate-950 [overflow-wrap:anywhere]">{word}</p>
+                    <EnglishAudioButton
+                      sourceType="vocabulary-word"
+                      sourceId={toVocabularySourceId(word)}
+                      label={word}
+                      compact
+                      className="shrink-0"
+                    />
+                  </div>
                   <p className="mt-1 text-slate-600 [overflow-wrap:anywhere]">{meaning}</p>
                 </div>
               ))}

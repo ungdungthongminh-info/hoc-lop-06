@@ -7,9 +7,9 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '../..');
 
 const DEFAULT_CATALOG = path.join(REPO_ROOT, 'docs/audio/english-audio-catalog-full.json');
-const REPORT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-full-generate-report.json');
-const REPORT_MD = path.join(REPO_ROOT, 'docs/audio/english-audio-full-generate-report.md');
-const CHECKPOINT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-full-generate-checkpoint.json');
+const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-full-generate-report.json');
+const DEFAULT_REPORT_MD = path.join(REPO_ROOT, 'docs/audio/english-audio-full-generate-report.md');
+const DEFAULT_CHECKPOINT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-full-generate-checkpoint.json');
 
 const OUTPUT_ROOT = 'F:\\1_A_Disk_D\\khuong-binh\\lop6-tts-audio';
 const PROFILE_ID = 'en-v1';
@@ -28,6 +28,9 @@ function parseArgs(argv) {
     resume: false,
     voice: VOICE_NAME,
     envFile: '',
+    reportJson: DEFAULT_REPORT_JSON,
+    reportMd: DEFAULT_REPORT_MD,
+    checkpoint: DEFAULT_CHECKPOINT_JSON,
   };
 
   for (const arg of argv.slice(2)) {
@@ -46,6 +49,12 @@ function parseArgs(argv) {
       if (value) result.voice = value;
     } else if (arg.startsWith('--env-file=')) {
       result.envFile = arg.slice('--env-file='.length);
+    } else if (arg.startsWith('--report-json=')) {
+      result.reportJson = arg.slice('--report-json='.length);
+    } else if (arg.startsWith('--report-md=')) {
+      result.reportMd = arg.slice('--report-md='.length);
+    } else if (arg.startsWith('--checkpoint=')) {
+      result.checkpoint = arg.slice('--checkpoint='.length);
     }
   }
 
@@ -293,9 +302,9 @@ async function main() {
     throw new Error('Missing Google TTS auth. Set GOOGLE_TTS_API_KEY or make ADC available.');
   }
 
-  await fs.mkdir(path.dirname(REPORT_JSON), { recursive: true });
+  await fs.mkdir(path.dirname(args.reportJson), { recursive: true });
 
-  const checkpoint = args.resume ? await readCheckpoint(CHECKPOINT_JSON) : { processedKeys: [] };
+  const checkpoint = args.resume ? await readCheckpoint(args.checkpoint) : { processedKeys: [] };
   const processedKeys = new Set(Array.isArray(checkpoint.processedKeys) ? checkpoint.processedKeys : []);
 
   const report = {
@@ -395,7 +404,7 @@ async function main() {
 
     processedSinceCheckpoint += 1;
     if (shouldUpdateCheckpoint && processedSinceCheckpoint % 10 === 0) {
-      await writeCheckpoint(CHECKPOINT_JSON, {
+      await writeCheckpoint(args.checkpoint, {
         updatedAt: nowIso(),
         processedKeys: Array.from(processedKeys),
       });
@@ -405,7 +414,7 @@ async function main() {
   }
 
   if (shouldUpdateCheckpoint) {
-    await writeCheckpoint(CHECKPOINT_JSON, {
+    await writeCheckpoint(args.checkpoint, {
       updatedAt: nowIso(),
       processedKeys: Array.from(processedKeys),
     });
@@ -414,13 +423,13 @@ async function main() {
   const pass = report.failed === 0;
   report.status = pass ? 'completed' : 'completed-with-errors';
 
-  await writeJson(REPORT_JSON, report);
-  await fs.writeFile(REPORT_MD, buildMarkdownReport(report), 'utf8');
+  await writeJson(args.reportJson, report);
+  await fs.writeFile(args.reportMd, buildMarkdownReport(report), 'utf8');
 
   console.log(JSON.stringify({
-    reportJson: REPORT_JSON,
-    reportMarkdown: REPORT_MD,
-    checkpoint: shouldUpdateCheckpoint ? CHECKPOINT_JSON : null,
+    reportJson: args.reportJson,
+    reportMarkdown: args.reportMd,
+    checkpoint: shouldUpdateCheckpoint ? args.checkpoint : null,
     totalItems: report.totalItems,
     batchItems: report.batchItems,
     created: report.created,

@@ -5,7 +5,8 @@ import { fileURLToPath } from 'node:url';
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '../..');
 
-const CATALOG_PATH = path.join(REPO_ROOT, 'docs/audio/english-audio-catalog-full.json');
+const FULL_CATALOG_PATH = path.join(REPO_ROOT, 'docs/audio/english-audio-catalog-full.json');
+const PHASE2B_CATALOG_PATH = path.join(REPO_ROOT, 'docs/audio/english-audio-catalog-phase2b.json');
 const OUTPUT_JSON = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-full.json');
 const OUTPUT_CSV = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-full.csv');
 const REPORT_MD = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-report.md');
@@ -16,7 +17,7 @@ const LANGUAGE = 'en';
 const SUBJECT = 'english';
 const GRADE = 6;
 const BASE_R2_PATH = `audio/tts/assets/${PROFILE_ID}`;
-const EXPECTED_TOTAL_ITEMS = 1728;
+const DEFAULT_SOURCE_CATALOGS = [FULL_CATALOG_PATH, PHASE2B_CATALOG_PATH];
 
 function nowIso() {
   return new Date().toISOString();
@@ -87,6 +88,10 @@ async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, 'utf8'));
 }
 
+async function fileExists(filePath) {
+  return fs.stat(filePath).then(() => true).catch(() => false);
+}
+
 async function fileSizeBytes(filePath) {
   const stat = await fs.stat(filePath);
   return Number(stat.size || 0);
@@ -111,8 +116,27 @@ function summarize(items, field) {
 }
 
 async function main() {
-  const catalog = await readJson(CATALOG_PATH);
-  const items = Array.isArray(catalog.items) ? catalog.items : [];
+  const sourceCatalogPaths = [];
+  for (const candidate of DEFAULT_SOURCE_CATALOGS) {
+    if (await fileExists(candidate)) {
+      sourceCatalogPaths.push(candidate);
+    }
+  }
+  if (!sourceCatalogPaths.length) {
+    throw new Error('missing-source-catalogs');
+  }
+
+  const sourceCatalogs = [];
+  for (const catalogPath of sourceCatalogPaths) {
+    const catalog = await readJson(catalogPath);
+    sourceCatalogs.push({
+      catalogPath,
+      catalog,
+      items: Array.isArray(catalog.items) ? catalog.items : [],
+    });
+  }
+
+  const items = sourceCatalogs.flatMap((entry) => entry.items);
 
   const errors = [];
   const duplicates = {
@@ -124,14 +148,6 @@ async function main() {
   const zeroSizeFiles = [];
   const wrongPathFiles = [];
   const normalizedItems = [];
-
-  if (items.length !== EXPECTED_TOTAL_ITEMS) {
-    errors.push(`expected-total-items-${EXPECTED_TOTAL_ITEMS}-got-${items.length}`);
-  }
-
-  if (Number(catalog?.counts?.totalItems || 0) !== EXPECTED_TOTAL_ITEMS) {
-    errors.push(`catalog-count-totalItems-${catalog?.counts?.totalItems ?? 'missing'}`);
-  }
 
   const seenIds = new Set();
   const seenSourceKeys = new Set();
@@ -246,7 +262,9 @@ async function main() {
     voice: VOICE,
     totalItems: normalizedItems.length,
     baseR2Path: BASE_R2_PATH,
-    sourceCatalogPath: path.relative(REPO_ROOT, CATALOG_PATH).replaceAll('\\', '/'),
+    sourceCatalogPaths: sourceCatalogPaths.map((catalogPath) =>
+      path.relative(REPO_ROOT, catalogPath).replaceAll('\\', '/'),
+    ),
     outputDir: 'F:\\1_A_Disk_D\\khuong-binh\\lop6-tts-audio\\en-v1',
     validation: counts,
     items: Object.fromEntries(normalizedItems.map((item) => [item.key, item])),
@@ -258,7 +276,9 @@ async function main() {
   reportLines.push(`- generatedAt: ${manifest.generatedAt}`);
   reportLines.push(`- profileId: ${manifest.profileId}`);
   reportLines.push(`- voice: ${manifest.voice}`);
-  reportLines.push(`- catalog: ${manifest.sourceCatalogPath}`);
+  for (const catalogPath of manifest.sourceCatalogPaths) {
+    reportLines.push(`- catalog: ${catalogPath}`);
+  }
   reportLines.push(`- outputDir: ${manifest.outputDir}`);
   reportLines.push(`- baseR2Path: ${manifest.baseR2Path}`);
   reportLines.push('');
