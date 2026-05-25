@@ -53,6 +53,7 @@ lop_06_dev_research_bundle.zip
 *.tgz
 hoctap_home_images_named_webp.zip
 *.mp3
+docs/audio/*checkpoint*.json
 
 # Security - keys and local-only deployment material
 *.pem
