@@ -1,4 +1,4 @@
-type EnglishAudioSourceType = 'lesson-card' | 'question' | 'vocabulary-word' | 'question-option';
+type EnglishAudioSourceType = 'lesson-card' | 'question' | 'vocabulary-word' | 'question-option' | 'vietnamese-gloss';
 
 function normalizeAudioText(value: string) {
   return String(value ?? '')
@@ -21,6 +21,13 @@ function shortHash(value: string) {
     hash = Math.imul(hash, 16777619);
   }
   return (hash >>> 0).toString(16).padStart(8, '0');
+}
+
+export function buildVietnameseGlossSourceId(lessonSourceId: string, englishWord: string) {
+  const lessonKey = normalizeAudioText(lessonSourceId);
+  const wordSlug = slugifyAudioText(englishWord);
+  if (!lessonKey || !wordSlug) return '';
+  return `${lessonKey}:vocab:${wordSlug}`;
 }
 
 export function buildEnglishAudioSourceId(sourceType: EnglishAudioSourceType, text: string) {

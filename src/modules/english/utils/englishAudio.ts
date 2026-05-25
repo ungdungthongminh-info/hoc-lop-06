@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
-export type EnglishAudioSourceType = 'lesson-card' | 'question' | 'vocabulary-word' | 'question-option';
+export type EnglishAudioSourceType = 'lesson-card' | 'question' | 'vocabulary-word' | 'question-option' | 'vietnamese-gloss';
 
 export type EnglishAudioSourceRef = {
   sourceType: EnglishAudioSourceType;
@@ -32,7 +32,7 @@ export type EnglishAudioManifest = {
   items: Record<string, EnglishAudioManifestItem>;
 };
 
-const MANIFEST_URL = 'audio/tts/manifest.json?v=phase2b';
+const MANIFEST_URL = 'audio/tts/manifest.json?v=phase3c';
 
 let manifestPromise: Promise<EnglishAudioManifest | null> | null = null;
 let manifestCache: EnglishAudioManifest | null = null;

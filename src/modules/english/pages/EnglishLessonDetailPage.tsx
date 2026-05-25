@@ -6,7 +6,7 @@ import { getEnglishLessonCards, getEnglishLessonQuestions } from '../../../data/
 import { EnglishContentCard } from '../components/EnglishContentCard';
 import { EnglishAudioButton } from '../components/EnglishAudioButton';
 import { isLikelyEnglishAudioText } from '../utils/englishAudioText';
-import { buildEnglishAudioSourceId } from '../utils/englishAudioKeys';
+import { buildEnglishAudioSourceId, buildVietnameseGlossSourceId } from '../utils/englishAudioKeys';
 import { playEnglishAudioSequence } from '../utils/englishAudio';
 
 type EnglishLessonDetailPageProps = {
@@ -23,6 +23,10 @@ const lessonTypeLabel: Record<EnglishLesson['lessonType'], string> = {
 
 function toVocabularySourceId(word: string) {
   return buildEnglishAudioSourceId('vocabulary-word', word);
+}
+
+function toVietnameseGlossSourceId(lessonSourceId: string, word: string) {
+  return buildVietnameseGlossSourceId(lessonSourceId, word);
 }
 
 export function EnglishLessonDetailPage({ lesson, onBack, onPractice }: EnglishLessonDetailPageProps) {
@@ -136,7 +140,17 @@ export function EnglishLessonDetailPage({ lesson, onBack, onPractice }: EnglishL
                       className="shrink-0"
                     />
                   </div>
-                  <p className="mt-1 text-slate-600 [overflow-wrap:anywhere]">{meaning}</p>
+                  <div className="mt-1 flex min-w-0 items-start justify-between gap-2">
+                    <p className="min-w-0 flex-1 text-slate-600 [overflow-wrap:anywhere]">{meaning}</p>
+                    <EnglishAudioButton
+                      sourceType="vietnamese-gloss"
+                      sourceId={toVietnameseGlossSourceId(lesson.sourceId, word)}
+                      lessonId={lesson.id}
+                      label={meaning}
+                      compact
+                      className="shrink-0 border-emerald-200 bg-emerald-50 text-emerald-700 hover:border-emerald-300 hover:bg-emerald-100 hover:text-emerald-800"
+                    />
+                  </div>
                 </div>
               ))}
             </div>

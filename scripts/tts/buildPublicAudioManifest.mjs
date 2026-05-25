@@ -6,6 +6,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '../..');
 
 const SOURCE_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-full.json');
+const DEFAULT_EXTRA_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-vi-phase3c-pilot-manifest.json');
 const PUBLIC_MANIFEST = path.join(REPO_ROOT, 'public/audio/tts/manifest.json');
 const DEFAULT_BASE_URL = 'https://audio.hochungkhoi.site';
 
@@ -17,6 +18,7 @@ function parseArgs(argv) {
   const result = {
     baseUrl: DEFAULT_BASE_URL,
     sourceManifest: SOURCE_MANIFEST,
+    extraManifests: [],
     output: PUBLIC_MANIFEST,
     sampleCount: 5,
   };
@@ -32,7 +34,14 @@ function parseArgs(argv) {
     } else if (arg.startsWith('--sampleCount=')) {
       const value = Number(arg.slice('--sampleCount='.length));
       if (Number.isFinite(value) && value > 0) result.sampleCount = Math.max(1, Math.floor(value));
+    } else if (arg.startsWith('--extraManifest=')) {
+      const value = arg.slice('--extraManifest='.length).trim();
+      if (value) result.extraManifests.push(value);
     }
+  }
+
+  if (!result.extraManifests.length) {
+    result.extraManifests.push(DEFAULT_EXTRA_MANIFEST);
   }
 
   return result;
@@ -46,11 +55,11 @@ async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, 'utf8'));
 }
 
-function buildItems(manifest, baseUrl) {
+function buildItems(manifest, baseUrl, existingItems = {}) {
   const sourceItems = manifest?.items || {};
   const entries = Object.entries(sourceItems);
-  const seen = new Set();
-  const items = {};
+  const seen = new Set(Object.keys(existingItems));
+  const items = { ...existingItems };
 
   for (const [key, item] of entries) {
     const sourceType = normalizeText(item.sourceType);
@@ -76,6 +85,15 @@ function buildItems(manifest, baseUrl) {
   return items;
 }
 
+function pickSampleKeys(items, extraKeys, sampleCount) {
+  const baseKeys = items.filter((key) => !extraKeys.includes(key));
+  if (!extraKeys.length) {
+    return items.slice(0, sampleCount);
+  }
+  const headCount = Math.max(1, sampleCount - 1);
+  return [...baseKeys.slice(0, headCount), extraKeys[0]].slice(0, sampleCount);
+}
+
 async function headCheck(url) {
   const response = await fetch(url, { method: 'HEAD' });
   const contentType = String(response.headers.get('content-type') || '').toLowerCase();
@@ -89,10 +107,26 @@ async function headCheck(url) {
 async function main() {
   const args = parseArgs(process.argv);
   const source = await readJson(args.sourceManifest);
-  const items = buildItems(source, args.baseUrl);
+  let items = buildItems(source, args.baseUrl);
+  const extraKeys = [];
+  const extraTotals = [];
+
+  for (const extraManifestPath of args.extraManifests) {
+    const extraExists = await fs.stat(extraManifestPath).then(() => true).catch(() => false);
+    if (!extraExists) continue;
+    const extraManifest = await readJson(extraManifestPath);
+    const extraItemKeys = Object.keys(extraManifest?.items || {});
+    items = buildItems(extraManifest, args.baseUrl, items);
+    extraKeys.push(...extraItemKeys);
+    extraTotals.push(extraItemKeys.length);
+  }
+
   const itemKeys = Object.keys(items);
-  if (itemKeys.length !== Number(source?.totalItems || 0)) {
-    throw new Error(`source-total-items-${source?.totalItems ?? 'missing'}-manifest-${itemKeys.length}`);
+  const expectedBaseTotal = Number(source?.totalItems || 0);
+  const expectedTotal = expectedBaseTotal + extraTotals.reduce((sum, value) => sum + value, 0);
+
+  if (itemKeys.length !== expectedTotal) {
+    throw new Error(`source-total-items-${expectedTotal || expectedBaseTotal}-manifest-${itemKeys.length}`);
   }
 
   const manifest = {
@@ -109,9 +143,7 @@ async function main() {
   await fs.mkdir(path.dirname(args.output), { recursive: true });
   await fs.writeFile(args.output, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
 
-  const sampleKeys = [
-    ...itemKeys.slice(0, args.sampleCount),
-  ];
+  const sampleKeys = pickSampleKeys(itemKeys, extraKeys, args.sampleCount);
   const sample = [];
   for (const key of sampleKeys) {
     const entry = items[key];
