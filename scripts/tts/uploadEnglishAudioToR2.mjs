@@ -16,6 +16,8 @@ const DEFAULT_BASE_R2_PATH = 'audio/tts/assets/en-v1';
 const DEFAULT_LIMIT = 50;
 const DEFAULT_OFFSET = 0;
 const DEFAULT_DRY_RUN = true;
+const KEY_POINTER_PATH = path.join(REPO_ROOT, 'docs/keys.md');
+const PROJECT_SLUG = 'hoc-tap-lop-06';
 
 function nowIso() {
   return new Date().toISOString();
@@ -154,6 +156,50 @@ function parseDotEnv(content) {
   return result;
 }
 
+function parsePointerSourceFile(content) {
+  const match = String(content || '').match(/^\s*source_file:\s*(.+?)\s*$/im);
+  return match ? match[1].trim() : '';
+}
+
+function pickProjectBlock(content, projectSlug) {
+  const lines = String(content || '').split(/\r?\n/);
+  const projectIndex = lines.findIndex((line) => line.toLowerCase().includes(projectSlug.toLowerCase()));
+  if (projectIndex < 0) return null;
+
+  const windowLines = lines.slice(projectIndex, Math.min(lines.length, projectIndex + 80));
+  const text = windowLines.join('\n');
+
+  const accountId = text.match(/Account ID\s*[:=]\s*([a-f0-9-]+)/i)?.[1]?.trim() || '';
+  const accessKeyId = text.match(/Access Key ID\s*[:=]\s*([a-f0-9-]+)/i)?.[1]?.trim() || '';
+  const secretAccessKey = text.match(/Secret Access Key\s*[:=]\s*([a-f0-9-]+)/i)?.[1]?.trim() || '';
+  const publicBaseUrl = text.match(/Public Development URL\s*[:=]\s*(\S+)/i)?.[1]?.trim() || '';
+  const s3Api = text.match(/S3 API\s*[:=]\s*(\S+)/i)?.[1]?.trim() || '';
+  const r2Url = text.match(/R2url\s*[:=]\s*(\S+)/i)?.[1]?.trim() || '';
+
+  let bucket = '';
+  try {
+    const parsedS3 = s3Api ? new URL(s3Api) : null;
+    const pathname = parsedS3 ? parsedS3.pathname.replace(/^\/+|\/+$/g, '') : '';
+    if (pathname) {
+      bucket = pathname.split('/').pop() || '';
+    }
+  } catch {
+    // ignore invalid S3 URL
+  }
+
+  if (!bucket) bucket = projectSlug;
+
+  return {
+    accountId,
+    accessKeyId,
+    secretAccessKey,
+    bucket,
+    endpoint: accountId ? `https://${accountId}.r2.cloudflarestorage.com` : '',
+    publicBaseUrl,
+    sourceHint: s3Api || r2Url || '',
+  };
+}
+
 async function readCredentialSources() {
   const env = {
     accountId: String(process.env.R2_ACCOUNT_ID || '').trim(),
@@ -194,10 +240,35 @@ async function readCredentialSources() {
     // ignore missing local file
   }
 
+  const pointerExists = await fs.stat(KEY_POINTER_PATH).then(() => true).catch(() => false);
+  if (pointerExists) {
+    try {
+      const pointerContent = await fs.readFile(KEY_POINTER_PATH, 'utf8');
+      const sourceFile = parsePointerSourceFile(pointerContent);
+      if (sourceFile) {
+        const sourceExists = await fs.stat(sourceFile).then(() => true).catch(() => false);
+        if (sourceExists) {
+          const sourceContent = await fs.readFile(sourceFile, 'utf8');
+          const projectCreds = pickProjectBlock(sourceContent, PROJECT_SLUG);
+          if (projectCreds?.accountId && projectCreds?.accessKeyId && projectCreds?.secretAccessKey && projectCreds?.bucket) {
+            for (const [key, value] of Object.entries(projectCreds)) {
+              if (value && !env[key]) {
+                env[key] = value;
+                source[key] = `source_file:${sourceFile}`;
+              }
+            }
+          }
+        }
+      }
+    } catch {
+      // ignore pointer/source read issues here; they will be surfaced as missing credential fields later.
+    }
+  }
+
   const keysMd = path.join(REPO_ROOT, 'docs/keys.md');
   const docsKeysExists = await fs.stat(keysMd).then(() => true).catch(() => false);
 
-  return { env, source, docsKeysExists };
+  return { env, source, docsKeysExists, sourcePointerExists: pointerExists };
 }
 
 function missingCredentialFields(creds) {
