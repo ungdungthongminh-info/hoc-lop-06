@@ -36,6 +36,7 @@ const MANIFEST_URL = 'audio/tts/manifest.json?v=phase2b';
 
 let manifestPromise: Promise<EnglishAudioManifest | null> | null = null;
 let manifestCache: EnglishAudioManifest | null = null;
+
 type PlaybackState = {
   key: string;
   url: string;
@@ -48,6 +49,12 @@ const playbackListeners = new Set<() => void>();
 
 function getPlaybackKey(sourceType: EnglishAudioSourceType, sourceId: string, lessonId?: number) {
   return `${sourceType}:${typeof lessonId === 'number' ? lessonId : 'none'}:${sourceId}`;
+}
+
+function getSequencePlaybackKey(items: EnglishAudioSourceRef[]) {
+  return `sequence:${items
+    .map((item) => `${item.sourceType}:${typeof item.lessonId === 'number' ? item.lessonId : 'none'}:${item.sourceId}`)
+    .join('|')}`;
 }
 
 function emitPlaybackChange() {
@@ -114,7 +121,7 @@ export function resolveEnglishAudioManifestItem(
 async function readEnglishAudioManifest() {
   if (manifestCache) return manifestCache;
   if (!manifestPromise) {
-      manifestPromise = fetch(MANIFEST_URL, { cache: 'no-store' })
+    manifestPromise = fetch(MANIFEST_URL, { cache: 'no-store' })
       .then(async (response) => {
         if (!response.ok) return null;
         return (await response.json()) as EnglishAudioManifest;
@@ -156,14 +163,7 @@ function stopCurrentAudio(resolvePlayback = false) {
   }
 }
 
-async function playEnglishAudioUrl(url: string, playbackKey: string) {
-  if (currentAudio?.key === playbackKey) {
-    stopCurrentAudio(false);
-    return false;
-  }
-
-  stopCurrentAudio(false);
-
+async function playEnglishAudioUrlOnce(url: string, playbackKey: string) {
   try {
     const audio = new Audio(url);
     audio.preload = 'auto';
@@ -180,7 +180,7 @@ async function playEnglishAudioUrl(url: string, playbackKey: string) {
         if (settled) return;
         settled = true;
         if (currentAudio?.audio === audio) currentAudio = null;
-        if (currentAudioResolve) currentAudioResolve = null;
+        currentAudioResolve = null;
         emitPlaybackChange();
         resolve(value);
       };
@@ -202,6 +202,16 @@ async function playEnglishAudioUrl(url: string, playbackKey: string) {
   }
 }
 
+async function playEnglishAudioUrl(url: string, playbackKey: string) {
+  if (currentAudio?.key === playbackKey) {
+    stopCurrentAudio(false);
+    return false;
+  }
+
+  stopCurrentAudio(false);
+  return playEnglishAudioUrlOnce(url, playbackKey);
+}
+
 export function stopEnglishAudioPlayback() {
   stopCurrentAudio(false);
 }
@@ -213,15 +223,23 @@ export async function playEnglishAudio(sourceType: EnglishAudioSourceType, sourc
   return playEnglishAudioUrl(url, getPlaybackKey(sourceType, sourceId, lessonId));
 }
 
-export async function playEnglishAudioSequence(items: EnglishAudioSourceRef[]) {
+export async function playEnglishAudioSequence(items: EnglishAudioSourceRef[], playbackKey?: string) {
   const manifest = await readEnglishAudioManifest();
   if (!manifest) return false;
+
+  const sequencePlaybackKey = playbackKey ?? getSequencePlaybackKey(items);
+  if (currentAudio?.key === sequencePlaybackKey) {
+    stopCurrentAudio(false);
+    return false;
+  }
+
+  stopCurrentAudio(false);
 
   let playedAny = false;
   for (const item of items) {
     const url = getEnglishAudioUrlFromManifest(manifest, item.sourceType, item.sourceId, item.lessonId);
     if (!url) continue;
-    const played = await playEnglishAudioUrl(url, getPlaybackKey(item.sourceType, item.sourceId, item.lessonId));
+    const played = await playEnglishAudioUrlOnce(url, sequencePlaybackKey);
     if (!played) break;
     playedAny = true;
   }
@@ -272,7 +290,9 @@ export function useEnglishAudio(sourceType: EnglishAudioSourceType, sourceId: st
     const meta = import.meta as ImportMeta & { env?: { DEV?: boolean } };
     if (meta.env?.DEV) {
       console.warn(
-        `[EnglishAudio] missing audio for sourceType=${sourceType} sourceId=${sourceId}${typeof lessonId === 'number' ? ` lessonId=${lessonId}` : ''}`,
+        `[EnglishAudio] missing audio for sourceType=${sourceType} sourceId=${sourceId}${
+          typeof lessonId === 'number' ? ` lessonId=${lessonId}` : ''
+        }`,
       );
     }
   }, [audioUrl, isLoading, lessonId, sourceId, sourceType]);
@@ -306,6 +326,64 @@ export function useEnglishAudio(sourceType: EnglishAudioSourceType, sourceId: st
     matchType: resolvedMatch?.matchType ?? null,
     isLoading,
     hasAudio: Boolean(audioUrl),
+    isPlaying,
+    play,
+  };
+}
+
+export function useEnglishAudioSequence(items: EnglishAudioSourceRef[], playbackKey: string) {
+  const [manifest, setManifest] = useState<EnglishAudioManifest | null>(manifestCache);
+  const [isLoading, setIsLoading] = useState(!manifestCache);
+  const [playbackVersion, setPlaybackVersion] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    void readEnglishAudioManifest().then((nextManifest) => {
+      if (cancelled) return;
+      setManifest(nextManifest);
+      setIsLoading(false);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsubscribe = subscribeEnglishAudioPlayback(() => setPlaybackVersion((version) => version + 1));
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const resolvedItems = useMemo(
+    () =>
+      items
+        .map((item) => resolveEnglishAudioManifestItem(manifest, item.sourceType, item.sourceId, item.lessonId))
+        .filter((item): item is EnglishAudioManifestMatch => Boolean(item)),
+    [items, manifest],
+  );
+
+  const hasAudio = resolvedItems.length > 0;
+  const resolvedMatch = resolvedItems[0] ?? null;
+  const isPlaying = currentAudio?.key === playbackKey && playbackVersion >= 0;
+
+  useEffect(() => {
+    if (isLoading || hasAudio) return;
+    const meta = import.meta as ImportMeta & { env?: { DEV?: boolean } };
+    if (meta.env?.DEV) {
+      console.warn(`[EnglishAudio] missing audio sequence playbackKey=${playbackKey}`);
+    }
+  }, [hasAudio, isLoading, playbackKey]);
+
+  const play = useCallback(async () => playEnglishAudioSequence(items, playbackKey), [items, playbackKey]);
+
+  return {
+    audioUrl: resolvedMatch?.item.url ?? null,
+    resolvedSourceId: resolvedMatch?.item.sourceId ?? null,
+    matchType: resolvedMatch?.matchType ?? null,
+    isLoading,
+    hasAudio,
     isPlaying,
     play,
   };

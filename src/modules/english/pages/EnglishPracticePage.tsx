@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from 'react';
 import type {
   EnglishLesson,
   EnglishPracticeQuestionCountOption,
-  EnglishQuestion,
 } from '../../../data/grade6/tieng-anh';
 import {
   DEFAULT_ENGLISH_PRACTICE_QUESTION_COUNT,
@@ -15,8 +14,7 @@ import {
 import { useSound } from '../../../shared/hooks/useSound';
 import { EnglishQuestionCard } from '../components/EnglishQuestionCard';
 import { playEnglishAudioSequence, stopEnglishAudioPlayback } from '../utils/englishAudio';
-import type { EnglishAudioSourceRef } from '../utils/englishAudio';
-import { buildEnglishAudioSourceId } from '../utils/englishAudioKeys';
+import { buildEnglishQuestionAudioSequence } from '../utils/englishPracticeAudio';
 
 const PRACTICE_COUNT_STORAGE_KEY = 'lop6.english.practiceQuestionCount';
 const PRACTICE_AUTO_PLAY_STORAGE_KEY = 'lop6.english.practiceAutoPlayNextQuestion';
@@ -35,20 +33,6 @@ function getStoredPracticeQuestionCount(): EnglishPracticeQuestionCountOption {
 function getStoredAutoPlayNextQuestion() {
   if (typeof window === 'undefined') return false;
   return window.localStorage.getItem(PRACTICE_AUTO_PLAY_STORAGE_KEY) === '1';
-}
-
-function buildQuestionAudioSequence(question: EnglishQuestion) {
-  const sequence: EnglishAudioSourceRef[] = [{ sourceType: 'question', sourceId: question.sourceId, lessonId: question.lessonId }];
-  if (question.options?.length && (question.questionType === 'single_choice' || question.questionType === 'true_false')) {
-    sequence.push(
-      ...question.options.map((option) => ({
-        sourceType: 'question-option' as const,
-        sourceId: buildEnglishAudioSourceId('question-option', option.text || option.key),
-        lessonId: question.lessonId,
-      })),
-    );
-  }
-  return sequence;
 }
 
 export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticePageProps) {
@@ -82,7 +66,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
 
   useEffect(() => {
     if (!practiceStarted || !currentQuestion || !autoPlayNextQuestion) return;
-    void playEnglishAudioSequence(buildQuestionAudioSequence(currentQuestion));
+    void playEnglishAudioSequence(buildEnglishQuestionAudioSequence(currentQuestion), `question-sequence:${currentQuestion.id}`);
   }, [autoPlayNextQuestion, currentQuestion, practiceStarted]);
 
   const resetPractice = () => {
@@ -183,7 +167,7 @@ export function EnglishPracticePage({ lesson, onBackToLesson }: EnglishPracticeP
           ? 'border-indigo-300 bg-indigo-50 text-indigo-800'
           : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
       }`}
-      >
+    >
       <PlayCircle className="h-4 w-4" />
       Tự động phát câu sau
     </button>

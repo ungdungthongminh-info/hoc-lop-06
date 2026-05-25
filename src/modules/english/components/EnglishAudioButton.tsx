@@ -1,7 +1,7 @@
 import { Loader2, Volume2 } from 'lucide-react';
 
-import { useEnglishAudio } from '../utils/englishAudio';
-import type { EnglishAudioSourceType } from '../utils/englishAudio';
+import type { EnglishAudioSourceRef, EnglishAudioSourceType } from '../utils/englishAudio';
+import { useEnglishAudio, useEnglishAudioSequence } from '../utils/englishAudio';
 
 type EnglishAudioButtonProps = {
   sourceType: EnglishAudioSourceType;
@@ -10,6 +10,8 @@ type EnglishAudioButtonProps = {
   label: string;
   className?: string;
   compact?: boolean;
+  sequenceItems?: EnglishAudioSourceRef[];
+  sequencePlaybackKey?: string;
 };
 
 export function EnglishAudioButton({
@@ -19,16 +21,17 @@ export function EnglishAudioButton({
   label,
   className,
   compact = false,
+  sequenceItems,
+  sequencePlaybackKey,
 }: EnglishAudioButtonProps) {
-  const { audioUrl, hasAudio, isLoading, isPlaying, play, resolvedSourceId, matchType } = useEnglishAudio(
-    sourceType,
-    sourceId,
-    lessonId,
-  );
+  const audioState = sequenceItems?.length
+    ? useEnglishAudioSequence(sequenceItems, sequencePlaybackKey ?? `${sourceType}:${lessonId ?? 'none'}:${sourceId}`)
+    : useEnglishAudio(sourceType, sourceId, lessonId);
+  const { hasAudio, isLoading, isPlaying, play, resolvedSourceId, matchType } = audioState;
 
   if (!isLoading && !hasAudio) return null;
 
-  const disabled = isLoading || !audioUrl;
+  const disabled = isLoading || !hasAudio;
 
   return (
     <button

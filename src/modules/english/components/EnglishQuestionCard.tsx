@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import type { EnglishQuestion } from '../../../data/grade6/tieng-anh';
 import { EnglishAudioButton } from './EnglishAudioButton';
-import { buildEnglishAudioSourceId } from '../utils/englishAudioKeys';
+import { buildEnglishQuestionAudioSequence } from '../utils/englishPracticeAudio';
 
 type EnglishQuestionCardProps = {
   question: EnglishQuestion;
@@ -31,11 +31,6 @@ function getDifficultyLabel(difficulty: EnglishQuestion['difficulty']) {
   return 'Thử thách';
 }
 
-function getOptionAudioSourceId(question: EnglishQuestion, optionKey: string) {
-  const option = question.options?.find((entry) => entry.key === optionKey);
-  return buildEnglishAudioSourceId('question-option', option?.text || optionKey);
-}
-
 export function EnglishQuestionCard({
   question,
   selectedAnswer,
@@ -48,6 +43,7 @@ export function EnglishQuestionCard({
   const isCorrect = selectedAnswer ? isCorrectAnswer(question, selectedAnswer) : false;
   const hasOptions = Boolean(question.options?.length);
   const isOpenWriting = question.questionType === 'writing_prompt';
+  const questionAudioSequence = buildEnglishQuestionAudioSequence(question);
 
   useEffect(() => {
     setTextAnswer('');
@@ -68,7 +64,14 @@ export function EnglishQuestionCard({
           <span className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-600">
             {getDifficultyLabel(question.difficulty)}
           </span>
-          <EnglishAudioButton sourceType="question" sourceId={question.sourceId} lessonId={question.lessonId} label={question.questionText} />
+          <EnglishAudioButton
+            sourceType="question"
+            sourceId={question.sourceId}
+            lessonId={question.lessonId}
+            label={question.questionText}
+            sequenceItems={questionAudioSequence}
+            sequencePlaybackKey={`question-sequence:${question.id}`}
+          />
         </div>
       </div>
 
@@ -102,14 +105,6 @@ export function EnglishQuestionCard({
                   {showCorrect ? <CheckCircle2 className="h-5 w-5 shrink-0" /> : null}
                   {showWrong ? <XCircle className="h-5 w-5 shrink-0" /> : null}
                 </button>
-                <EnglishAudioButton
-                  sourceType="question-option"
-                  sourceId={getOptionAudioSourceId(question, option.key)}
-                  lessonId={question.lessonId}
-                  label={`${option.key}. ${option.text}`}
-                  compact
-                  className="shrink-0 self-stretch"
-                />
               </div>
             );
           })}
