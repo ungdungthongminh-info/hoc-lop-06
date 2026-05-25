@@ -21,7 +21,7 @@ export type EnglishAudioManifest = {
   items: Record<string, EnglishAudioManifestItem>;
 };
 
-const MANIFEST_URL = '/audio/tts/manifest.json';
+const MANIFEST_URL = 'audio/tts/manifest.json';
 
 let manifestPromise: Promise<EnglishAudioManifest | null> | null = null;
 let manifestCache: EnglishAudioManifest | null = null;
@@ -110,6 +110,14 @@ export function useEnglishAudio(sourceType: EnglishAudioSourceType, sourceId: st
     () => getEnglishAudioUrlFromManifest(manifest, sourceType, sourceId),
     [manifest, sourceId, sourceType],
   );
+
+  useEffect(() => {
+    if (isLoading || audioUrl) return;
+    const meta = import.meta as ImportMeta & { env?: { DEV?: boolean } };
+    if (meta.env?.DEV) {
+      console.warn(`[EnglishAudio] missing audio for sourceId=${sourceId}`);
+    }
+  }, [audioUrl, isLoading, sourceId]);
 
   const play = useCallback(async () => {
     if (audioUrl) {
