@@ -32,7 +32,7 @@ export type EnglishAudioManifest = {
   items: Record<string, EnglishAudioManifestItem>;
 };
 
-const MANIFEST_URL = 'audio/tts/manifest.json?v=phase3c';
+const MANIFEST_URL = 'audio/tts/manifest.json?v=phase3d';
 
 let manifestPromise: Promise<EnglishAudioManifest | null> | null = null;
 let manifestCache: EnglishAudioManifest | null = null;

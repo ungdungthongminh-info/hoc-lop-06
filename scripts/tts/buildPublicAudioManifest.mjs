@@ -6,7 +6,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '../..');
 
 const SOURCE_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-full.json');
-const DEFAULT_EXTRA_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-vi-phase3c-pilot-manifest.json');
+const DEFAULT_EXTRA_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-vi-phase3d-gloss-full-manifest.json');
 const PUBLIC_MANIFEST = path.join(REPO_ROOT, 'public/audio/tts/manifest.json');
 const DEFAULT_BASE_URL = 'https://audio.hochungkhoi.site';
 
