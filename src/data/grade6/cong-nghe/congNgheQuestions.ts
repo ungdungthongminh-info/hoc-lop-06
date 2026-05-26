@@ -469,7 +469,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -477,7 +477,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -495,7 +495,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -503,7 +503,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -521,7 +521,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -529,7 +529,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -547,7 +547,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -555,7 +555,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -573,7 +573,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -581,7 +581,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -599,7 +599,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -607,7 +607,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -625,7 +625,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -633,7 +633,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -1617,7 +1617,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -1625,7 +1625,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -1643,7 +1643,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -1651,7 +1651,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -1669,7 +1669,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -1677,7 +1677,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -1695,7 +1695,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -1703,7 +1703,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -1721,7 +1721,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -1729,7 +1729,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -1747,7 +1747,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -1755,7 +1755,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -1773,7 +1773,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -1781,7 +1781,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -2765,7 +2765,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -2773,7 +2773,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -2791,7 +2791,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -2799,7 +2799,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -2817,7 +2817,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -2825,7 +2825,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -2843,7 +2843,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -2851,7 +2851,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -2869,7 +2869,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -2877,7 +2877,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -2895,7 +2895,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -2903,7 +2903,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -2921,7 +2921,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -2929,7 +2929,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -3913,7 +3913,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -3921,7 +3921,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -3939,7 +3939,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -3947,7 +3947,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -3965,7 +3965,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -3973,7 +3973,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -3991,7 +3991,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -3999,7 +3999,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -4017,7 +4017,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -4025,7 +4025,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -4043,7 +4043,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -4051,7 +4051,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -4069,7 +4069,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -4077,7 +4077,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -5061,7 +5061,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -5069,7 +5069,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -5087,7 +5087,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -5095,7 +5095,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -5113,7 +5113,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -5121,7 +5121,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -5139,7 +5139,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -5147,7 +5147,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -5165,7 +5165,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -5173,7 +5173,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -5191,7 +5191,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -5199,7 +5199,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -5217,7 +5217,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -5225,7 +5225,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -6209,7 +6209,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -6217,7 +6217,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -6235,7 +6235,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -6243,7 +6243,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -6261,7 +6261,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -6269,7 +6269,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -6287,7 +6287,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -6295,7 +6295,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -6313,7 +6313,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -6321,7 +6321,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -6339,7 +6339,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -6347,7 +6347,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -6365,7 +6365,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -6373,7 +6373,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -7357,7 +7357,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -7365,7 +7365,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -7383,7 +7383,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -7391,7 +7391,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -7409,7 +7409,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -7417,7 +7417,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -7435,7 +7435,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -7443,7 +7443,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -7461,7 +7461,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -7469,7 +7469,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -7487,7 +7487,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -7495,7 +7495,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -7513,7 +7513,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -7521,7 +7521,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -8505,7 +8505,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -8513,7 +8513,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -8531,7 +8531,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -8539,7 +8539,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -8557,7 +8557,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -8565,7 +8565,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -8583,7 +8583,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -8591,7 +8591,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -8609,7 +8609,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -8617,7 +8617,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -8635,7 +8635,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -8643,7 +8643,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -8661,7 +8661,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -8669,7 +8669,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -9653,7 +9653,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -9661,7 +9661,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -9679,7 +9679,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -9687,7 +9687,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -9705,7 +9705,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -9713,7 +9713,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -9731,7 +9731,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -9739,7 +9739,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -9757,7 +9757,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -9765,7 +9765,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -9783,7 +9783,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -9791,7 +9791,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -9809,7 +9809,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -9817,7 +9817,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -10801,7 +10801,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -10809,7 +10809,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -10827,7 +10827,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -10835,7 +10835,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -10853,7 +10853,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -10861,7 +10861,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -10879,7 +10879,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -10887,7 +10887,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -10905,7 +10905,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -10913,7 +10913,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -10931,7 +10931,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -10939,7 +10939,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -10957,7 +10957,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -10965,7 +10965,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -11949,7 +11949,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -11957,7 +11957,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -11975,7 +11975,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -11983,7 +11983,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -12001,7 +12001,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -12009,7 +12009,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -12027,7 +12027,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -12035,7 +12035,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -12053,7 +12053,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -12061,7 +12061,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -12079,7 +12079,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -12087,7 +12087,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -12105,7 +12105,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -12113,7 +12113,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -13097,7 +13097,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -13105,7 +13105,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -13123,7 +13123,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -13131,7 +13131,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -13149,7 +13149,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -13157,7 +13157,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -13175,7 +13175,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -13183,7 +13183,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -13201,7 +13201,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -13209,7 +13209,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -13227,7 +13227,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -13235,7 +13235,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -13253,7 +13253,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -13261,7 +13261,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -14245,7 +14245,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -14253,7 +14253,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -14271,7 +14271,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -14279,7 +14279,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -14297,7 +14297,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -14305,7 +14305,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -14323,7 +14323,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -14331,7 +14331,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -14349,7 +14349,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -14357,7 +14357,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -14375,7 +14375,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -14383,7 +14383,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -14401,7 +14401,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -14409,7 +14409,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -15393,7 +15393,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -15401,7 +15401,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -15419,7 +15419,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -15427,7 +15427,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -15445,7 +15445,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -15453,7 +15453,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -15471,7 +15471,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -15479,7 +15479,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -15497,7 +15497,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -15505,7 +15505,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -15523,7 +15523,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -15531,7 +15531,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -15549,7 +15549,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -15557,7 +15557,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -16541,7 +16541,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -16549,7 +16549,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -16567,7 +16567,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -16575,7 +16575,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -16593,7 +16593,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -16601,7 +16601,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -16619,7 +16619,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -16627,7 +16627,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -16645,7 +16645,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -16653,7 +16653,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -16671,7 +16671,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -16679,7 +16679,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -16697,7 +16697,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -16705,7 +16705,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -17689,7 +17689,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -17697,7 +17697,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -17715,7 +17715,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -17723,7 +17723,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -17741,7 +17741,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -17749,7 +17749,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -17767,7 +17767,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -17775,7 +17775,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -17793,7 +17793,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -17801,7 +17801,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -17819,7 +17819,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -17827,7 +17827,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -17845,7 +17845,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -17853,7 +17853,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -18837,7 +18837,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -18845,7 +18845,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -18863,7 +18863,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -18871,7 +18871,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -18889,7 +18889,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -18897,7 +18897,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -18915,7 +18915,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -18923,7 +18923,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -18941,7 +18941,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -18949,7 +18949,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -18967,7 +18967,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -18975,7 +18975,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -18993,7 +18993,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -19001,7 +19001,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -19985,7 +19985,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -19993,7 +19993,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -20011,7 +20011,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -20019,7 +20019,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -20037,7 +20037,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -20045,7 +20045,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -20063,7 +20063,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -20071,7 +20071,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -20089,7 +20089,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -20097,7 +20097,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -20115,7 +20115,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -20123,7 +20123,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -20141,7 +20141,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -20149,7 +20149,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -21133,7 +21133,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -21141,7 +21141,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -21159,7 +21159,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -21167,7 +21167,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -21185,7 +21185,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -21193,7 +21193,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -21211,7 +21211,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -21219,7 +21219,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "A",
-    "answerText": "true",
+    "answerText": "Đúng",
     "explanationSimple": "Phát biểu này đúng theo kiến thức cốt lõi.",
     "difficulty": "easy",
     "skillTag": "concept",
@@ -21237,7 +21237,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -21245,7 +21245,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -21263,7 +21263,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -21271,7 +21271,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",
@@ -21289,7 +21289,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
     "options": [
       {
         "key": "A",
-        "text": "??ng"
+        "text": "Đúng"
       },
       {
         "key": "B",
@@ -21297,7 +21297,7 @@ export const congNgheQuestions: CongNgheQuestion[] = [
       }
     ],
     "correctAnswer": "B",
-    "answerText": "false",
+    "answerText": "Sai",
     "explanationSimple": "Đây là lỗi cần tránh, không phải cách hiểu/hành động đúng.",
     "difficulty": "medium",
     "skillTag": "concept",

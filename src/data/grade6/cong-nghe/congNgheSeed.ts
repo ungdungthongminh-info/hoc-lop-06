@@ -6,10 +6,30 @@ import type { CongNgheDifficulty, CongNghePracticeQuestionCountChoice, CongNgheP
 export const DEFAULT_CONG_NGHE_PRACTICE_QUESTION_COUNT: CongNghePracticeQuestionCountOption = 12;
 
 export const CONG_NGHE_PRACTICE_QUESTION_COUNT_OPTIONS: CongNghePracticeQuestionCountChoice[] = [
-  { value: 10, title: 'Luy?n nhanh', label: '10 c?u', description: '?n nhanh kh?i ni?m, an to?n v? thao t?c ch?nh.' },
-  { value: 12, title: 'Ti?u chu?n', label: '12 c?u', description: 'C?n b?ng gi?a ki?n th?c, t?nh hu?ng v? v?n d?ng.' },
-  { value: 20, title: 'Luy?n s?u', label: '20 c?u', description: 'Luy?n nhi?u c?u h?n ?? ch?c b?i v? nh? quy tr?nh.' },
-  { value: 40, title: 'Th? th?ch ?? b?i', label: '40 c?u', description: 'L?m to?n b? ng?n h?ng c?u h?i c?a b?i n?y.' },
+  {
+    "value": 10,
+    "title": "Luyện nhanh",
+    "label": "10 câu",
+    "description": "Ôn nhanh khái niệm, an toàn và thao tác chính."
+  },
+  {
+    "value": 12,
+    "title": "Tiêu chuẩn",
+    "label": "12 câu",
+    "description": "Cân bằng giữa kiến thức, tình huống và vận dụng."
+  },
+  {
+    "value": 20,
+    "title": "Luyện sâu",
+    "label": "20 câu",
+    "description": "Luyện nhiều câu hơn để chắc bài và nhớ quy trình."
+  },
+  {
+    "value": 40,
+    "title": "Thử thách đầy bài",
+    "label": "40 câu",
+    "description": "Làm toàn bộ ngân hàng câu hỏi của bài này."
+  }
 ];
 
 const samplingPolicy: Record<Exclude<CongNghePracticeQuestionCountOption, 40>, Record<CongNgheDifficulty, number>> = {
@@ -20,7 +40,7 @@ const samplingPolicy: Record<Exclude<CongNghePracticeQuestionCountOption, 40>, R
 
 export const congNgheSeed = {
   subjectCode: 'cong-nghe',
-  subjectTitle: 'C?ng ngh?',
+  subjectTitle: 'Công nghệ',
   grade: 6,
   lessons: congNgheLessons,
   cards: congNgheLessonCards,

@@ -7,7 +7,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "pham-chat-ca-nhan",
-    "unitTitle": "Ph?m ch?t c? nh?n",
+    "unitTitle": "Phẩm chất cá nhân",
     "topicType": "dao_duc",
     "lessonCode": "gdcd-6-01",
     "slug": "tu-hao-ve-truyen-thong-gia-dinh-dong-ho",
@@ -31,9 +31,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "giữ gìn": "preserve"
     },
     "examples": [
-      "Bạn Nam chê nghề làm bánh truyền thống của gia đình bạn Hòa là quê mùa. ? Hòa nên bình tĩnh giải thích giá trị nghề truyền thống và không cần xấu hổ.",
-      "Gia đình em có truyền thống hiếu học, nhưng em học chưa đều. ? Em có thể lập kế hoạch học tập nhỏ để tiếp nối truyền thống bằng hành động thật.",
-      "Một bạn khoe dòng họ mình giỏi hơn mọi người. ? Bạn ấy cần hiểu tự hào khác với khoe khoang và coi thường người khác."
+      "Bạn Nam chê nghề làm bánh truyền thống của gia đình bạn Hòa là quê mùa. → Hòa nên bình tĩnh giải thích giá trị nghề truyền thống và không cần xấu hổ.",
+      "Gia đình em có truyền thống hiếu học, nhưng em học chưa đều. → Em có thể lập kế hoạch học tập nhỏ để tiếp nối truyền thống bằng hành động thật.",
+      "Một bạn khoe dòng họ mình giỏi hơn mọi người. → Bạn ấy cần hiểu tự hào khác với khoe khoang và coi thường người khác."
     ],
     "commonMistakes": [
       "Nhầm tự hào với khoe khoang.",
@@ -53,7 +53,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "pham-chat-ca-nhan",
-    "unitTitle": "Ph?m ch?t c? nh?n",
+    "unitTitle": "Phẩm chất cá nhân",
     "topicType": "dao_duc",
     "lessonCode": "gdcd-6-02",
     "slug": "yeu-thuong-con-nguoi",
@@ -77,9 +77,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "tôn trọng": "respect"
     },
     "examples": [
-      "Bạn cùng lớp bị ngã ở sân trường. ? Em nên giúp bạn đứng dậy, hỏi bạn có đau không và báo thầy cô nếu cần.",
-      "Bạn rủ em cho chép bài kiểm tra vì nói đó là giúp đỡ. ? Em không nên cho chép bài; có thể giúp bạn học lại sau giờ kiểm tra.",
-      "Một bạn bị cả nhóm trêu chọc vì nói ngọng. ? Em nên không hùa theo, có thể động viên bạn và báo giáo viên nếu sự việc nghiêm trọng."
+      "Bạn cùng lớp bị ngã ở sân trường. → Em nên giúp bạn đứng dậy, hỏi bạn có đau không và báo thầy cô nếu cần.",
+      "Bạn rủ em cho chép bài kiểm tra vì nói đó là giúp đỡ. → Em không nên cho chép bài; có thể giúp bạn học lại sau giờ kiểm tra.",
+      "Một bạn bị cả nhóm trêu chọc vì nói ngọng. → Em nên không hùa theo, có thể động viên bạn và báo giáo viên nếu sự việc nghiêm trọng."
     ],
     "commonMistakes": [
       "Nghĩ yêu thương chỉ là cho tiền/quà.",
@@ -99,7 +99,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "pham-chat-ca-nhan",
-    "unitTitle": "Ph?m ch?t c? nh?n",
+    "unitTitle": "Phẩm chất cá nhân",
     "topicType": "dao_duc",
     "lessonCode": "gdcd-6-03",
     "slug": "sieng-nang-kien-tri",
@@ -123,9 +123,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "cố chấp": "stubbornness"
     },
     "examples": [
-      "Bạn Linh học tiếng Anh mỗi ngày 10 phút thay vì học dồn một lần. ? Đó là biểu hiện siêng năng, đều đặn và dễ duy trì.",
-      "Bạn Quân làm sai bài toán ba lần rồi hỏi thầy cách khác. ? Đó là kiên trì đúng cách vì bạn biết điều chỉnh cách học.",
-      "Một bạn cứ làm theo cách sai dù được góp ý. ? Đó có thể là cố chấp, không phải kiên trì đúng nghĩa."
+      "Bạn Linh học tiếng Anh mỗi ngày 10 phút thay vì học dồn một lần. → Đó là biểu hiện siêng năng, đều đặn và dễ duy trì.",
+      "Bạn Quân làm sai bài toán ba lần rồi hỏi thầy cách khác. → Đó là kiên trì đúng cách vì bạn biết điều chỉnh cách học.",
+      "Một bạn cứ làm theo cách sai dù được góp ý. → Đó có thể là cố chấp, không phải kiên trì đúng nghĩa."
     ],
     "commonMistakes": [
       "Học dồn một hôm rồi bỏ nhiều ngày.",
@@ -145,7 +145,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "pham-chat-ca-nhan",
-    "unitTitle": "Ph?m ch?t c? nh?n",
+    "unitTitle": "Phẩm chất cá nhân",
     "topicType": "dao_duc",
     "lessonCode": "gdcd-6-04",
     "slug": "ton-trong-su-that",
@@ -169,9 +169,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "niềm tin": "trust"
     },
     "examples": [
-      "Em làm vỡ lọ hoa trong lớp nhưng không ai thấy. ? Em nên báo thật với giáo viên và nhận trách nhiệm phù hợp.",
-      "Bạn kể thêm chi tiết sai để làm người khác bị hiểu lầm. ? Đó là bóp méo sự thật và có thể gây tổn thương.",
-      "Em muốn góp ý thật với bạn nhưng sợ bạn buồn. ? Em nên nói nhẹ nhàng, tập trung vào sự việc và mong bạn tốt hơn."
+      "Em làm vỡ lọ hoa trong lớp nhưng không ai thấy. → Em nên báo thật với giáo viên và nhận trách nhiệm phù hợp.",
+      "Bạn kể thêm chi tiết sai để làm người khác bị hiểu lầm. → Đó là bóp méo sự thật và có thể gây tổn thương.",
+      "Em muốn góp ý thật với bạn nhưng sợ bạn buồn. → Em nên nói nhẹ nhàng, tập trung vào sự việc và mong bạn tốt hơn."
     ],
     "commonMistakes": [
       "Nói thật theo kiểu làm tổn thương người khác.",
@@ -191,7 +191,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "pham-chat-ca-nhan",
-    "unitTitle": "Ph?m ch?t c? nh?n",
+    "unitTitle": "Phẩm chất cá nhân",
     "topicType": "dao_duc",
     "lessonCode": "gdcd-6-05",
     "slug": "tu-lap",
@@ -215,9 +215,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "hỗ trợ": "support"
     },
     "examples": [
-      "Em tự soạn sách vở theo thời khóa biểu mỗi tối. ? Đó là hành vi tự lập phù hợp lứa tuổi.",
-      "Bài quá khó nhưng em giấu không hỏi ai. ? Đó không phải tự lập tốt; em nên cố gắng trước rồi hỏi khi cần.",
-      "Một bạn luôn nhờ mẹ làm hộ bài thủ công. ? Bạn cần tự làm phần phù hợp để rèn trách nhiệm."
+      "Em tự soạn sách vở theo thời khóa biểu mỗi tối. → Đó là hành vi tự lập phù hợp lứa tuổi.",
+      "Bài quá khó nhưng em giấu không hỏi ai. → Đó không phải tự lập tốt; em nên cố gắng trước rồi hỏi khi cần.",
+      "Một bạn luôn nhờ mẹ làm hộ bài thủ công. → Bạn cần tự làm phần phù hợp để rèn trách nhiệm."
     ],
     "commonMistakes": [
       "Việc nhỏ cũng nhờ người khác làm hộ.",
@@ -237,7 +237,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "pham-chat-ca-nhan",
-    "unitTitle": "Ph?m ch?t c? nh?n",
+    "unitTitle": "Phẩm chất cá nhân",
     "topicType": "dao_duc",
     "lessonCode": "gdcd-6-06",
     "slug": "tu-nhan-thuc-ban-than",
@@ -261,9 +261,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "mục tiêu": "goal"
     },
     "examples": [
-      "Em nhận ra mình dễ mất tập trung khi học lâu. ? Em có thể chia thời gian học thành các phiên ngắn hơn.",
-      "Bạn góp ý em hay ngắt lời khi làm nhóm. ? Em nên lắng nghe và thử sửa bằng cách ghi ý ra giấy trước khi nói.",
-      "Em thấy mình học chưa tốt môn Toán nên nghĩ mình kém mãi. ? Em không nên tự ti; hãy lập kế hoạch luyện từng phần nhỏ."
+      "Em nhận ra mình dễ mất tập trung khi học lâu. → Em có thể chia thời gian học thành các phiên ngắn hơn.",
+      "Bạn góp ý em hay ngắt lời khi làm nhóm. → Em nên lắng nghe và thử sửa bằng cách ghi ý ra giấy trước khi nói.",
+      "Em thấy mình học chưa tốt môn Toán nên nghĩ mình kém mãi. → Em không nên tự ti; hãy lập kế hoạch luyện từng phần nhỏ."
     ],
     "commonMistakes": [
       "Chỉ nhìn điểm yếu rồi tự ti.",
@@ -283,7 +283,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "ki-nang-song",
-    "unitTitle": "K? n?ng s?ng",
+    "unitTitle": "Kĩ năng sống",
     "topicType": "ky_nang_song",
     "lessonCode": "gdcd-6-07",
     "slug": "ung-pho-voi-tinh-huong-nguy-hiem",
@@ -307,9 +307,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "bắt nạt": "bullying"
     },
     "examples": [
-      "Có người lạ rủ em đi theo để nhận quà. ? Em nên từ chối, rời khỏi nơi đó và báo người lớn tin cậy.",
-      "Thấy cháy nhỏ ở góc lớp. ? Em không tự xử lý nếu không được hướng dẫn; cần báo giáo viên và di chuyển an toàn.",
-      "Bạn bị bắt nạt trên mạng và sợ nói ra. ? Bạn nên lưu bằng chứng nếu an toàn và báo người lớn đáng tin."
+      "Có người lạ rủ em đi theo để nhận quà. → Em nên từ chối, rời khỏi nơi đó và báo người lớn tin cậy.",
+      "Thấy cháy nhỏ ở góc lớp. → Em không tự xử lý nếu không được hướng dẫn; cần báo giáo viên và di chuyển an toàn.",
+      "Bạn bị bắt nạt trên mạng và sợ nói ra. → Bạn nên lưu bằng chứng nếu an toàn và báo người lớn đáng tin."
     ],
     "commonMistakes": [
       "Tò mò quay video thay vì tránh nguy hiểm.",
@@ -329,7 +329,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "ki-nang-song",
-    "unitTitle": "K? n?ng s?ng",
+    "unitTitle": "Kĩ năng sống",
     "topicType": "ky_nang_song",
     "lessonCode": "gdcd-6-08",
     "slug": "tiet-kiem",
@@ -353,9 +353,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "hợp lý": "reasonable"
     },
     "examples": [
-      "Ra khỏi phòng nhưng quên tắt quạt. ? Em nên quay lại tắt quạt để tiết kiệm điện.",
-      "Bạn không mua sách cần thiết dù có điều kiện vì sợ tốn tiền. ? Đó có thể là keo kiệt hoặc không hợp lý, không phải tiết kiệm đúng cách.",
-      "Em dùng mặt giấy còn trống để nháp. ? Đây là hành vi tiết kiệm giấy phù hợp."
+      "Ra khỏi phòng nhưng quên tắt quạt. → Em nên quay lại tắt quạt để tiết kiệm điện.",
+      "Bạn không mua sách cần thiết dù có điều kiện vì sợ tốn tiền. → Đó có thể là keo kiệt hoặc không hợp lý, không phải tiết kiệm đúng cách.",
+      "Em dùng mặt giấy còn trống để nháp. → Đây là hành vi tiết kiệm giấy phù hợp."
     ],
     "commonMistakes": [
       "Tiết kiệm đến mức bỏ nhu cầu cần thiết.",
@@ -375,7 +375,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "cong-dan-phap-luat",
-    "unitTitle": "C?ng d?n v? ph?p lu?t",
+    "unitTitle": "Công dân với pháp luật",
     "topicType": "phap_luat",
     "lessonCode": "gdcd-6-09",
     "slug": "cong-dan-nuoc-cong-hoa-xa-hoi-chu-nghia-viet-nam",
@@ -399,9 +399,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "trách nhiệm": "responsibility"
     },
     "examples": [
-      "Một bạn nghĩ trẻ em chưa phải công dân. ? Cần hiểu trẻ em có quốc tịch Việt Nam cũng là công dân Việt Nam.",
-      "Bạn chỉ nói công dân có quyền mà quên nghĩa vụ. ? Công dân có cả quyền và nghĩa vụ theo pháp luật.",
-      "Em tham gia giữ vệ sinh nơi công cộng. ? Đó là hành động thể hiện trách nhiệm với cộng đồng."
+      "Một bạn nghĩ trẻ em chưa phải công dân. → Cần hiểu trẻ em có quốc tịch Việt Nam cũng là công dân Việt Nam.",
+      "Bạn chỉ nói công dân có quyền mà quên nghĩa vụ. → Công dân có cả quyền và nghĩa vụ theo pháp luật.",
+      "Em tham gia giữ vệ sinh nơi công cộng. → Đó là hành động thể hiện trách nhiệm với cộng đồng."
     ],
     "commonMistakes": [
       "Nhầm nơi sinh với quốc tịch trong mọi trường hợp.",
@@ -421,7 +421,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "cong-dan-phap-luat",
-    "unitTitle": "C?ng d?n v? ph?p lu?t",
+    "unitTitle": "Công dân với pháp luật",
     "topicType": "phap_luat",
     "lessonCode": "gdcd-6-10",
     "slug": "quyen-va-nghia-vu-co-ban-cua-cong-dan",
@@ -445,9 +445,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "tài sản chung": "public property"
     },
     "examples": [
-      "Em có quyền học tập nhưng không chịu làm bài. ? Quyền học tập đi cùng nghĩa vụ học tập.",
-      "Một bạn đòi tự do nói chuyện lớn trong thư viện. ? Quyền của mình không được xâm phạm quyền yên tĩnh của người khác.",
-      "Em thấy bạn vẽ bậy lên bàn học. ? Em nên khuyên bạn dừng lại hoặc báo thầy cô vì cần giữ gìn tài sản chung."
+      "Em có quyền học tập nhưng không chịu làm bài. → Quyền học tập đi cùng nghĩa vụ học tập.",
+      "Một bạn đòi tự do nói chuyện lớn trong thư viện. → Quyền của mình không được xâm phạm quyền yên tĩnh của người khác.",
+      "Em thấy bạn vẽ bậy lên bàn học. → Em nên khuyên bạn dừng lại hoặc báo thầy cô vì cần giữ gìn tài sản chung."
     ],
     "commonMistakes": [
       "Đòi quyền của mình nhưng xâm phạm quyền người khác.",
@@ -467,7 +467,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "cong-dan-phap-luat",
-    "unitTitle": "C?ng d?n v? ph?p lu?t",
+    "unitTitle": "Công dân với pháp luật",
     "topicType": "phap_luat",
     "lessonCode": "gdcd-6-11",
     "slug": "quyen-co-ban-cua-tre-em",
@@ -491,9 +491,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "bổn phận": "responsibility"
     },
     "examples": [
-      "Một bạn bị cấm đi học để ở nhà làm việc nặng. ? Đây có thể ảnh hưởng quyền học tập/phát triển của trẻ em và cần hỗ trợ.",
-      "Em muốn bày tỏ ý kiến trong lớp. ? Em có quyền tham gia, nhưng cần nói lịch sự và phù hợp.",
-      "Một bạn nghĩ có quyền trẻ em nên không cần nghe quy định nào. ? Quyền đi cùng bổn phận và tôn trọng quyền người khác."
+      "Một bạn bị cấm đi học để ở nhà làm việc nặng. → Đây có thể ảnh hưởng quyền học tập/phát triển của trẻ em và cần hỗ trợ.",
+      "Em muốn bày tỏ ý kiến trong lớp. → Em có quyền tham gia, nhưng cần nói lịch sự và phù hợp.",
+      "Một bạn nghĩ có quyền trẻ em nên không cần nghe quy định nào. → Quyền đi cùng bổn phận và tôn trọng quyền người khác."
     ],
     "commonMistakes": [
       "Nghĩ quyền trẻ em là được chiều mọi yêu cầu.",
@@ -513,7 +513,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "cong-dan-phap-luat",
-    "unitTitle": "C?ng d?n v? ph?p lu?t",
+    "unitTitle": "Công dân với pháp luật",
     "topicType": "phap_luat",
     "lessonCode": "gdcd-6-12",
     "slug": "thuc-hien-quyen-tre-em",
@@ -537,9 +537,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "hỗ trợ": "support"
     },
     "examples": [
-      "Bạn bị bạo lực nhưng sợ nói ra. ? Bạn nên tìm người lớn tin cậy hoặc nhà trường để được bảo vệ.",
-      "Lớp góp ý nội quy, em muốn nêu ý kiến. ? Em có thể tham gia bằng cách nói rõ ràng, lịch sự, tôn trọng người khác.",
-      "Một bạn dùng quyền của mình để chế giễu quyền của bạn khác. ? Bạn ấy cần hiểu quyền của mình không được xâm phạm quyền người khác."
+      "Bạn bị bạo lực nhưng sợ nói ra. → Bạn nên tìm người lớn tin cậy hoặc nhà trường để được bảo vệ.",
+      "Lớp góp ý nội quy, em muốn nêu ý kiến. → Em có thể tham gia bằng cách nói rõ ràng, lịch sự, tôn trọng người khác.",
+      "Một bạn dùng quyền của mình để chế giễu quyền của bạn khác. → Bạn ấy cần hiểu quyền của mình không được xâm phạm quyền người khác."
     ],
     "commonMistakes": [
       "Chỉ biết quyền của mình mà không tôn trọng quyền của bạn.",
@@ -559,7 +559,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "ki-nang-dao-duc-phap-luat",
-    "unitTitle": "K? n?ng ??o ??c v? ph?p lu?t",
+    "unitTitle": "Kĩ năng đạo đức, pháp luật",
     "topicType": "cong_dong",
     "lessonCode": "gdcd-6-13",
     "slug": "ky-nang-xu-ly-tinh-huong-dao-duc",
@@ -583,9 +583,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "quy định chung": "common rule"
     },
     "examples": [
-      "Bạn rủ em nói xấu một bạn khác trong nhóm chat. ? Em nên từ chối, không hùa theo và có thể khuyên bạn dừng lại.",
-      "Em nhặt được tiền trong lớp. ? Em nên báo giáo viên để tìm người mất.",
-      "Bạn thân nhờ em che giấu lỗi làm hỏng đồ lớp. ? Em không nên bao che; có thể khuyên bạn nhận lỗi."
+      "Bạn rủ em nói xấu một bạn khác trong nhóm chat. → Em nên từ chối, không hùa theo và có thể khuyên bạn dừng lại.",
+      "Em nhặt được tiền trong lớp. → Em nên báo giáo viên để tìm người mất.",
+      "Bạn thân nhờ em che giấu lỗi làm hỏng đồ lớp. → Em không nên bao che; có thể khuyên bạn nhận lỗi."
     ],
     "commonMistakes": [
       "Chọn theo số đông dù biết sai.",
@@ -605,7 +605,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "ki-nang-dao-duc-phap-luat",
-    "unitTitle": "K? n?ng ??o ??c v? ph?p lu?t",
+    "unitTitle": "Kĩ năng đạo đức, pháp luật",
     "topicType": "cong_dong",
     "lessonCode": "gdcd-6-14",
     "slug": "nhan-dien-hanh-vi-dung-sai-va-hau-qua",
@@ -629,9 +629,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "dán nhãn": "labeling"
     },
     "examples": [
-      "Một bạn đi học muộn nhiều lần. ? Cần nhận ra hành vi này ảnh hưởng đến bản thân và lớp, rồi tìm cách sửa.",
-      "Bạn trêu chọc ngoại hình người khác rồi nói chỉ đùa. ? Đó là hành vi có thể làm người khác tổn thương.",
-      "Bạn làm sai nhưng cả lớp gọi bạn là người xấu. ? Nên góp ý hành vi sai, không dán nhãn con người."
+      "Một bạn đi học muộn nhiều lần. → Cần nhận ra hành vi này ảnh hưởng đến bản thân và lớp, rồi tìm cách sửa.",
+      "Bạn trêu chọc ngoại hình người khác rồi nói chỉ đùa. → Đó là hành vi có thể làm người khác tổn thương.",
+      "Bạn làm sai nhưng cả lớp gọi bạn là người xấu. → Nên góp ý hành vi sai, không dán nhãn con người."
     ],
     "commonMistakes": [
       "Gọi một bạn là người xấu thay vì chỉ ra hành vi sai.",
@@ -651,7 +651,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "ki-nang-dao-duc-phap-luat",
-    "unitTitle": "K? n?ng ??o ??c v? ph?p lu?t",
+    "unitTitle": "Kĩ năng đạo đức, pháp luật",
     "topicType": "cong_dong",
     "lessonCode": "gdcd-6-15",
     "slug": "phan-biet-quyen-nghia-vu-trach-nhiem-va-bon-phan",
@@ -675,9 +675,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "tự giác": "self-discipline"
     },
     "examples": [
-      "Em được đi học. ? Đó là quyền học tập.",
-      "Em cần học tập và rèn luyện. ? Đó là nghĩa vụ/bổn phận phù hợp với học sinh.",
-      "Em tự giác giữ vệ sinh lớp học. ? Đó là trách nhiệm với tập thể."
+      "Em được đi học. → Đó là quyền học tập.",
+      "Em cần học tập và rèn luyện. → Đó là nghĩa vụ/bổn phận phù hợp với học sinh.",
+      "Em tự giác giữ vệ sinh lớp học. → Đó là trách nhiệm với tập thể."
     ],
     "commonMistakes": [
       "Đồng nhất mọi việc nên làm với nghĩa vụ pháp lý.",
@@ -697,7 +697,7 @@ export const gdcdLessons: GdcdLesson[] = [
     "grade": 6,
     "subjectCode": "gdcd",
     "unitCode": "ki-nang-dao-duc-phap-luat",
-    "unitTitle": "K? n?ng ??o ??c v? ph?p lu?t",
+    "unitTitle": "Kĩ năng đạo đức, pháp luật",
     "topicType": "cong_dong",
     "lessonCode": "gdcd-6-16",
     "slug": "tu-danh-gia-va-lap-ke-hoach-ren-luyen",
@@ -721,9 +721,9 @@ export const gdcdLessons: GdcdLesson[] = [
       "tiến bộ": "progress"
     },
     "examples": [
-      "Em muốn rèn tính tự lập. ? Em có thể đặt mục tiêu tự soạn sách vở mỗi tối trong 7 ngày.",
-      "Em hay quên tắt điện khi ra khỏi phòng. ? Em có thể dán nhắc nhở và tự đánh dấu mỗi ngày làm được.",
-      "Em đặt mục tiêu 'trở thành người tốt hơn' nhưng không có hành động. ? Mục tiêu cần cụ thể hơn, như nói thật khi mắc lỗi hoặc giúp bạn một việc."
+      "Em muốn rèn tính tự lập. → Em có thể đặt mục tiêu tự soạn sách vở mỗi tối trong 7 ngày.",
+      "Em hay quên tắt điện khi ra khỏi phòng. → Em có thể dán nhắc nhở và tự đánh dấu mỗi ngày làm được.",
+      "Em đặt mục tiêu 'trở thành người tốt hơn' nhưng không có hành động. → Mục tiêu cần cụ thể hơn, như nói thật khi mắc lỗi hoặc giúp bạn một việc."
     ],
     "commonMistakes": [
       "Đặt mục tiêu quá lớn rồi bỏ cuộc.",

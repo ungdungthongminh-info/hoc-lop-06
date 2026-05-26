@@ -7,7 +7,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "nha-o",
-    "unitTitle": "Nh? ?",
+    "unitTitle": "Nhà ở",
     "topicType": "nha_o",
     "lessonCode": "cong-nghe-6-01",
     "slug": "nha-o-doi-voi-con-nguoi",
@@ -31,9 +31,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "không gian sống": "living space"
     },
     "examples": [
-      "Một phòng học ở nhà thiếu ánh sáng, đồ đạc để lộn xộn. ? Nên sắp xếp lại bàn học, tận dụng ánh sáng tự nhiên hoặc thêm đèn phù hợp.",
-      "Gia đình muốn nhà đẹp nhưng bỏ qua thông gió. ? Cần chú ý thông gió vì ảnh hưởng sức khỏe và sự thoải mái.",
-      "Bạn nghĩ nhà to mới là nhà tốt. ? Nhà tốt cần phù hợp nhu cầu, an toàn và tiện nghi, không chỉ dựa vào diện tích."
+      "Một phòng học ở nhà thiếu ánh sáng, đồ đạc để lộn xộn. → Nên sắp xếp lại bàn học, tận dụng ánh sáng tự nhiên hoặc thêm đèn phù hợp.",
+      "Gia đình muốn nhà đẹp nhưng bỏ qua thông gió. → Cần chú ý thông gió vì ảnh hưởng sức khỏe và sự thoải mái.",
+      "Bạn nghĩ nhà to mới là nhà tốt. → Nhà tốt cần phù hợp nhu cầu, an toàn và tiện nghi, không chỉ dựa vào diện tích."
     ],
     "commonMistakes": [
       "Đánh giá nhà chỉ theo vẻ đẹp bên ngoài.",
@@ -53,7 +53,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "nha-o",
-    "unitTitle": "Nh? ?",
+    "unitTitle": "Nhà ở",
     "topicType": "nha_o",
     "lessonCode": "cong-nghe-6-02",
     "slug": "cac-kieu-nha-o-va-dac-diem",
@@ -77,9 +77,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "vật liệu": "material"
     },
     "examples": [
-      "Một vùng thường bị ngập nước chọn nhà sàn hoặc nền cao. ? Đó là lựa chọn phù hợp điều kiện tự nhiên.",
-      "Ở đô thị đất hẹp, nhiều gia đình sống trong chung cư. ? Chung cư giúp sử dụng không gian theo chiều cao và chia sẻ hạ tầng.",
-      "Bạn cho rằng mọi vùng nên xây cùng một kiểu nhà. ? Kiểu nhà cần phù hợp địa hình, khí hậu, văn hóa và điều kiện kinh tế."
+      "Một vùng thường bị ngập nước chọn nhà sàn hoặc nền cao. → Đó là lựa chọn phù hợp điều kiện tự nhiên.",
+      "Ở đô thị đất hẹp, nhiều gia đình sống trong chung cư. → Chung cư giúp sử dụng không gian theo chiều cao và chia sẻ hạ tầng.",
+      "Bạn cho rằng mọi vùng nên xây cùng một kiểu nhà. → Kiểu nhà cần phù hợp địa hình, khí hậu, văn hóa và điều kiện kinh tế."
     ],
     "commonMistakes": [
       "Cho rằng chỉ có một kiểu nhà chuẩn cho mọi nơi.",
@@ -99,7 +99,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "nha-o",
-    "unitTitle": "Nh? ?",
+    "unitTitle": "Nhà ở",
     "topicType": "nha_o",
     "lessonCode": "cong-nghe-6-03",
     "slug": "vat-lieu-xay-dung-nha-o",
@@ -123,9 +123,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "kính": "glass"
     },
     "examples": [
-      "Mái nhà vùng nắng nóng cần giảm hấp thụ nhiệt. ? Nên cân nhắc vật liệu và giải pháp cách nhiệt phù hợp.",
-      "Cửa sổ cần lấy sáng nhưng vẫn an toàn. ? Có thể dùng kính phù hợp kết hợp khung chắc chắn và rèm/che nắng.",
-      "Bạn chọn vật liệu chỉ vì rẻ nhất. ? Cần xét độ bền, an toàn và công năng, không chỉ giá."
+      "Mái nhà vùng nắng nóng cần giảm hấp thụ nhiệt. → Nên cân nhắc vật liệu và giải pháp cách nhiệt phù hợp.",
+      "Cửa sổ cần lấy sáng nhưng vẫn an toàn. → Có thể dùng kính phù hợp kết hợp khung chắc chắn và rèm/che nắng.",
+      "Bạn chọn vật liệu chỉ vì rẻ nhất. → Cần xét độ bền, an toàn và công năng, không chỉ giá."
     ],
     "commonMistakes": [
       "Chọn vật liệu chỉ theo giá rẻ.",
@@ -145,7 +145,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "nha-o",
-    "unitTitle": "Nh? ?",
+    "unitTitle": "Nhà ở",
     "topicType": "nha_o",
     "lessonCode": "cong-nghe-6-04",
     "slug": "ngoi-nha-thong-minh",
@@ -169,9 +169,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "tiết kiệm năng lượng": "energy saving"
     },
     "examples": [
-      "Đèn tự tắt khi không có người trong phòng. ? Đây là chức năng thông minh giúp tiết kiệm điện.",
-      "Gia đình lắp camera nhưng không đổi mật khẩu mặc định. ? Cần đổi mật khẩu và chú ý quyền riêng tư/bảo mật.",
-      "Bạn nghĩ nhà thông minh là nhà càng nhiều thiết bị càng tốt. ? Thiết bị cần phù hợp nhu cầu, an toàn và dễ sử dụng."
+      "Đèn tự tắt khi không có người trong phòng. → Đây là chức năng thông minh giúp tiết kiệm điện.",
+      "Gia đình lắp camera nhưng không đổi mật khẩu mặc định. → Cần đổi mật khẩu và chú ý quyền riêng tư/bảo mật.",
+      "Bạn nghĩ nhà thông minh là nhà càng nhiều thiết bị càng tốt. → Thiết bị cần phù hợp nhu cầu, an toàn và dễ sử dụng."
     ],
     "commonMistakes": [
       "Đồng nhất nhà thông minh với nhà đắt tiền.",
@@ -191,7 +191,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "nha-o",
-    "unitTitle": "Nh? ?",
+    "unitTitle": "Nhà ở",
     "topicType": "nha_o",
     "lessonCode": "cong-nghe-6-05",
     "slug": "sap-xep-khong-gian-song-trong-gia-dinh",
@@ -215,9 +215,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "ngăn nắp": "tidy"
     },
     "examples": [
-      "Dây sạc, cặp sách để giữa lối đi. ? Nên dọn gọn để tránh vấp ngã và giúp không gian an toàn.",
-      "Bàn học có nhiều đồ chơi, khó tập trung. ? Nên giữ lại đồ học cần thiết, cất đồ gây xao nhãng.",
-      "Gia đình để đồ nặng trên kệ cao thiếu chắc chắn. ? Cần đặt đồ nặng ở vị trí thấp, chắc chắn hơn để an toàn."
+      "Dây sạc, cặp sách để giữa lối đi. → Nên dọn gọn để tránh vấp ngã và giúp không gian an toàn.",
+      "Bàn học có nhiều đồ chơi, khó tập trung. → Nên giữ lại đồ học cần thiết, cất đồ gây xao nhãng.",
+      "Gia đình để đồ nặng trên kệ cao thiếu chắc chắn. → Cần đặt đồ nặng ở vị trí thấp, chắc chắn hơn để an toàn."
     ],
     "commonMistakes": [
       "Sắp xếp theo đẹp mắt nhưng khó dùng.",
@@ -237,7 +237,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "bao-quan-che-bien-thuc-pham",
-    "unitTitle": "B?o qu?n v? ch? bi?n th?c ph?m",
+    "unitTitle": "Bảo quản và chế biến thực phẩm",
     "topicType": "thuc_pham",
     "lessonCode": "cong-nghe-6-06",
     "slug": "thuc-pham-va-gia-tri-dinh-duong",
@@ -261,9 +261,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "khoáng chất": "minerals"
     },
     "examples": [
-      "Một bạn chỉ ăn mì gói nhiều ngày vì tiện. ? Bữa ăn như vậy thiếu cân đối, cần bổ sung rau, đạm và thực phẩm đa dạng.",
-      "Bữa trưa có cơm, cá, rau, canh và trái cây. ? Đây là bữa ăn khá cân đối vì có nhiều nhóm chất.",
-      "Bạn nghĩ ăn nhiều thịt là đủ dinh dưỡng. ? Cần cân đối cả tinh bột, đạm, béo, vitamin, khoáng và nước."
+      "Một bạn chỉ ăn mì gói nhiều ngày vì tiện. → Bữa ăn như vậy thiếu cân đối, cần bổ sung rau, đạm và thực phẩm đa dạng.",
+      "Bữa trưa có cơm, cá, rau, canh và trái cây. → Đây là bữa ăn khá cân đối vì có nhiều nhóm chất.",
+      "Bạn nghĩ ăn nhiều thịt là đủ dinh dưỡng. → Cần cân đối cả tinh bột, đạm, béo, vitamin, khoáng và nước."
     ],
     "commonMistakes": [
       "Ăn lệch một nhóm chất.",
@@ -283,7 +283,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "bao-quan-che-bien-thuc-pham",
-    "unitTitle": "B?o qu?n v? ch? bi?n th?c ph?m",
+    "unitTitle": "Bảo quản và chế biến thực phẩm",
     "topicType": "thuc_pham",
     "lessonCode": "cong-nghe-6-07",
     "slug": "bao-quan-thuc-pham",
@@ -307,9 +307,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "hạn sử dụng": "expiry date"
     },
     "examples": [
-      "Thịt sống đặt ngay cạnh rau ăn sống trong tủ lạnh. ? Cần để riêng, bọc kín để tránh nhiễm chéo.",
-      "Sữa đã quá hạn nhưng chưa có mùi lạ. ? Không nên dùng vì hạn sử dụng là thông tin an toàn quan trọng.",
-      "Cá mua về chưa nấu ngay. ? Nên làm sạch phù hợp và bảo quản lạnh/đông lạnh đúng cách."
+      "Thịt sống đặt ngay cạnh rau ăn sống trong tủ lạnh. → Cần để riêng, bọc kín để tránh nhiễm chéo.",
+      "Sữa đã quá hạn nhưng chưa có mùi lạ. → Không nên dùng vì hạn sử dụng là thông tin an toàn quan trọng.",
+      "Cá mua về chưa nấu ngay. → Nên làm sạch phù hợp và bảo quản lạnh/đông lạnh đúng cách."
     ],
     "commonMistakes": [
       "Để thực phẩm sống và chín lẫn nhau.",
@@ -329,7 +329,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "bao-quan-che-bien-thuc-pham",
-    "unitTitle": "B?o qu?n v? ch? bi?n th?c ph?m",
+    "unitTitle": "Bảo quản và chế biến thực phẩm",
     "topicType": "thuc_pham",
     "lessonCode": "cong-nghe-6-08",
     "slug": "an-toan-ve-sinh-thuc-pham",
@@ -353,9 +353,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "nấu chín": "cook thoroughly"
     },
     "examples": [
-      "Thức ăn có mùi lạ sau một đêm để ngoài trời. ? Không nên ăn; cần báo người lớn và bỏ đúng cách.",
-      "Trước khi chế biến, bạn quên rửa tay. ? Cần rửa tay sạch để giảm nguy cơ nhiễm bẩn thực phẩm.",
-      "Sau khi ăn, nhiều bạn đau bụng, nôn ói. ? Cần báo người lớn/cơ sở y tế, không tự dùng thuốc tùy tiện."
+      "Thức ăn có mùi lạ sau một đêm để ngoài trời. → Không nên ăn; cần báo người lớn và bỏ đúng cách.",
+      "Trước khi chế biến, bạn quên rửa tay. → Cần rửa tay sạch để giảm nguy cơ nhiễm bẩn thực phẩm.",
+      "Sau khi ăn, nhiều bạn đau bụng, nôn ói. → Cần báo người lớn/cơ sở y tế, không tự dùng thuốc tùy tiện."
     ],
     "commonMistakes": [
       "Ăn thực phẩm mốc sau khi cắt bỏ phần mốc.",
@@ -375,7 +375,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "bao-quan-che-bien-thuc-pham",
-    "unitTitle": "B?o qu?n v? ch? bi?n th?c ph?m",
+    "unitTitle": "Bảo quản và chế biến thực phẩm",
     "topicType": "thuc_pham",
     "lessonCode": "cong-nghe-6-09",
     "slug": "phuong-phap-che-bien-thuc-pham",
@@ -399,9 +399,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "rán": "frying"
     },
     "examples": [
-      "Muốn rau giữ màu và giảm dầu mỡ. ? Có thể chọn luộc/hấp hoặc xào nhanh với ít dầu tùy món.",
-      "Thực phẩm cần chín kỹ để an toàn. ? Nên chọn phương pháp dùng nhiệt phù hợp và đảm bảo chín.",
-      "Bạn rán mọi món vì thích giòn. ? Cần đa dạng phương pháp, tránh dùng quá nhiều dầu mỡ."
+      "Muốn rau giữ màu và giảm dầu mỡ. → Có thể chọn luộc/hấp hoặc xào nhanh với ít dầu tùy món.",
+      "Thực phẩm cần chín kỹ để an toàn. → Nên chọn phương pháp dùng nhiệt phù hợp và đảm bảo chín.",
+      "Bạn rán mọi món vì thích giòn. → Cần đa dạng phương pháp, tránh dùng quá nhiều dầu mỡ."
     ],
     "commonMistakes": [
       "Cho rằng món ngon là luôn nhiều dầu.",
@@ -421,7 +421,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "bao-quan-che-bien-thuc-pham",
-    "unitTitle": "B?o qu?n v? ch? bi?n th?c ph?m",
+    "unitTitle": "Bảo quản và chế biến thực phẩm",
     "topicType": "thuc_pham",
     "lessonCode": "cong-nghe-6-10",
     "slug": "bua-an-hop-ly-trong-gia-dinh",
@@ -445,9 +445,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "lãng phí": "waste"
     },
     "examples": [
-      "Một bữa tối chỉ có cơm và thịt kho, không có rau. ? Nên bổ sung rau/canh/trái cây để cân đối hơn.",
-      "Gia đình đi chợ không có kế hoạch nên mua quá nhiều đồ. ? Nên lập thực đơn và danh sách mua để giảm lãng phí.",
-      "Bạn chọn toàn món mình thích cho cả nhà. ? Thực đơn cần xét nhu cầu và sức khỏe của mọi người."
+      "Một bữa tối chỉ có cơm và thịt kho, không có rau. → Nên bổ sung rau/canh/trái cây để cân đối hơn.",
+      "Gia đình đi chợ không có kế hoạch nên mua quá nhiều đồ. → Nên lập thực đơn và danh sách mua để giảm lãng phí.",
+      "Bạn chọn toàn món mình thích cho cả nhà. → Thực đơn cần xét nhu cầu và sức khỏe của mọi người."
     ],
     "commonMistakes": [
       "Lập thực đơn chỉ theo sở thích một người.",
@@ -467,7 +467,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "trang-phuc-thoi-trang",
-    "unitTitle": "Trang ph?c v? th?i trang",
+    "unitTitle": "Trang phục, thời trang",
     "topicType": "trang_phuc",
     "lessonCode": "cong-nghe-6-11",
     "slug": "trang-phuc-va-vai-tro-cua-trang-phuc",
@@ -491,9 +491,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "phù hợp": "suitable"
     },
     "examples": [
-      "Đi học nhưng mặc đồ quá cầu kỳ, khó vận động. ? Nên chọn trang phục gọn gàng, đúng quy định và phù hợp học tập.",
-      "Trời lạnh nhưng bạn mặc quá mỏng vì muốn đẹp. ? Cần ưu tiên bảo vệ sức khỏe và giữ ấm.",
-      "Bạn nghĩ quần áo đắt tiền mới là đẹp. ? Trang phục đẹp cần sạch, phù hợp, lịch sự, không nhất thiết đắt."
+      "Đi học nhưng mặc đồ quá cầu kỳ, khó vận động. → Nên chọn trang phục gọn gàng, đúng quy định và phù hợp học tập.",
+      "Trời lạnh nhưng bạn mặc quá mỏng vì muốn đẹp. → Cần ưu tiên bảo vệ sức khỏe và giữ ấm.",
+      "Bạn nghĩ quần áo đắt tiền mới là đẹp. → Trang phục đẹp cần sạch, phù hợp, lịch sự, không nhất thiết đắt."
     ],
     "commonMistakes": [
       "Chọn trang phục chỉ theo giá tiền/thương hiệu.",
@@ -513,7 +513,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "trang-phuc-thoi-trang",
-    "unitTitle": "Trang ph?c v? th?i trang",
+    "unitTitle": "Trang phục, thời trang",
     "topicType": "trang_phuc",
     "lessonCode": "cong-nghe-6-12",
     "slug": "lua-chon-trang-phuc",
@@ -537,9 +537,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "hoàn cảnh": "occasion"
     },
     "examples": [
-      "Đi dã ngoại cần vận động nhiều. ? Nên chọn trang phục thoải mái, thấm hút, giày dép phù hợp.",
-      "Dự lễ chào cờ ở trường. ? Nên mặc đồng phục hoặc trang phục đúng quy định, gọn gàng.",
-      "Bạn mua đồ theo trào lưu dù không hợp và ít dùng. ? Nên cân nhắc nhu cầu thật, khả năng phối và độ bền."
+      "Đi dã ngoại cần vận động nhiều. → Nên chọn trang phục thoải mái, thấm hút, giày dép phù hợp.",
+      "Dự lễ chào cờ ở trường. → Nên mặc đồng phục hoặc trang phục đúng quy định, gọn gàng.",
+      "Bạn mua đồ theo trào lưu dù không hợp và ít dùng. → Nên cân nhắc nhu cầu thật, khả năng phối và độ bền."
     ],
     "commonMistakes": [
       "Mua theo trào lưu mà không xét nhu cầu.",
@@ -559,7 +559,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "trang-phuc-thoi-trang",
-    "unitTitle": "Trang ph?c v? th?i trang",
+    "unitTitle": "Trang phục, thời trang",
     "topicType": "trang_phuc",
     "lessonCode": "cong-nghe-6-13",
     "slug": "su-dung-va-bao-quan-trang-phuc",
@@ -583,9 +583,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "ẩm mốc": "mold/mildew"
     },
     "examples": [
-      "Áo trắng giặt chung với quần áo màu dễ phai. ? Nên phân loại để tránh lem màu.",
-      "Quần áo còn ẩm đã cất vào tủ. ? Nên phơi/sấy khô hẳn để tránh ẩm mốc.",
-      "Bạn là/ủi mọi loại vải ở nhiệt độ cao. ? Cần xem chất liệu/nhãn hướng dẫn để tránh cháy hoặc hỏng vải."
+      "Áo trắng giặt chung với quần áo màu dễ phai. → Nên phân loại để tránh lem màu.",
+      "Quần áo còn ẩm đã cất vào tủ. → Nên phơi/sấy khô hẳn để tránh ẩm mốc.",
+      "Bạn là/ủi mọi loại vải ở nhiệt độ cao. → Cần xem chất liệu/nhãn hướng dẫn để tránh cháy hoặc hỏng vải."
     ],
     "commonMistakes": [
       "Không phân loại quần áo khi giặt.",
@@ -605,7 +605,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "trang-phuc-thoi-trang",
-    "unitTitle": "Trang ph?c v? th?i trang",
+    "unitTitle": "Trang phục, thời trang",
     "topicType": "trang_phuc",
     "lessonCode": "cong-nghe-6-14",
     "slug": "thoi-trang-va-phong-cach",
@@ -629,9 +629,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "tiêu dùng có trách nhiệm": "responsible consumption"
     },
     "examples": [
-      "Một kiểu áo đang thịnh hành nhưng không hợp đi học. ? Không nên chạy theo xu hướng nếu không phù hợp hoàn cảnh.",
-      "Bạn phối lại áo cũ với phụ kiện đơn giản để dùng tiếp. ? Đó là cách tiết kiệm và tiêu dùng có trách nhiệm.",
-      "Bạn chê người khác vì không mặc theo mốt. ? Cần tôn trọng phong cách phù hợp của mỗi người."
+      "Một kiểu áo đang thịnh hành nhưng không hợp đi học. → Không nên chạy theo xu hướng nếu không phù hợp hoàn cảnh.",
+      "Bạn phối lại áo cũ với phụ kiện đơn giản để dùng tiếp. → Đó là cách tiết kiệm và tiêu dùng có trách nhiệm.",
+      "Bạn chê người khác vì không mặc theo mốt. → Cần tôn trọng phong cách phù hợp của mỗi người."
     ],
     "commonMistakes": [
       "Chạy theo xu hướng bằng mọi giá.",
@@ -651,7 +651,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "do-dung-dien",
-    "unitTitle": "?? d?ng ?i?n trong gia ??nh",
+    "unitTitle": "Đồ dùng điện",
     "topicType": "do_dung",
     "lessonCode": "cong-nghe-6-15",
     "slug": "do-dung-dien-trong-gia-dinh",
@@ -675,9 +675,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "tiết kiệm điện": "saving electricity"
     },
     "examples": [
-      "Dây điện quạt bị hở nhưng vẫn cắm dùng. ? Không nên dùng; cần báo người lớn để sửa/thay an toàn.",
-      "Ra khỏi phòng nhưng vẫn bật đèn, quạt. ? Nên tắt thiết bị không cần thiết để tiết kiệm điện.",
-      "Bạn dùng máy sấy tóc khi tay còn ướt. ? Không an toàn vì tăng nguy cơ điện giật."
+      "Dây điện quạt bị hở nhưng vẫn cắm dùng. → Không nên dùng; cần báo người lớn để sửa/thay an toàn.",
+      "Ra khỏi phòng nhưng vẫn bật đèn, quạt. → Nên tắt thiết bị không cần thiết để tiết kiệm điện.",
+      "Bạn dùng máy sấy tóc khi tay còn ướt. → Không an toàn vì tăng nguy cơ điện giật."
     ],
     "commonMistakes": [
       "Dùng thiết bị khi dây điện hở.",
@@ -697,7 +697,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "do-dung-dien",
-    "unitTitle": "?? d?ng ?i?n trong gia ??nh",
+    "unitTitle": "Đồ dùng điện",
     "topicType": "do_dung",
     "lessonCode": "cong-nghe-6-16",
     "slug": "thong-so-ky-thuat-cua-do-dung-dien",
@@ -721,9 +721,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "nhãn thiết bị": "device label"
     },
     "examples": [
-      "Thiết bị ghi 220V nhưng nguồn điện không phù hợp. ? Không nên tự cắm dùng; cần hỏi người lớn/người có chuyên môn.",
-      "Hai bóng đèn cùng độ sáng nhưng một bóng tiết kiệm điện hơn. ? Nên xem công suất và hiệu quả sử dụng điện.",
-      "Bạn mua nồi cơm điện mà không xem dung tích. ? Cần chọn dung tích phù hợp số người trong gia đình."
+      "Thiết bị ghi 220V nhưng nguồn điện không phù hợp. → Không nên tự cắm dùng; cần hỏi người lớn/người có chuyên môn.",
+      "Hai bóng đèn cùng độ sáng nhưng một bóng tiết kiệm điện hơn. → Nên xem công suất và hiệu quả sử dụng điện.",
+      "Bạn mua nồi cơm điện mà không xem dung tích. → Cần chọn dung tích phù hợp số người trong gia đình."
     ],
     "commonMistakes": [
       "Không đọc nhãn thiết bị.",
@@ -743,7 +743,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "do-dung-dien",
-    "unitTitle": "?? d?ng ?i?n trong gia ??nh",
+    "unitTitle": "Đồ dùng điện",
     "topicType": "do_dung",
     "lessonCode": "cong-nghe-6-17",
     "slug": "su-dung-dien-an-toan-trong-gia-dinh",
@@ -767,9 +767,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "ổ cắm": "socket"
     },
     "examples": [
-      "Ổ cắm phát tia lửa khi cắm thiết bị. ? Cần dừng sử dụng và báo người lớn, không tự chạm vào ổ cắm.",
-      "Em thấy dây sạc bị đứt vỏ. ? Không nên dùng tiếp; cần thay/sửa an toàn.",
-      "Có người bị điện giật. ? Không chạm trực tiếp vào người đó khi chưa ngắt nguồn; cần gọi người lớn/cấp cứu."
+      "Ổ cắm phát tia lửa khi cắm thiết bị. → Cần dừng sử dụng và báo người lớn, không tự chạm vào ổ cắm.",
+      "Em thấy dây sạc bị đứt vỏ. → Không nên dùng tiếp; cần thay/sửa an toàn.",
+      "Có người bị điện giật. → Không chạm trực tiếp vào người đó khi chưa ngắt nguồn; cần gọi người lớn/cấp cứu."
     ],
     "commonMistakes": [
       "Chạm thiết bị điện bằng tay ướt.",
@@ -789,7 +789,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "do-dung-dien",
-    "unitTitle": "?? d?ng ?i?n trong gia ??nh",
+    "unitTitle": "Đồ dùng điện",
     "topicType": "do_dung",
     "lessonCode": "cong-nghe-6-18",
     "slug": "su-dung-nang-luong-trong-gia-dinh-tiet-kiem-va-hieu-qua",
@@ -813,9 +813,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "môi trường": "environment"
     },
     "examples": [
-      "Ban ngày phòng đủ sáng nhưng vẫn bật đèn. ? Nên tắt đèn và tận dụng ánh sáng tự nhiên.",
-      "Bật điều hòa nhiệt độ rất thấp rồi đắp chăn. ? Đây là lãng phí điện; cần dùng nhiệt độ hợp lý.",
-      "Cả nhà đặt mục tiêu tắt thiết bị chờ vào buổi tối. ? Đây là thói quen tiết kiệm năng lượng tốt."
+      "Ban ngày phòng đủ sáng nhưng vẫn bật đèn. → Nên tắt đèn và tận dụng ánh sáng tự nhiên.",
+      "Bật điều hòa nhiệt độ rất thấp rồi đắp chăn. → Đây là lãng phí điện; cần dùng nhiệt độ hợp lý.",
+      "Cả nhà đặt mục tiêu tắt thiết bị chờ vào buổi tối. → Đây là thói quen tiết kiệm năng lượng tốt."
     ],
     "commonMistakes": [
       "Tiết kiệm là không dùng thiết bị dù cần thiết.",
@@ -835,7 +835,7 @@ export const congNgheLessons: CongNgheLesson[] = [
     "grade": 6,
     "subjectCode": "cong-nghe",
     "unitCode": "thuc-hanh-du-an",
-    "unitTitle": "Th?c h?nh d? ?n",
+    "unitTitle": "Thực hành, dự án",
     "topicType": "quy_trinh",
     "lessonCode": "cong-nghe-6-19",
     "slug": "du-an-cong-nghe-gia-dinh",
@@ -859,9 +859,9 @@ export const congNgheLessons: CongNgheLesson[] = [
       "an toàn": "safety"
     },
     "examples": [
-      "Em muốn cải thiện góc học tập. ? Cần khảo sát hiện trạng, chọn việc cần làm, sắp xếp lại và tự đánh giá trước/sau.",
-      "Nhóm muốn làm dự án tiết kiệm điện. ? Có thể theo dõi thiết bị hay bật quên và đề xuất thói quen tắt khi không dùng.",
-      "Bạn muốn tự sửa ổ điện trong dự án. ? Không được tự làm; thao tác điện nguy hiểm cần người lớn/người có chuyên môn."
+      "Em muốn cải thiện góc học tập. → Cần khảo sát hiện trạng, chọn việc cần làm, sắp xếp lại và tự đánh giá trước/sau.",
+      "Nhóm muốn làm dự án tiết kiệm điện. → Có thể theo dõi thiết bị hay bật quên và đề xuất thói quen tắt khi không dùng.",
+      "Bạn muốn tự sửa ổ điện trong dự án. → Không được tự làm; thao tác điện nguy hiểm cần người lớn/người có chuyên môn."
     ],
     "commonMistakes": [
       "Chọn dự án quá lớn, khó làm.",
