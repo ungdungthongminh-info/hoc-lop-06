@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-05-25T16:19:08.263Z",
+  "generatedAt": "2026-05-26T13:57:16.941Z",
   "profileId": "en-v1",
   "language": "en",
   "subject": "english",
   "baseUrl": "https://audio.hochungkhoi.site",
-  "totalItems": 2360,
+  "totalItems": 2370,
   "items": {
     "lesson-card:eng6-b2-u01-vocabulary-my-new-school-c01": {
       "sourceType": "lesson-card",
@@ -16526,6 +16526,76 @@
       "lessonId": 34,
       "r2ObjectKey": "audio/tts/assets/vi-v1/vietnamese-gloss/vietnamese-gloss-b0de229c41.mp3",
       "url": "https://audio.hochungkhoi.site/audio/tts/assets/vi-v1/vietnamese-gloss/vietnamese-gloss-b0de229c41.mp3"
+    },
+    "ngu-van-lesson-title:lit6-b2-l01-toi-va-cac-ban-title": {
+      "sourceType": "ngu-van-lesson-title",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-title",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/lesson-title-lit6-b2-l01-toi-va-cac-ban-title.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/lesson-title-lit6-b2-l01-toi-va-cac-ban-title.mp3"
+    },
+    "ngu-van-lesson-summary:lit6-b2-l01-toi-va-cac-ban-summary": {
+      "sourceType": "ngu-van-lesson-summary",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-summary",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/lesson-summary-lit6-b2-l01-toi-va-cac-ban-summary.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/lesson-summary-lit6-b2-l01-toi-va-cac-ban-summary.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c01": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c01",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c01.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c01.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c02": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c02",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c02.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c02.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c03": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c03",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c03.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c03.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c04": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c04",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c04.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c04.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c05": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c05",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c05.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c05.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c06": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c06",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c06.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c06.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c07": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c07",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c07.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c07.mp3"
+    },
+    "ngu-van-content-card:lit6-b2-l01-toi-va-cac-ban-c08": {
+      "sourceType": "ngu-van-content-card",
+      "sourceId": "lit6-b2-l01-toi-va-cac-ban-c08",
+      "lessonId": 1,
+      "r2ObjectKey": "audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c08.mp3",
+      "url": "https://audio.hochungkhoi.site/audio/tts/assets/ngu-van/vi-v1/phase1-pilot/content-card-lit6-b2-l01-toi-va-cac-ban-c08.mp3"
     }
   }
 }

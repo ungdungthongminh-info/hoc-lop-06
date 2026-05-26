@@ -7,6 +7,7 @@ const REPO_ROOT = path.resolve(SCRIPT_DIR, '../..');
 
 const SOURCE_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-manifest-full.json');
 const DEFAULT_EXTRA_MANIFEST = path.join(REPO_ROOT, 'docs/audio/english-audio-vi-phase3d-gloss-full-manifest.json');
+const DEFAULT_NGU_VAN_EXTRA_MANIFEST = path.join(REPO_ROOT, 'docs/audio/ngu-van-audio-phase1-manifest.json');
 const PUBLIC_MANIFEST = path.join(REPO_ROOT, 'public/audio/tts/manifest.json');
 const DEFAULT_BASE_URL = 'https://audio.hochungkhoi.site';
 
@@ -42,6 +43,7 @@ function parseArgs(argv) {
 
   if (!result.extraManifests.length) {
     result.extraManifests.push(DEFAULT_EXTRA_MANIFEST);
+    result.extraManifests.push(DEFAULT_NGU_VAN_EXTRA_MANIFEST);
   }
 
   return result;
