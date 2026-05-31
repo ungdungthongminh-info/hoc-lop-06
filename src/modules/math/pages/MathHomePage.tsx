@@ -26,15 +26,14 @@ export function MathHomePage({ onBackToDashboard }: MathHomePageProps) {
   const selectedLesson = getMathLessonById(selectedLessonId) ?? lessons[0];
   const toast = useToast();
 
-  if (view === 'detail' && selectedLesson) {
-    // Determine lesson index to check if they somehow entered a locked lesson via direct state manipulation
+  if ((view === 'detail' || view === 'practice') && selectedLesson) {
     const lessonIndex = lessons.findIndex((l) => l.id === selectedLesson.id);
     if (!canAccessMathLesson(lessonIndex)) {
       return (
         <section className="mx-auto w-full max-w-6xl min-w-0 px-4 py-8 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-rose-200 bg-rose-50 p-6 text-center shadow-sm">
             <h2 className="text-xl font-black text-rose-800">Bài học đã khóa</h2>
-            <p className="mt-2 text-sm text-rose-700">Gói dùng thử chỉ mở 15 bài đầu tiên. Vui lòng nhập key để mở bài này.</p>
+            <p className="mt-2 text-sm text-rose-700">Gói dùng thử chỉ mở 15 bài đầu tiên. Vui lòng nhập key để mở phần này.</p>
             <button
               type="button"
               onClick={() => setView('home')}
@@ -48,28 +47,30 @@ export function MathHomePage({ onBackToDashboard }: MathHomePageProps) {
       );
     }
 
-    return (
-      <MathLessonDetailPage
-        lesson={selectedLesson}
-        onBack={() => setView('home')}
-        onPractice={(lessonId) => {
-          setSelectedLessonId(lessonId);
-          setView('practice');
-        }}
-      />
-    );
-  }
+    if (view === 'detail') {
+      return (
+        <MathLessonDetailPage
+          lesson={selectedLesson}
+          onBack={() => setView('home')}
+          onPractice={(lessonId) => {
+            setSelectedLessonId(lessonId);
+            setView('practice');
+          }}
+        />
+      );
+    }
 
-  if (view === 'practice' && selectedLesson) {
-    return (
-      <MathPracticePage
-        lesson={selectedLesson}
-        onBackToLesson={(lessonId) => {
-          setSelectedLessonId(lessonId);
-          setView('detail');
-        }}
-      />
-    );
+    if (view === 'practice') {
+      return (
+        <MathPracticePage
+          lesson={selectedLesson}
+          onBackToLesson={(lessonId) => {
+            setSelectedLessonId(lessonId);
+            setView('detail');
+          }}
+        />
+      );
+    }
   }
 
   return (
