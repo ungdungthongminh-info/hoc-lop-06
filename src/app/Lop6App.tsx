@@ -447,8 +447,8 @@ function PlanKeyPanel({
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
 
-  const entitlement = getStoredLop6Entitlement();
-  const isActive = isLop6EntitlementActive();
+  const [entitlement, setEntitlement] = useState(() => getStoredLop6Entitlement());
+  const [isActive, setIsActive] = useState(() => isLop6EntitlementActive());
 
   useEffect(() => {
     setActiveTab(initialTab);
@@ -485,6 +485,9 @@ function PlanKeyPanel({
       const result = await activateLop6License(licenseKey.trim());
       
       if (result.ok && result.status === 'active') {
+        const newEntitlement = getStoredLop6Entitlement();
+        setEntitlement(newEntitlement);
+        setIsActive(true);
         toast.success('Thành công', 'Kích hoạt Lớp 06 thành công!');
         setNotice('Kích hoạt Lớp 06 thành công. Bạn đã có thể sử dụng đầy đủ tính năng!');
         setLicenseKey('');
