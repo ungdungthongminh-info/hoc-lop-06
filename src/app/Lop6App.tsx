@@ -30,6 +30,7 @@ import { AchievementsPanel } from '../shared/components/AchievementsPanel';
 import { RootErrorBoundary } from '../shared/components/RootErrorBoundary';
 import { ToastProvider, useToast } from '../shared/components/ToastProvider';
 import { useSound, type SoundSettings, type SoundVolume } from '../shared/hooks/useSound';
+import { activateLop6License, getStoredLop6Entitlement, isLop6EntitlementActive } from '../shared/services/lop6LicenseService';
 
 const MathHomePage = lazy(() =>
   import('../modules/math/pages/MathHomePage').then((module) => ({ default: module.MathHomePage })),
@@ -440,11 +441,14 @@ function PlanKeyPanel({
   onClose: () => void;
 }) {
   const [activeTab, setActiveTab] = useState<PlanKeyTab>(initialTab);
-  const [email, setEmail] = useState('');
   const [licenseKey, setLicenseKey] = useState('');
   const [formError, setFormError] = useState('');
   const [notice, setNotice] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
+
+  const entitlement = getStoredLop6Entitlement();
+  const isActive = isLop6EntitlementActive();
 
   useEffect(() => {
     setActiveTab(initialTab);
@@ -466,19 +470,37 @@ function PlanKeyPanel({
     toast.info('Đang chuẩn bị', message);
   };
 
-  const handleActivateKey = () => {
+  const handleActivateKey = async () => {
     setNotice('');
 
-    if (!email.trim() || !licenseKey.trim()) {
-      setFormError('Vui lòng nhập đủ email đăng ký và mã key.');
+    if (!licenseKey.trim()) {
+      setFormError('Vui lòng nhập mã key.');
       return;
     }
 
     setFormError('');
-    showSupportNotice('Tính năng kích hoạt tự động đang chuẩn bị. Vui lòng liên hệ 0902964685 để được hỗ trợ kích hoạt.');
+    setIsLoading(true);
+
+    try {
+      const result = await activateLop6License(licenseKey.trim());
+      
+      if (result.ok && result.status === 'active') {
+        toast.success('Thành công', 'Kích hoạt Lớp 06 thành công!');
+        setNotice('Kích hoạt Lớp 06 thành công. Bạn đã có thể sử dụng đầy đủ tính năng!');
+        setLicenseKey('');
+      } else {
+        setFormError(result.error || 'Lỗi không xác định khi kích hoạt.');
+      }
+    } catch (err) {
+      setFormError('Lỗi mạng. Vui lòng thử lại sau.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const quickInfo = ['Gói hiện tại: Dùng thử', 'Tài khoản: Khách', 'Dopi Credit: 0'];
+  const quickInfo = isActive && entitlement 
+    ? [`Gói hiện tại: ${entitlement.productName}`, 'Tài khoản: Khách', 'Dopi Credit: 0']
+    : ['Gói hiện tại: Dùng thử', 'Tài khoản: Khách', 'Dopi Credit: 0'];
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center px-4 py-6">
@@ -513,6 +535,14 @@ function PlanKeyPanel({
               {item}
             </span>
           ))}
+        </div>
+
+        <div className="mt-3 rounded-2xl border border-blue-100 bg-blue-50/50 px-4 py-2.5 text-sm font-semibold text-blue-800">
+          {isActive ? (
+            <span>🎉 Trạng thái: Đã kích hoạt Lớp 06. Bạn có thể sử dụng tất cả nội dung.</span>
+          ) : (
+            <span>Trạng thái: Chưa kích hoạt key. Bạn vẫn có thể xem bản hiện tại, phần khóa nội dung sẽ bật ở giai đoạn sau.</span>
+          )}
         </div>
 
         <div className="app-soft mt-5 grid grid-cols-3 gap-2 rounded-2xl p-1.5">
@@ -618,20 +648,10 @@ function PlanKeyPanel({
             <div className="app-soft rounded-3xl p-4">
               <h3 className="text-lg font-black text-slate-950">Kích hoạt key học tập</h3>
               <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">
-                Nhập email đã đăng ký mua gói và mã key được cấp để mở quyền học tập.
+                Nhập mã key được cấp để mở quyền học tập Lớp 06.
               </p>
 
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                <label className="grid gap-1.5 text-sm font-bold text-slate-700">
-                  Email đăng ký
-                  <input
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-800 outline-none transition focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
-                    placeholder="phuhuynh@email.com"
-                    type="email"
-                  />
-                </label>
+              <div className="mt-4 grid gap-3 sm:grid-cols-1">
                 <label className="grid gap-1.5 text-sm font-bold text-slate-700">
                   Mã key
                   <input
@@ -666,9 +686,10 @@ function PlanKeyPanel({
                 <button
                   type="button"
                   onClick={handleActivateKey}
-                  className={`app-primary rounded-2xl px-5 py-3 text-sm font-black shadow-md ${buttonMotion}`}
+                  disabled={isLoading}
+                  className={`app-primary rounded-2xl px-5 py-3 text-sm font-black shadow-md ${buttonMotion} ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
-                  Kích hoạt key
+                  {isLoading ? 'Đang kích hoạt...' : 'Kích hoạt key'}
                 </button>
                 <button
                   type="button"
