@@ -30,7 +30,7 @@ import { AchievementsPanel } from '../shared/components/AchievementsPanel';
 import { RootErrorBoundary } from '../shared/components/RootErrorBoundary';
 import { ToastProvider, useToast } from '../shared/components/ToastProvider';
 import { useSound, type SoundSettings, type SoundVolume } from '../shared/hooks/useSound';
-import { activateLop6License, getStoredLop6Entitlement, isLop6EntitlementActive } from '../shared/services/lop6LicenseService';
+import { activateLop6License, getStoredLop6Entitlement, isLop6EntitlementActive, getStoredLop6Email, saveLop6Email, canAccessSubject } from '../shared/services/lop6LicenseService';
 
 const MathHomePage = lazy(() =>
   import('../modules/math/pages/MathHomePage').then((module) => ({ default: module.MathHomePage })),
@@ -269,9 +269,15 @@ type StatusChipsProps = {
   onOpenPlan: () => void;
   onOpenAccount: () => void;
   onOpenCredit: () => void;
+  isActive: boolean;
+  entitlement: any;
+  email: string | null;
 };
 
-function StatusChips({ onOpenPlan, onOpenAccount, onOpenCredit }: StatusChipsProps) {
+function StatusChips({ onOpenPlan, onOpenAccount, onOpenCredit, isActive, entitlement, email }: StatusChipsProps) {
+  const planName = isActive ? (entitlement?.productName || 'Lớp 06') : 'Dùng thử';
+  const accountName = email ? email : 'Khách';
+
   return (
     <div className="flex flex-wrap gap-2">
       <button
@@ -279,14 +285,14 @@ function StatusChips({ onOpenPlan, onOpenAccount, onOpenCredit }: StatusChipsPro
         onClick={onOpenPlan}
         className="app-chip rounded-full border px-3 py-1.5 text-xs font-black shadow-sm"
       >
-        Gói: Dùng thử
+        Gói: {planName}
       </button>
       <button
         type="button"
         onClick={onOpenAccount}
         className="app-chip rounded-full border px-3 py-1.5 text-xs font-black shadow-sm"
       >
-        TK: Khách
+        TK: {accountName}
       </button>
       <button
         type="button"
@@ -436,19 +442,25 @@ type PlanKeyTab = 'plan' | 'account' | 'key';
 function PlanKeyPanel({
   initialTab = 'plan',
   onClose,
+  onActivationSuccess,
+  isActive,
+  entitlement,
+  currentEmail,
 }: {
   initialTab?: PlanKeyTab;
   onClose: () => void;
+  onActivationSuccess: (email: string) => void;
+  isActive: boolean;
+  entitlement: any;
+  currentEmail: string | null;
 }) {
   const [activeTab, setActiveTab] = useState<PlanKeyTab>(initialTab);
+  const [email, setEmail] = useState(currentEmail || '');
   const [licenseKey, setLicenseKey] = useState('');
   const [formError, setFormError] = useState('');
   const [notice, setNotice] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
-
-  const [entitlement, setEntitlement] = useState(() => getStoredLop6Entitlement());
-  const [isActive, setIsActive] = useState(() => isLop6EntitlementActive());
 
   useEffect(() => {
     setActiveTab(initialTab);
@@ -473,6 +485,11 @@ function PlanKeyPanel({
   const handleActivateKey = async () => {
     setNotice('');
 
+    if (!email.trim()) {
+      setFormError('Vui lòng nhập email.');
+      return;
+    }
+
     if (!licenseKey.trim()) {
       setFormError('Vui lòng nhập mã key.');
       return;
@@ -482,12 +499,11 @@ function PlanKeyPanel({
     setIsLoading(true);
 
     try {
+      saveLop6Email(email.trim());
       const result = await activateLop6License(licenseKey.trim());
       
       if (result.ok && result.status === 'active') {
-        const newEntitlement = getStoredLop6Entitlement();
-        setEntitlement(newEntitlement);
-        setIsActive(true);
+        onActivationSuccess(email.trim());
         toast.success('Thành công', 'Kích hoạt Lớp 06 thành công!');
         setNotice('Kích hoạt Lớp 06 thành công. Bạn đã có thể sử dụng đầy đủ tính năng!');
         setLicenseKey('');
@@ -501,9 +517,15 @@ function PlanKeyPanel({
     }
   };
 
-  const quickInfo = isActive && entitlement 
-    ? [`Gói hiện tại: ${entitlement.productName}`, 'Tài khoản: Khách', 'Dopi Credit: 0']
-    : ['Gói hiện tại: Dùng thử', 'Tài khoản: Khách', 'Dopi Credit: 0'];
+  const planName = isActive ? (entitlement?.productName || 'Lớp 06') : 'Dùng thử';
+  const accountName = currentEmail ? currentEmail : 'Khách';
+  const expiresAt = entitlement?.license?.expiresAt ? new Date(entitlement.license.expiresAt).toLocaleDateString('vi-VN') : '';
+
+  const quickInfo = [
+    `Gói hiện tại: ${planName}`,
+    `Tài khoản: ${accountName}`,
+    ...(isActive && expiresAt ? [`Hạn dùng: ${expiresAt}`] : []),
+  ];
 
   return (
     <div className="fixed inset-0 z-[70] flex items-center justify-center px-4 py-6">
@@ -577,7 +599,7 @@ function PlanKeyPanel({
             <div className="app-soft rounded-3xl p-4">
               <h3 className="text-lg font-black text-slate-950">Chọn gói học phù hợp</h3>
               <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">
-                Hiện app đang hỗ trợ học thử môn Toán Lớp 6. Các môn khác sẽ được mở dần theo kế hoạch.
+                Gói dùng thử gồm 15 bài Toán đầu và luyện tập Toán. Nhập key để mở toàn bộ 8 môn.
               </p>
               <ul className="mt-4 grid gap-2 text-sm font-semibold text-slate-700">
                 {[
@@ -656,6 +678,16 @@ function PlanKeyPanel({
 
               <div className="mt-4 grid gap-3 sm:grid-cols-1">
                 <label className="grid gap-1.5 text-sm font-bold text-slate-700">
+                  Email
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold tracking-wide text-slate-800 outline-none transition focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
+                    placeholder="Email của bạn"
+                  />
+                </label>
+                <label className="grid gap-1.5 text-sm font-bold text-slate-700">
                   Mã key
                   <input
                     value={licenseKey}
@@ -713,20 +745,14 @@ function PlanKeyPanel({
 function SubjectCard({
   subject,
   onOpenSubject,
+  onLockedClick,
 }: {
   subject: Subject;
   onOpenSubject: (subjectId: string) => void;
+  onLockedClick: () => void;
 }) {
   const Icon = subject.icon;
-  const isOpen =
-    subject.id === 'toan' ||
-    subject.id === 'tieng-anh' ||
-    subject.id === 'khtn' ||
-    subject.id === 'ngu-van' ||
-    subject.id === 'lich-su-dia-li' ||
-    subject.id === 'tin-hoc' ||
-    subject.id === 'cong-nghe' ||
-    subject.id === 'gdcd';
+  const isOpen = canAccessSubject(subject.id);
 
   return (
     <article className="app-card group overflow-hidden rounded-2xl border shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-lg">
@@ -763,7 +789,7 @@ function SubjectCard({
           <button
             type="button"
             onClick={() => onOpenSubject(subject.id)}
-            className={`app-primary mt-3 flex w-full items-center justify-center gap-1.5 rounded-2xl px-3 py-2.5 text-xs font-black shadow-md sm:mt-4 sm:text-sm ${buttonMotion}`}
+            className={`mt-3 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-gradient-to-r ${subject.color} px-3 py-2.5 text-xs font-black text-white shadow-md hover:opacity-90 sm:mt-4 sm:text-sm ${buttonMotion}`}
           >
             Vào học
             <ChevronRight className="h-4 w-4" />
@@ -771,10 +797,10 @@ function SubjectCard({
         ) : (
           <button
             type="button"
-            disabled
-            className="mt-3 flex w-full cursor-not-allowed items-center justify-center rounded-2xl bg-slate-200 px-3 py-2.5 text-xs font-black text-slate-600 sm:mt-4 sm:text-sm"
+            onClick={onLockedClick}
+            className={`mt-3 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-amber-50 px-3 py-2.5 text-xs font-black text-amber-700 hover:bg-amber-100 sm:mt-4 sm:text-sm ${buttonMotion}`}
           >
-            Sắp mở
+            Mở bằng key
           </button>
         )}
       </div>
@@ -864,6 +890,11 @@ function Lop6AppContent() {
   const [planKeyTab, setPlanKeyTab] = useState<PlanKeyTab>('plan');
   const [view, setView] = useState<AppView>('dashboard');
   const [selectedTheme, setSelectedTheme] = useState<AppThemeId>(() => getStoredTheme());
+  
+  const [isActive, setIsActive] = useState(() => isLop6EntitlementActive());
+  const [entitlement, setEntitlement] = useState(() => getStoredLop6Entitlement());
+  const [email, setEmail] = useState(() => getStoredLop6Email());
+
   const sound = useSound();
   const toast = useToast();
 
@@ -1229,7 +1260,7 @@ function Lop6AppContent() {
               type="button"
               onClick={handleDownloadClick}
               title="Bản desktop đang chuẩn bị"
-              className={`app-secondary inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-black shadow-sm ${buttonMotion}`}
+              className={`inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs font-black text-slate-700 shadow-sm hover:bg-slate-50 ${buttonMotion}`}
             >
               <Download className="h-3.5 w-3.5" />
               Tải app
@@ -1237,14 +1268,14 @@ function Lop6AppContent() {
             <button
               type="button"
               onClick={() => openPlanKeyPanel('key')}
-              className={`app-primary rounded-full px-3.5 py-1.5 text-xs font-black shadow-md ${buttonMotion}`}
+              className={`rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-3.5 py-1.5 text-xs font-black text-white shadow-md hover:from-violet-700 hover:to-indigo-700 ${buttonMotion}`}
             >
               Gói & key
             </button>
             <button
               type="button"
               onClick={() => openPlanKeyPanel('plan')}
-              className={`app-secondary rounded-full border px-3.5 py-1.5 text-xs font-black shadow-sm ${buttonMotion}`}
+              className={`rounded-full bg-amber-500 px-3.5 py-1.5 text-xs font-black text-amber-950 shadow-sm hover:bg-amber-400 ${buttonMotion}`}
             >
               Nâng cấp
             </button>
@@ -1373,7 +1404,20 @@ function Lop6AppContent() {
         ) : null}
       </header>
 
-      {isPlanKeyOpen ? <PlanKeyPanel initialTab={planKeyTab} onClose={() => setIsPlanKeyOpen(false)} /> : null}
+      {isPlanKeyOpen ? (
+        <PlanKeyPanel
+          initialTab={planKeyTab}
+          onClose={() => setIsPlanKeyOpen(false)}
+          onActivationSuccess={(newEmail) => {
+            setEmail(newEmail);
+            setIsActive(true);
+            setEntitlement(getStoredLop6Entitlement());
+          }}
+          isActive={isActive}
+          entitlement={entitlement}
+          currentEmail={email}
+        />
+      ) : null}
 
       <section className="app-section-band">
         <div className="mx-auto grid max-w-7xl gap-4 px-4 py-5 sm:px-6 md:grid-cols-[minmax(0,1fr)_260px] lg:px-8 lg:py-7">
@@ -1410,6 +1454,9 @@ function Lop6AppContent() {
                       toast.info('Dopi credit', 'Credit sẽ đồng bộ sau khi có tài khoản.');
                       openPlanKeyPanel('account');
                     }}
+                    isActive={isActive}
+                    entitlement={entitlement}
+                    email={email}
                   />
                 </div>
 
@@ -1417,7 +1464,7 @@ function Lop6AppContent() {
                   <button
                     type="button"
                     onClick={() => setView('math')}
-                    className={`app-primary inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-black shadow-xl ${buttonMotion}`}
+                    className={`inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-sm font-black text-white shadow-xl hover:bg-blue-700 ${buttonMotion}`}
                   >
                     Tiếp tục học
                     <ChevronRight className="h-4 w-4" />
@@ -1425,21 +1472,21 @@ function Lop6AppContent() {
                   <button
                     type="button"
                     onClick={() => setView('math')}
-                    className={`app-secondary inline-flex items-center justify-center gap-2 rounded-full border px-4 py-3 text-sm font-black shadow-sm ${buttonMotion}`}
+                    className={`inline-flex items-center justify-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-black text-blue-700 shadow-sm hover:bg-blue-100 ${buttonMotion}`}
                   >
                     Vào môn Toán
                   </button>
                   <button
                     type="button"
                     onClick={() => openPlanKeyPanel('key')}
-                    className={`app-secondary inline-flex items-center justify-center rounded-full border px-3.5 py-2 text-xs font-black shadow-sm ${buttonMotion}`}
+                    className={`inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-3.5 py-2 text-xs font-black text-white shadow-sm hover:from-violet-700 hover:to-indigo-700 ${buttonMotion}`}
                   >
                     Gói & key
                   </button>
                   <button
                     type="button"
                     onClick={() => openPlanKeyPanel('plan')}
-                    className={`app-secondary inline-flex items-center justify-center rounded-full border px-3.5 py-2 text-xs font-black shadow-sm ${buttonMotion}`}
+                    className={`inline-flex items-center justify-center rounded-full bg-amber-500 px-3.5 py-2 text-xs font-black text-amber-950 shadow-sm hover:bg-amber-400 ${buttonMotion}`}
                   >
                     Nâng cấp
                   </button>
@@ -1474,7 +1521,7 @@ function Lop6AppContent() {
             <button
               type="button"
               onClick={() => setView('math')}
-              className={`app-primary mt-4 flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-black shadow-md ${buttonMotion}`}
+              className={`mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 px-4 py-2.5 text-sm font-black text-white shadow-md hover:bg-blue-700 ${buttonMotion}`}
             >
               Tiếp tục học
               <ChevronRight className="h-4 w-4" />
@@ -1508,6 +1555,13 @@ function Lop6AppContent() {
                 if (subjectId === 'tin-hoc') setView('tin-hoc');
                 if (subjectId === 'cong-nghe') setView('cong-nghe');
                 if (subjectId === 'gdcd') setView('gdcd');
+              }}
+              onLockedClick={() => {
+                toast.info(
+                  'Gói dùng thử',
+                  'Gói dùng thử chỉ gồm 15 bài Toán đầu + luyện tập Toán. Nhập key để mở toàn bộ 8 môn.'
+                );
+                openPlanKeyPanel('key');
               }}
             />
           ))}

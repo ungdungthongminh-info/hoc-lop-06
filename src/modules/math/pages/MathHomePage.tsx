@@ -7,6 +7,8 @@ import {
   getMathLessonQuestions,
   mathSeed,
 } from '../../../data/grade6/toan';
+import { useToast } from '../../../shared/components/ToastProvider';
+import { canAccessMathLesson } from '../../../shared/services/lop6LicenseService';
 import { MathLessonCard } from '../components/MathLessonCard';
 import { MathLessonDetailPage } from './MathLessonDetailPage';
 import { MathPracticePage } from './MathPracticePage';
@@ -22,8 +24,30 @@ export function MathHomePage({ onBackToDashboard }: MathHomePageProps) {
   const [view, setView] = useState<MathPageView>('home');
   const [selectedLessonId, setSelectedLessonId] = useState(lessons[0]?.id ?? 1);
   const selectedLesson = getMathLessonById(selectedLessonId) ?? lessons[0];
+  const toast = useToast();
 
   if (view === 'detail' && selectedLesson) {
+    // Determine lesson index to check if they somehow entered a locked lesson via direct state manipulation
+    const lessonIndex = lessons.findIndex((l) => l.id === selectedLesson.id);
+    if (!canAccessMathLesson(lessonIndex)) {
+      return (
+        <section className="mx-auto w-full max-w-6xl min-w-0 px-4 py-8 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-rose-200 bg-rose-50 p-6 text-center shadow-sm">
+            <h2 className="text-xl font-black text-rose-800">Bài học đã khóa</h2>
+            <p className="mt-2 text-sm text-rose-700">Gói dùng thử chỉ mở 15 bài đầu tiên. Vui lòng nhập key để mở bài này.</p>
+            <button
+              type="button"
+              onClick={() => setView('home')}
+              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm hover:bg-slate-50"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Quay lại danh sách
+            </button>
+          </div>
+        </section>
+      );
+    }
+
     return (
       <MathLessonDetailPage
         lesson={selectedLesson}
@@ -85,17 +109,24 @@ export function MathHomePage({ onBackToDashboard }: MathHomePageProps) {
           <h2 className="text-xl font-black text-slate-950 [overflow-wrap:anywhere]">Lộ trình: {mathSeed.subjectTitle}</h2>
         </div>
         <div className="grid min-w-0 gap-4 md:grid-cols-[repeat(2,minmax(0,1fr))]">
-          {lessons.map((lesson) => (
+          {lessons.map((lesson, index) => {
+            const isLocked = !canAccessMathLesson(index);
+            return (
             <MathLessonCard
               key={lesson.id}
               lesson={lesson}
               questionCount={getMathLessonQuestions(lesson.id).length}
+              isLocked={isLocked}
               onSelect={(lessonId) => {
+                if (isLocked) {
+                  toast.info('Gói dùng thử', 'Gói dùng thử chỉ mở 15 bài đầu tiên. Vui lòng nhập key để mở phần này.');
+                  return;
+                }
                 setSelectedLessonId(lessonId);
                 setView('detail');
               }}
             />
-          ))}
+          )})}
         </div>
       </div>
     </section>

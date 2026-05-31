@@ -1,4 +1,4 @@
-import { BookOpen, CheckCircle2, ChevronRight, Clock, HelpCircle } from 'lucide-react';
+import { BookOpen, CheckCircle2, ChevronRight, Clock, HelpCircle, Lock } from 'lucide-react';
 
 import type { MathLesson } from '../../../data/grade6/toan';
 import { MathProgressPill } from './MathProgressPill';
@@ -7,22 +7,23 @@ type MathLessonCardProps = {
   lesson: MathLesson;
   questionCount: number;
   onSelect: (lessonId: number) => void;
+  isLocked?: boolean;
 };
 
-export function MathLessonCard({ lesson, questionCount, onSelect }: MathLessonCardProps) {
+export function MathLessonCard({ lesson, questionCount, onSelect, isLocked = false }: MathLessonCardProps) {
   return (
     <button
       type="button"
       onClick={() => onSelect(lesson.id)}
-      className="group w-full max-w-full min-w-0 rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg"
+      className={`group w-full max-w-full min-w-0 rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-lg ${isLocked ? 'opacity-70 bg-slate-50' : ''}`}
     >
       <div className="flex min-w-0 items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
-          <BookOpen className="h-5 w-5" />
+        <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${isLocked ? 'bg-slate-200 text-slate-500' : 'bg-blue-50 text-blue-700'}`}>
+          {isLocked ? <Lock className="h-5 w-5" /> : <BookOpen className="h-5 w-5" />}
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <MathProgressPill label="Sẵn sàng" tone="green" />
+            {!isLocked && <MathProgressPill label="Sẵn sàng" tone="green" />}
             <MathProgressPill label="phút" value={lesson.estimatedMinutes} tone="blue" />
             <MathProgressPill label="câu hỏi" value={questionCount} tone="amber" />
           </div>
@@ -33,14 +34,21 @@ export function MathLessonCard({ lesson, questionCount, onSelect }: MathLessonCa
               <Clock className="h-3.5 w-3.5" />
               Bài {lesson.sortOrder}
             </span>
-            <span className="inline-flex items-center gap-1 text-blue-700">
-              <HelpCircle className="h-3.5 w-3.5" />
-              Vào bài
-              <ChevronRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
-            </span>
+            {isLocked ? (
+              <span className="inline-flex items-center gap-1 text-slate-500 font-bold">
+                <Lock className="h-3.5 w-3.5" />
+                Mở bằng key
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1 text-blue-700">
+                <HelpCircle className="h-3.5 w-3.5" />
+                Vào bài
+                <ChevronRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+              </span>
+            )}
           </div>
         </div>
-        <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-500" />
+        {!isLocked && <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-emerald-500" />}
       </div>
     </button>
   );

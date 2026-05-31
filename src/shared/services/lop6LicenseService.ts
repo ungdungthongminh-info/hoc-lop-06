@@ -2,6 +2,7 @@ const API_BASE_URL = 'https://hochungkhoi.site/api';
 const APP_ID = 'app-lop-06';
 const LICENSE_STORAGE_KEY = 'lop6.license.entitlement';
 const DEVICE_ID_STORAGE_KEY = 'lop6.deviceId';
+const LOP6_ACCOUNT_EMAIL_KEY = 'lop6.account.email';
 
 export interface Entitlement {
   appId: string;
@@ -87,5 +88,41 @@ export function isLop6EntitlementActive(): boolean {
     if (Date.now() > expires) return false;
   }
 
+  return true;
+}
+
+export function getStoredLop6Email(): string | null {
+  return window.localStorage.getItem(LOP6_ACCOUNT_EMAIL_KEY);
+}
+
+export function saveLop6Email(email: string): void {
+  window.localStorage.setItem(LOP6_ACCOUNT_EMAIL_KEY, email);
+}
+
+export function clearLop6Email(): void {
+  window.localStorage.removeItem(LOP6_ACCOUNT_EMAIL_KEY);
+}
+
+export function hasActiveEntitlement(): boolean {
+  return isLop6EntitlementActive();
+}
+
+export function isFreeTrialMode(): boolean {
+  return !hasActiveEntitlement();
+}
+
+export function canAccessSubject(subjectId: string): boolean {
+  if (isFreeTrialMode()) {
+    return subjectId === 'toan' || subjectId === 'math';
+  }
+  return true;
+}
+
+// Check access to Math lessons (lessonIndex is 0-based)
+// In free trial mode, only the first 15 lessons (index 0 to 14) are accessible
+export function canAccessMathLesson(lessonIndex: number): boolean {
+  if (isFreeTrialMode()) {
+    return lessonIndex < 15;
+  }
   return true;
 }
